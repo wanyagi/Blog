@@ -1,0 +1,61 @@
+.homecards--section {
+    display: flex;
+    position: relative; 
+    flex-wrap: wrap;
+    min-height: auto;
+    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 900px;
+    margin-bottom: 100px;
+} 
+
+@media screen and (max-height: 1368px) {
+  .homecards--section {
+    margin-top: 1350px;
+    gap: 20px; 
+  }
+} 
+
+@media screen and (max-height: 1180px) {
+  .homecards--section {
+    margin-top: 1150px;
+    gap: 20px; 
+  }
+} 
+
+@media screen and (max-height: 1024px) {
+  .homecards--section {
+    margin-top: 1000px; 
+  }
+  
+}
+
+@media screen and (max-height: 932px) {
+  .homecards--section {
+    margin-top: 905px;
+    gap: 20px; 
+  }
+} 
+
+@media screen and (max-height: 844px) {
+    .homecards--section {
+      margin-top: 825px;
+      gap: 20px; 
+    }
+} 
+
+@media screen and (max-height: 740px) {
+  .homecards--section {
+    margin-top: 710px;
+    gap: 20px; 
+  }
+} 
+
+@media screen and (max-height: 667px) {
+  .homecards--section {
+    margin-top: 650px;
+    gap: 20px; 
+  }
+} 
+

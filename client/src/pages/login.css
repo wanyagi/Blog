@@ -1,0 +1,101 @@
+.login--section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: auto; 
+}
+
+.form--image {
+    width: 265px;
+    height: 414px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.login--form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /*background-color: #fcfcf7;*/
+    background-color: hsla(0, 0, 75%, 10);
+    box-shadow: 5px 5px 5px hsla(0, 10%, 92%, 0.5);
+    width: 265px;
+    height: 414px;
+    border-left: 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.login--form h2 {
+    margin: 0; 
+    margin-bottom: 20px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.login--buttons {
+    margin-top: 30px;
+    display: flex; 
+    flex-direction: column;
+    gap: 20px; 
+    margin-bottom: 1px; 
+}
+
+.login--btn:hover {
+    color: #ff5800; 
+    transition: 0.3s ease-in-out; 
+    cursor: pointer; 
+}
+
+.login--buttons button {
+    margin: 0 55px;
+    margin-bottom: 10px; 
+    width: 150px;
+    height: 47px;
+}
+
+.login--buttons p {
+    margin: 0;
+    padding: 0 15px; 
+    font: 0.9rem sans-serif;
+    margin-bottom: 10px;
+}
+
+.login--buttons a {
+    text-decoration: none; 
+    color: #ff5800;
+}
+
+.login--inputs {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;  
+}
+
+.login--inputs input {
+    width: 220px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: hsla(0, 0, 75%, 10);
+}
+
+
+@media  screen and (max-width: 915px) {
+    .login--section {
+        flex-direction: column;
+    }
+
+    .form--image {
+        /*display: none;*/
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 15px;
+    }
+}

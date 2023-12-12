@@ -1,0 +1,113 @@
+.hero {
+    background-image: url(../assets/HeroEssai.jpg);
+    width: 100vw;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    aspect-ratio: 16/9;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.hero--info {
+    position: relative; 
+    top: 45%; 
+    padding: 0 1rem;
+}
+
+button {
+    text-align: center;
+    border-radius: 50px;
+    background-color: black;
+    color: #fcfcf7;
+    width: 200px;
+    height: 57px;
+    font-size: 1.25rem;
+}
+
+button a {
+    text-decoration: none;
+    color: #fcfcf7; 
+}
+
+button a:hover {
+    color: #FF5800; 
+    transition: 0.3s ease-in-out;
+}
+
+
+@media screen and (max-width: 1400px) {
+    .hero--section {
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        text-align: center; 
+        object-fit: cover;
+        margin-bottom: 1000px; 
+    }
+
+    .hero--info {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: justify;
+        font-size: 0.70rem;
+        /*word-break: break-all;
+        overflow-wrap: break-word;
+        word-wrap: break-word; */
+    }
+
+    button {
+        font-weight: 100;
+        text-align: center;
+        border-radius: 50px;
+        background-color: black;
+        color: #fcfcf7;
+        width: 150px;
+        height: 57px;
+        font-size: .95rem; 
+      }
+      
+      button a:hover {
+        color: #FF5800; 
+      }
+}
+
+@media screen and /*(min-width: 600px) and */(max-width: 1366px) {
+    .hero {
+     background-image: url(../assets/HeroPhone.PNG);
+    } 
+}
+
+@media screen and (max-height: 932px) {
+
+    .hero--info {
+        font-size: 0.78rem;
+        margin-top: 310px;
+    }
+}
+
+@media screen and (max-height: 844px) {
+    .hero--info {
+        font-size: 0.70rem;
+        margin-top: 295px;
+    }
+} 
+
+@media screen and (max-height: 740px) {
+    .hero--info {
+        font-size: 0.65rem;
+        margin-top: 230px;
+    }
+}
+
+@media screen and (max-height: 667px) {
+    .hero--info {
+        font-size: 0.70rem;
+        margin-top: 190px;
+    }
+}
