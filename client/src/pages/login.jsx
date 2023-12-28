@@ -10,13 +10,14 @@ const Login = () => {
 
   const inputs = {username: "", password: "", };
   const [ enteredValues, setEnteredValues ] = useState(inputs); 
-  const user = useSelector((state) => state.userAuthentication.user); 
-  const error = useSelector((state) => state.userAuthentication.error);
-  const dispatch = useDispatch();  
 
   const handleChange = (identifier, value) => {
     setEnteredValues(previousInputs => ({...previousInputs, [identifier] : value, }))
   }; 
+
+  const user = useSelector((state) => state.userAuthentication.user); 
+  const error = useSelector((state) => state.userAuthentication.error);
+  const dispatch = useDispatch();
 
   const handleSubmission = (event) => {
 

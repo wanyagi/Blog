@@ -15,7 +15,7 @@ const Register = () => {
   }; 
 
   const dispatch = useDispatch(); 
-  const loading = useSelector((state) => state.register.laoding); 
+  const loading = useSelector((state) => state.register.loading); 
   const error = useSelector((state) => state.register.error); 
  
 
@@ -25,9 +25,6 @@ const Register = () => {
 
     dispatch(fetchUser(enteredValues)); 
 
-    console.log(enteredValues)
-
-    //setEnteredValues(""); 
   }; 
 
   return (
@@ -37,13 +34,13 @@ const Register = () => {
           <h2>Rejoins notre communauté</h2>
           <div className="inputs">
             <input required type="text" placeholder="Nom et Prénom :" name="name" id="name" onChange={(event) => handleChange('name', event.target.value)} value={enteredValues.name}/>
-            {error && <div>message test</div>}
+            {error && <div>{error}</div>}
             <input required type="text" placeholder="Nom utilisateur :" name="username" id="username" onChange={ (event) => handleChange('username', event.target.value)} value={enteredValues.username}/>
-            {error && <div>message test</div>}
+            {error && <div>{error}</div>}
             <input required type="email" placeholder="E-mail :" name="email" id="email" onChange={ (event) => handleChange('email', event.target.value)} value={enteredValues.email}/>
-            {error && <div>message test</div>}
+            {error && <div>{error}</div>}
             <input required type="password" placeholder="Mot de passe :" name="password" id="password" onChange={ (event) => handleChange('password', event.target.value)} value={enteredValues.password}/>
-            {error && <div>message test</div>}
+            {error && <div>{error}</div>}
           </div>
           <div className="form--buttons">
             <button className="form--btn" type="submit">

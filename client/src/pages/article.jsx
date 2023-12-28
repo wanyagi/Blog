@@ -1,29 +1,63 @@
-import React, { useState } from 'react'; 
+import React, { useState, useRef, useMemo } from 'react'; 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './article.css'; 
 
 const Article = () => {
 
-    const toolBarOptions = [['bold', 'italic'], ['link', 'image'], ['bold', 'italic', 'underline', 'strike'],       
-     ['blockquote', 'code-block'],
+  const quillRef = useRef(); 
 
-     [{ 'header': 1 }, { 'header': 2 }, ],             
-     [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-     [{ 'script': 'sub'}, { 'script': 'super' }],     
-     [{ 'indent': '-1'}, { 'indent': '+1' }],         
-     [{ 'direction': 'rtl' }],                        
+  const imageHandler = async () => {
+      const input = document.createElement('input'); 
+      input.setAttribute('type', 'file');
+      input.setAttribute('accept', 'image/*');
+      input.click(); 
 
-     [{ 'size': ['small', false, 'large', 'huge'] }], 
-     [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+      input.onchange = async () => {
+        const file = input.files[0]; 
+        if (file) {
+          const data = new FormData(); 
+          data.set('file', file); 
 
-     [{ 'color': [] }, { 'background': [] }],          
-     [{ 'font': [] }],
-     [{ 'align': [] }],
+          try {
+            const response = await fetch(process.env.REACT_APP_NEW_BLOGPOST, {
+              method: "POST", 
+              body: data,
+          }); 
+          const responseData = await response.json(); 
+          if (response.ok && responseData.fullImageUrl) {
+          const editor = quillRef.current.getEditor(); 
+          const range = editor.getSelection(); 
+          editor.insertEmbed(range, 'image', responseData.fullImageUrl);
+          } else {
+            console.error('failed to upload image'); 
+          }
+          } catch (error) {
+            console.error(`Error uploading image : ${error}`); 
+          }
+        } 
+      }
+  };  
 
-     ['clean'] ]; 
+    const toolBarOptions = useMemo(() => ([['bold', 'italic'], ['link', 'image'], ['bold', 'italic', 'underline', 'strike'],       
+    ['blockquote', 'code-block'],
 
-    const module = {toolbar: toolBarOptions,}     
+    [{ 'header': 1 }, { 'header': 2 }, ],             
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'script': 'sub'}, { 'script': 'super' }],     
+    [{ 'indent': '-1'}, { 'indent': '+1' }],         
+    [{ 'direction': 'rtl' }],                        
+
+    [{ 'size': ['small', false, 'large', 'huge'] }], 
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ 'color': [] }, { 'background': [] }],          
+    [{ 'font': [] }],
+    [{ 'align': [] }],
+
+    ['clean'] ]), []); 
+  
+    const modules = useMemo(() => ({toolbar: {container: toolBarOptions, handlers: { image: imageHandler }}}), [toolBarOptions]);
 
     const [ file, setFile ] = useState(""); 
     const [ titre, setTitre ] = useState(""); 
@@ -32,7 +66,7 @@ const Article = () => {
     const [ category, setCategory ] = useState(""); 
     const [ content, setContent ] = useState(""); 
 
-    const handleFile = (event) => setFile(event.target.files[0]); 
+    const handleFile = (event) => {if (event.target.files[0]) {setFile(event.target.files[0])}}; 
     const handleTitre = (event) => setTitre(event.target.value); 
     const handleDescription = (event) => setDescription(event.target.value); 
     const handleDate = (event) => setDate(event.target.value); 
@@ -51,7 +85,7 @@ const Article = () => {
         data.set('content', content);
 
         try {
-            const response = await fetch(process.env.REACT_APP_SERVER, {
+            const response = await fetch(process.env.REACT_APP_NEW_BLOGPOST, {
             method: "POST", 
             body: data,
         })
@@ -66,7 +100,7 @@ const Article = () => {
     return (
         <form className="writing--section" onSubmit={handleSubmit}>
             <div className="article">
-              <ReactQuill className="editor" modules={module} theme="snow" value={content} onChange={setContent} />
+            <ReactQuill className="editor" modules={modules} theme="snow" /*value={content}*/ onChange={setContent} ref={quillRef} />
             </div>
         <div className="info">
           <div className="item--resume">

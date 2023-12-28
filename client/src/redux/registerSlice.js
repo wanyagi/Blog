@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
-const URL = process.env.REACT_APP_SERVER;
+const URL = process.env.REACT_APP_REGISTER;
 
 export const fetchUser = createAsyncThunk("user/fetchUser", async ({name, username, email, password}, thunkAPI) => {
     try {

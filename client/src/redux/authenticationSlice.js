@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
 
-const URL = process.env.REACT_APP_SERVER; 
+const URL = process.env.REACT_APP_LOGIN;  
 
 export const Authentication = createAsyncThunk("user/authentication", async ({username, password}, thunkAPI) => {
     try {
@@ -8,6 +8,7 @@ export const Authentication = createAsyncThunk("user/authentication", async ({us
             method: "POST", 
             body: JSON.stringify({username, password}),
             headers: {'Content-Type': 'application/json'},
+            credentials: "include", 
         }); 
         const responseData = await response.json(); 
          

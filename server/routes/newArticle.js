@@ -16,7 +16,6 @@ const storage = multer.diskStorage({
 const imageUploadMiddleware = multer({storage}); 
 
 newArticleRouter.get('/', async (request, response) => {
-    
     const allPosts = await pool.query(getAllPosts, []); 
 }); 
 
