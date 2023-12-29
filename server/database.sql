@@ -26,7 +26,7 @@ CREATE TABLE comments (
 
 CREATE TABLE blogposts (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    blogs_file BYTEA,
+    blogs_file VARCHAR,
     blogs_titre TEXT,
     blogs_date DATE, 
     blogs_description TEXT,

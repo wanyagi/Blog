@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
 
-const URL = process.env.REACT_APP_API_KEY; 
+const URL = process.env.REACT_APP_BLOGPOSTS; 
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) => {
     try {
@@ -16,8 +16,7 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) 
         return responseData; 
 
 
-    } catch (error) {
-        console.error(error);
+    } catch (error) { 
         return thunkAPI.rejectWithValue(error.message);  
     }
 })
@@ -26,7 +25,7 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) 
 const initialState = {posts: {}, loading: false, error: ""}; 
 
 export const postsSlice = createSlice({
-    name: "posts", 
+    name: "blogposts", 
     initialState, 
     reducers: {
         addPost: (state, action) => {

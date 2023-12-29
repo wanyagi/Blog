@@ -9,17 +9,18 @@ import './PostPage.css';
 const Posts = () => {
   return (
     <article className="article--section">
-          <img src={Formulaire} alt="articlesimage"/>
-        <div className="articles--title">
-          <h4>Bien-Être</h4>
-        </div>
+          <img className="articles--image" src={Formulaire} alt="articlesimage"/>
         <div className="articles--content">
+          <div>
+            <h4>Bien-Être</h4>
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos ratione doloremque voluptate nam optio accusamus, facere fugit recusandae temporibus dolor provident, ex voluptatum ducimus quibusdam odit quas possimus explicabo. Dignissimos sequi veniam fuga corrupti eum debitis asperiores nisi, laudantium, itaque voluptatem amet deserunt. Voluptatibus, odio. Adipisci dignissimos exercitationem sapiente! Labore aliquid exercitationem quo quia est tempora itaque optio autem.
           </p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos ratione doloremque voluptate nam optio accusamus, facere fugit recusandae temporibus dolor provident, ex voluptatum ducimus quibusdam odit quas possimus explicabo. Dignissimos sequi veniam fuga corrupti eum debitis asperiores nisi, laudantium, itaque voluptatem amet deserunt. Voluptatibus, odio. Adipisci dignissimos exercitationem sapiente! Labore aliquid exercitationem quo quia est tempora itaque optio autem.
           </p>
+          <img src={Formulaire} alt="articlesimage"/>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos ratione doloremque voluptate nam optio accusamus, facere fugit recusandae temporibus dolor provident, ex voluptatum ducimus quibusdam odit quas possimus explicabo. Dignissimos sequi veniam fuga corrupti eum debitis asperiores nisi, laudantium, itaque voluptatem amet deserunt. Voluptatibus, odio. Adipisci dignissimos exercitationem sapiente! Labore aliquid exercitationem quo quia est tempora itaque optio autem.
           </p>

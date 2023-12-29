@@ -6,7 +6,7 @@ import commentReducer from './commentsSlice';
 
 export const store = configureStore({
     reducer: {
-        posts: postsReducer, 
+        blogposts: postsReducer, 
         register: registerReducer, 
         userAuthentication: authenticationReducer, 
         newComment: commentReducer,   

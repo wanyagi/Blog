@@ -6,7 +6,7 @@ import PostPage from './components/PostPage';
 import Apropos from './pages/apropos';
 import Login from './pages/login';
 import Register from './pages/register'; 
-import Croissance from './pages/croissance'; 
+import DeveloppementPersonnel from './pages/développementpersonnel'; 
 import BienÊtre from './pages/bienêtre';
 import Lifestyle from './pages/lifestyle'; 
 import Cuisine from './pages/cuisine'; 
@@ -23,7 +23,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/apropos" element={ <Apropos /> } />
     <Route path="/login" element={ <Login /> } />
     <Route path="/register" element={ <Register /> } />
-    <Route path="/croissance" element={ <Croissance /> } />
+    <Route path="/développementpersonnel" element={ <DeveloppementPersonnel /> } />
     <Route path="/bien-être" element={ <BienÊtre /> } />
     <Route path="/lifestyle" element={ <Lifestyle /> } />
     <Route path="/post/:id" element={ <PostPage /> } />

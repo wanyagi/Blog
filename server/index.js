@@ -1,7 +1,7 @@
 const express = require("express"); 
 const app = express(); 
 const cors = require("cors"); 
-const multer = require('multer'); 
+//const multer = require('multer'); 
 require('dotenv').config();  
 
 
@@ -10,29 +10,12 @@ const Port = 5000;
 app.use(cors({ origin: process.env.URL, credentials: true, })); 
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true}));
+app.use('/uploads/images', express.static('uploads/images')); 
   
 
 app.get('*', (request, response) => {
     response.json()
 });
-
-const storage = multer.diskStorage({
-    destination: (request, file, cb) => {
-        cb(null, './uploads');
-    }, 
-    filename: (request, file, cb) => {
-        cb(null, `${Date.now()+file.originalname}`)
-    }
-});
-
-const uploadImageMiddleware = multer({ storage }); 
-
-app.post('/uploads', uploadImageMiddleware.single('file'), (request, response) => {
-    console.log(request.file);
-    console.log(request.body);
-    const url = 
-    response.json({imageURL}); 
-}); 
 
 const registerRouter = require("./routes/register"); 
 app.use('/register', registerRouter); 
@@ -46,11 +29,14 @@ app.use('/logout', logoutRouter);
 const refreshToken = require('./routes/refreshtoken'); 
 app.use('/refreshtoken', refreshToken); 
 
-const newArticleRouter = require('./routes/newArticle'); 
-app.use('/article', newArticleRouter); 
+const articleRouter = require('./routes/article'); 
+app.use('/article', articleRouter); 
 
 const postsRouter = require('./routes/posts'); 
 app.use('/posts', postsRouter);
+
+const reactQuillImages = require('./routes/reactQuillImages'); 
+app.use('/upload-image', reactQuillImages); 
 
 
 app.listen(Port, () => {

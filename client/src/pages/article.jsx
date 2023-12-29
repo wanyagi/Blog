@@ -17,23 +17,24 @@ const Article = () => {
         const file = input.files[0]; 
         if (file) {
           const data = new FormData(); 
-          data.set('file', file); 
+          data.set('image', file); 
 
           try {
-            const response = await fetch(process.env.REACT_APP_NEW_BLOGPOST, {
-              method: "POST", 
+            const response = await fetch(process.env.REACT_APP_NEW_BLOGPOST_IMAGES, {
+              method: "POST",  
               body: data,
           }); 
           const responseData = await response.json(); 
-          if (response.ok && responseData.fullImageUrl) {
+          if (response.ok && responseData.imageUrl) {
           const editor = quillRef.current.getEditor(); 
-          const range = editor.getSelection(); 
-          editor.insertEmbed(range, 'image', responseData.fullImageUrl);
+          const range = editor.getSelection(true); 
+          console.log(responseData.imageUrl)
+          editor.insertEmbed(range.index, 'image', responseData.imageUrl);
           } else {
-            console.error('failed to upload image'); 
+            console.error('failed to upload file'); 
           }
           } catch (error) {
-            console.error(`Error uploading image : ${error}`); 
+            console.error(`Error uploading file : ${error}`); 
           }
         } 
       }
@@ -66,7 +67,7 @@ const Article = () => {
     const [ category, setCategory ] = useState(""); 
     const [ content, setContent ] = useState(""); 
 
-    const handleFile = (event) => {if (event.target.files[0]) {setFile(event.target.files[0])}}; 
+    const handleFile = (event) => setFile(event.target.files[0]); 
     const handleTitre = (event) => setTitre(event.target.value); 
     const handleDescription = (event) => setDescription(event.target.value); 
     const handleDate = (event) => setDate(event.target.value); 
@@ -74,7 +75,8 @@ const Article = () => {
 
     const handleSubmit = async (event) => {
 
-        event.preventDefault(); 
+        event.preventDefault();
+        const content = quillRef.current.getEditor().root.innerHTML; 
 
         const data = new FormData(); 
         data.set('file', file); 
@@ -89,7 +91,8 @@ const Article = () => {
             method: "POST", 
             body: data,
         })
-        const responseData = await response.json(); 
+        const responseData = await response.json();
+        console.log(response.Data);  
 
         console.log(responseData);
         } catch (error) {
@@ -98,10 +101,8 @@ const Article = () => {
     }; 
 
     return (
-        <form className="writing--section" onSubmit={handleSubmit}>
-            <div className="article">
-            <ReactQuill className="editor" modules={modules} theme="snow" /*value={content}*/ onChange={setContent} ref={quillRef} />
-            </div>
+        <form className="writing--section" onSubmit={handleSubmit} /*enctype="multipart/form-data"*/>
+            <ReactQuill className="editor" modules={modules} theme="snow" value={content} onChange={setContent} ref={quillRef} />
         <div className="info">
           <div className="item--resume">
             <input  required placeholder="image" type="file" name="file" id="file" onChange={handleFile} />
@@ -112,12 +113,12 @@ const Article = () => {
           <div className="item--catégories">
             <h3>Catégories :</h3>
             <div className="label">
-            <input type="radio" checked={category === "Croissance"} name="category" id="croissance" value="Croissance" onChange={handleCategory}/>
-            <label htmlFor="croissance">Croissance</label>
+            <input type="radio" checked={category === "Développement-Personnel"} name="category" id="développement-personnel" value="Développement-Personnel" onChange={handleCategory}/>
+            <label htmlFor="développement-personnel">Développement Personnel</label>
             </div>
             <div className="label">
-            <input type="radio" checked={category === "Bienêtre"} name="category" id="bienêtre" value="Bienêtre" onChange={handleCategory}/>
-            <label htmlFor="bienêtre">Bien-Être</label>
+            <input type="radio" checked={category === "Bienetre"} name="category" id="bienetre" value="Bienetre" onChange={handleCategory}/>
+            <label htmlFor="bienetre">Bien-Être</label>
             </div>
             <div className="label">
             <input type="radio"  checked={category === "Lifestyle"} name="category" id="lifestyle" value="Lifestyle" onChange={handleCategory}/>

@@ -1,7 +1,7 @@
 import React from 'react'; 
 import Posts from '../components/AllPosts';
 
-const Croissance = () => {
+const DéveloppementPersonnel = () => {
   return (
     <section>
       <Posts />
@@ -9,4 +9,4 @@ const Croissance = () => {
   )
 }; 
 
-export default Croissance; 
+export default DéveloppementPersonnel; 

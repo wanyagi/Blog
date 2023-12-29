@@ -14,9 +14,9 @@ const Home = () => {
 const CardsData = [
   {
       image: Croissance, 
-      title:"CROISSANCE :" ,
+      title:"Développement Personnel :" ,
       resume:'Mieux comprendre notre cerveau, nos pensées, nos émotions et celles de nos tout petits je te fais découvrir à travers différentes situationscomment analyser ce qui se passe dans nos têtes.',
-      page: "/croissance",  
+      page: "/développementpersonnel",  
   },
   { 
       image: Bienêtre, 

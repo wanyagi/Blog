@@ -1,11 +1,11 @@
 const pool = require('../database');
-const { getCategory } = require('../Queries');  
+const { getAllPosts } = require('../Queries');  
 
 const getPosts = (request, response) => {
-    const { category } = request.query; 
+    //const { category } = request.query; 
 
     try {
-        const post = pool.query(getCategory, [category], (error, result) => {
+        const post = pool.query(getAllPosts, (error, result) => {
             if (error) {
                 return response.status(401).json(error.message)
             } else {
