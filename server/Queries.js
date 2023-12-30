@@ -5,11 +5,8 @@ const getEmail = 'SELECT * FROM users WHERE users_email = $1';
 const getUsername = 'SELECT * FROM users WHERE username = $1';
 const getUsersId = 'SELECT * FROM users WHERE id = $1'; 
 //Queries for handling posts
-const postNewPost = 'INSERT INTO blogposts (blogs_file, blogs_titre, blogs_date, blogs_description, blogs_category, blogs_content) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
-const getAllPosts = 'SELECT * FROM posts'; 
-const getDeveloppementpersonnelPosts = 'SELECT * FROM poststest WHERE category = DeveloppementPersonnel'; 
-const getLifestylePosts = 'SELECT * FROM poststest WHERE category = Lifestyle'; 
-const getBienetrePosts = 'SELECT * FROM poststest WHERE category = Bienêtre'; 
-const getCuisinePosts = 'SELECT * FROM poststest WHERE category = Cuisine'; 
+const NewPost = 'INSERT INTO Posts (posts_image, posts_title, posts_date, posts_description, posts_category, posts_content) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
+const getAllPosts = 'SELECT * FROM Posts'; 
+const getPostByCategory = 'SELECT * from Posts WHERE category = $1'
 
-module.exports = { getEmail, getUsersId, addCredentials, getUsername, postNewPost, getAllPosts, getDeveloppementpersonnelPosts, getBienetrePosts, getCuisinePosts, getLifestylePosts, }; 
+module.exports = { getEmail, getUsersId, addCredentials, getUsername, NewPost, getAllPosts, getPostByCategory, }; 

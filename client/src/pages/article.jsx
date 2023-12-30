@@ -113,20 +113,20 @@ const Article = () => {
           <div className="item--catégories">
             <h3>Catégories :</h3>
             <div className="label">
-            <input type="radio" checked={category === "Développement-Personnel"} name="category" id="développement-personnel" value="Développement-Personnel" onChange={handleCategory}/>
-            <label htmlFor="développement-personnel">Développement Personnel</label>
+            <input type="radio" checked={category === "Développement-Personnel"} name="category" id="Développement-personnel" value="Développement-Personnel" onChange={handleCategory}/>
+            <label htmlFor="Développement-personnel">Développement Personnel</label>
             </div>
             <div className="label">
-            <input type="radio" checked={category === "Bienetre"} name="category" id="bienetre" value="Bienetre" onChange={handleCategory}/>
-            <label htmlFor="bienetre">Bien-Être</label>
+            <input type="radio" checked={category === "Bien-être"} name="category" id="Bien-être" value="Bien-être" onChange={handleCategory}/>
+            <label htmlFor="Bien-être">Bien-Être</label>
             </div>
             <div className="label">
-            <input type="radio"  checked={category === "Lifestyle"} name="category" id="lifestyle" value="Lifestyle" onChange={handleCategory}/>
-            <label htmlFor="lifestyle">Lifestyle</label>
+            <input type="radio"  checked={category === "Lifestyle"} name="category" id="Lifestyle" value="Lifestyle" onChange={handleCategory}/>
+            <label htmlFor="Lifestyle">Lifestyle</label>
             </div>
             <div className="label">
-            <input type="radio" checked={category === "Cuisine"} name="category" id="cuisine" value="Cuisine" onChange={handleCategory}/>
-            <label htmlFor="cuisine">Cuisine</label>
+            <input type="radio" checked={category === "Cuisine"} name="category" id="Cuisine" value="Cuisine" onChange={handleCategory}/>
+            <label htmlFor="Cuisine">Cuisine</label>
             </div>
           </div>
           <div className="btn--publier">

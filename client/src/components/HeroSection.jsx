@@ -14,6 +14,7 @@ const HeroSection = () => {
         </Helmet> 
 
         <div className="hero--info">
+          <h2>SAYFEMUMS</h2>
             <h1>
                 Bienvenue dans le monde de la maternité :
                 <br /><span>un aperçu des joies et des défis.</span>

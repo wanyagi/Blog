@@ -1,5 +1,5 @@
 const pool = require('../database'); 
-const { postNewPost } = require('../Queries'); 
+const { NewPost } = require('../Queries'); 
 
 const artcile =  async (request, response) => { 
     const { titre, date, description, category, content} = request.body;
@@ -7,7 +7,7 @@ const artcile =  async (request, response) => {
     const filePath = file.path; 
 
     try {
-        const newPost = await pool.query(postNewPost, [filePath, titre, date, description, category, content]);
+        const newPost = await pool.query(NewPost, [filePath, titre, date, description, category, content]);
             response.status(200).send(newPost); 
             console.log(newPost.rows[0]) 
     } catch (error) {

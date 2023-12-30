@@ -33,3 +33,14 @@ CREATE TABLE blogposts (
     blogs_category VARCHAR(255), 
     blogs_content TEXT
 );
+
+
+CREATE TABLE Posts (
+    posts_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    posts_image VARCHAR,
+    posts_title TEXT,
+    posts_date DATE, 
+    posts_description TEXT,
+    posts_category VARCHAR(255), 
+    posts_content TEXT
+);

@@ -5,7 +5,6 @@ import Formulaire from '../assets/Formulaire.jpeg';
 
 const Cuisine = () => {
 
-
   return (
     <article className="posts--container">
       <div className="posts" key="/posts:/id">

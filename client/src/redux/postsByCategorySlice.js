@@ -3,10 +3,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const URL = process.env.REACT_APP_BLOGPOSTS; 
 
-export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) => {
+export const fetchPostsByCategory = createAsyncThunk("posts/fetchPostsByCategory", async (catégorie, thunkAPI) => {
     try {
 
-      const response = await fetch(URL);
+      const response = await fetch(`${URL}/${catégorie}`);
 
       if (!response.ok) {
         throw new Error('Network HS');
@@ -25,21 +25,21 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) 
 
 const initialState = {posts: {}, loading: false, error: ""}; 
 
-export const postsSlice = createSlice({
-    name: "posts", 
+export const postsByCategorySlice = createSlice({
+    name: "blogpostsbycategory", 
     initialState, 
     reducers: {}, 
     extraReducers: (builder) => {
         builder
-          .addCase(fetchPosts.pending,  (state) => {
+          .addCase(fetchPostsByCategory.pending,  (state) => {  
             state.loading = true; 
           })
-          .addCase(fetchPosts.fulfilled,  (state, action) => {
+          .addCase(fetchPostsByCategory.fulfilled,  (state, action) => {
             state.loading = false; 
             state.posts = action.payload; 
             state.error = ""
           })
-          .addCase(fetchPosts.rejected, (state,action) => {
+          .addCase(fetchPostsByCategory.rejected, (state,action) => {
             state.loading = false; 
             state.posts = []; 
             state.error = action.payload; 
@@ -47,4 +47,4 @@ export const postsSlice = createSlice({
     }
 }); 
 
-export default postsSlice.reducer; 
+export default postsByCategorySlice.reducer; 

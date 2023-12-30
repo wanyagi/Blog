@@ -1,4 +1,17 @@
 .comment--section {
     display: flex; 
     flex-direction: column;
+    width: 50vw;
+    gap: 10px;
+} 
+
+::placeholder {
+    padding: 10px; 
+}
+
+.comment--section--button {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
