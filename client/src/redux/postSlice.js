@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
-
 const URL = process.env.REACT_APP_BLOGPOSTS; 
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) => {
@@ -13,17 +12,16 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) 
       }
 
       const responseData = await response.json();
-      console.log(responseData)
       return responseData; 
 
 
     } catch (error) { 
-        return thunkAPI.rejectWithValue(error.message);  
+       return thunkAPI.rejectWithValue(error.message);  
     }
 })
 
 
-const initialState = {posts: {}, loading: false, error: ""}; 
+const initialState = {posts: [], loading: false, error: ""}; 
 
 export const postsSlice = createSlice({
     name: "posts", 
@@ -35,13 +33,10 @@ export const postsSlice = createSlice({
             state.loading = true; 
           })
           .addCase(fetchPosts.fulfilled,  (state, action) => {
-            state.loading = false; 
             state.posts = action.payload; 
-            state.error = ""
           })
           .addCase(fetchPosts.rejected, (state,action) => {
             state.loading = false; 
-            state.posts = []; 
             state.error = action.payload; 
           })
     }

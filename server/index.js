@@ -1,7 +1,6 @@
 const express = require("express"); 
 const app = express(); 
 const cors = require("cors"); 
-//const multer = require('multer'); 
 require('dotenv').config();  
 
 
@@ -33,10 +32,17 @@ const articleRouter = require('./routes/article');
 app.use('/article', articleRouter); 
 
 const postsRouter = require('./routes/posts'); 
-app.use('/posts', postsRouter);
+app.use('/posts', postsRouter); 
+
+const postByCategoryRouter = require('./routes/postsByCategory'); 
+app.use('/postsByCategory', postByCategoryRouter); 
 
 const reactQuillImages = require('./routes/reactQuillImages'); 
 app.use('/upload-image', reactQuillImages); 
+
+app.get('/articles', (req, res) => {
+    res.send("yo")
+})
 
 
 app.listen(Port, () => {

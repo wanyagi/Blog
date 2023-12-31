@@ -7,11 +7,11 @@ import postsByCategoryReducer from './postsByCategorySlice';
 
 export const store = configureStore({
     reducer: {
-        blogposts: postsReducer, 
+        posts: postsReducer, 
         register: registerReducer, 
         userAuthentication: authenticationReducer, 
         newComment: commentReducer,  
-        blogpostsbycategory: postsByCategoryReducer,  
+        postsbycategory: postsByCategoryReducer,  
     }
 }); 
 

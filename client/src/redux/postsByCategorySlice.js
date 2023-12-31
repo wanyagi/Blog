@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
 
-const URL = process.env.REACT_APP_BLOGPOSTS; 
+const URL = process.env.REACT_APP_BLOGPOSTS;
 
 export const fetchPostsByCategory = createAsyncThunk("posts/fetchPostsByCategory", async (catégorie, thunkAPI) => {
     try {
 
-      const response = await fetch(`${URL}/${catégorie}`);
+      const response = await fetch(`${URL}/${encodeURIComponent(catégorie)}`);
 
       if (!response.ok) {
         throw new Error('Network HS');
@@ -26,7 +26,7 @@ export const fetchPostsByCategory = createAsyncThunk("posts/fetchPostsByCategory
 const initialState = {posts: {}, loading: false, error: ""}; 
 
 export const postsByCategorySlice = createSlice({
-    name: "blogpostsbycategory", 
+    name: "postsbycategory", 
     initialState, 
     reducers: {}, 
     extraReducers: (builder) => {

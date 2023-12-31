@@ -91,10 +91,13 @@ const Article = () => {
             method: "POST", 
             body: data,
         })
-        const responseData = await response.json();
-        console.log(response.Data);  
+        const responseData = await response.json(); 
 
-        console.log(responseData);
+        if (!response.ok) {
+          throw new Error("Appel daniel"); 
+        } else {
+          return responseData; 
+        }
         } catch (error) {
             console.error(error); 
         } 

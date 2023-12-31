@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'; 
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPosts } from '../redux/postSlice';
-import { Link } from 'react-router-dom'; 
+import { NavLink } from 'react-router-dom'; 
 import './Posts.css'; 
 
 const Posts = () => {
@@ -19,24 +19,24 @@ const Posts = () => {
 
 
     return (
-        <article className="posts--container">
-            {posts.posts?.map(post => (
-            <div className="posts" key={post.posts_id}>
-                <img className="posts--image" src={post.posts_image} alt=""/>
-              <div className="posts--description">
-                <h3>{post.posts_title}</h3>
-                <span className="category">{post.posts_category}</span>
-                <span className="date">{post.posts_date}</span>
-                <p>{post.posts_description}</p>
-              </div>
-                <button>
-                  <Link to={`/posts/${post.posts_id}`}>
-                    Lire l'article
-                  </Link>
-                </button>
-              </div>
-            ))}
-        </article>
+      <article className="posts--container">
+       {posts.posts?.map(posts => (
+          <div className="posts" key={posts.posts_id}>
+          <img className="posts--image" src={posts.posts_image} alt=""/>
+          <div className="posts--description">
+          <h3>{posts.posts_title}</h3>
+          <span className="date">{posts.posts_date}</span>
+          <p>{posts.posts_category}</p>
+          <p>{posts.posts_description}</p>
+          </div>
+           <button>
+            <NavLink to={posts.posts_id}>
+              Lire l'article
+            </NavLink>
+           </button>
+          </div>
+        ))}
+      </article>
     )
 }; 
 

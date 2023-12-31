@@ -1,0 +1,40 @@
+.cards--container:hover {
+  transform: scale(1.06);
+}
+
+.cards--container button {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: transparent;
+  min-width: 100px;
+  max-width: 900px;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  margin-top: auto;
+}
+
+.cards--container a {
+  text-decoration: none;
+  color: black; 
+  font-size: 1.5rem;
+}
+
+.cards--container a:hover {
+  color: #FF5800; 
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 932px) {
+
+  .cards--container {
+    width: 100%;
+  }
+
+  .cards--container button {
+    display: flex;
+    width: 100%;
+  }
+}

@@ -6,7 +6,8 @@ import ArticlePage from './components/ArticlePage';
 import Apropos from './pages/apropos';
 import Login from './pages/login';
 import Register from './pages/register'; 
-import DeveloppementPersonnel from './pages/développementpersonnel'; 
+import Articles from './pages/articles';
+import Croissance from './pages/croissance'; 
 import BienÊtre from './pages/bienêtre';
 import Lifestyle from './pages/lifestyle'; 
 import Cuisine from './pages/cuisine'; 
@@ -23,7 +24,8 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/apropos" element={ <Apropos /> } />
     <Route path="/login" element={ <Login /> } />
     <Route path="/register" element={ <Register /> } />
-    <Route path="/développementpersonnel" element={ <DeveloppementPersonnel /> } />
+    <Route path="/articles" element={ <Articles /> } />
+    <Route path="/croissance" element={ <Croissance /> } />
     <Route path="/bien-être" element={ <BienÊtre /> } />
     <Route path="/lifestyle" element={ <Lifestyle /> } />
     <Route path="/post/:id" element={ <ArticlePage /> } />

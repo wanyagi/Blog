@@ -1,13 +1,13 @@
 .homecards--section {
-    display: flex;
-    position: relative; 
-    flex-wrap: wrap;
-    min-height: auto;
-    justify-content: space-around;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 900px;
-    margin-bottom: 100px;
+  display: flex;
+  position: relative; 
+  flex-wrap: wrap;
+  min-height: auto;
+  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 900px;
+  margin-bottom: 100px;
 } 
 
 @media screen and (max-height: 1368px) {

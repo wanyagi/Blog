@@ -1,34 +1,23 @@
 const pool = require('../database');
-const { getAllPosts, getPostByCategory } = require('../Queries'); 
+const getAllPosts = require('../Queries'); 
 
 const getPosts = async (request, response) => {
     try {
-        const blogPosts = await pool.query(getAllPosts); 
-        response.json(blogPosts.rows)
+        const posts = await pool.query(getAllPosts); 
+        response.status(200).send(posts.rows); 
     } catch (error) {
-        response.status(500).json({error: error.message})
-    }
-};
-
-const getPost = (request, response) => {
-    const { category } = request.query; 
-
-    try {
-        const postByCategory = pool.query(getPostByCategory, [category]); 
-        if (postByCategory.rows.length === 0) {
-            return response.status(401).json({message: "Il n'y a pas d'atricles dans cette catégorie."})
-        } else {
-            return response.status(200).json(postByCategory.rows)
-        }
-    } catch (error) {
-        response.status(401).json({error: error.message})
+        response.status(400).send("il n'y a pas d'articles")
     }
 }; 
 
-const editPost = async (request, response) => {}; 
+const editPost = async (request, response) => {
+    response.send("yo")
+}; 
 
-const deletePost = async (request, response) => {};
+const deletePost = async (request, response) => {
+    response.send("yo")
+};
 
 
 
-module.exports = { getPosts, getPost, editPost, deletePost }; 
+module.exports = { getPosts, editPost, deletePost }; 
