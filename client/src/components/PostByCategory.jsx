@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react'; 
+import { useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPostsByCategory } from '../redux/postsByCategorySlice';
-import { Link } from 'react-router-dom'; 
+import { NavLink } from 'react-router-dom'; 
 import './Posts.css'; 
 
-const Posts = () => {
+const PostsByCategory = () => {
 
   const dispatch = useDispatch(); 
-  const {blogpostsbycategory, loading, error} = useSelector((state) => state.blogpostsbycategory); 
+  const {posts, loading, error} = useSelector((state) => state.postsbycategory); 
+  const category = useLocation().pathname.split("/").pop(); 
 
     useEffect(() => {
-      dispatch(fetchPostsByCategory())
-    }, [dispatch]); 
+      dispatch(fetchPostsByCategory(category))
+    }, [dispatch, category]); 
 
     if (loading) { return <div className="loading--state">Patientez...</div> };
     if (error) { return <div className="error--state">Veuillez réessayez plustard.</div> };
@@ -19,25 +21,25 @@ const Posts = () => {
 
 
     return (
-        <article className="posts--container">
-            {blogpostsbycategory.posts?.map(blogpost => (
-            <div className="posts" key={blogpost.id}>
-                <img className="posts--image" src={blogpost.blogs_file} alt=""/>
-              <div className="posts--description">
-                <h3>{blogpost.blogs_titre}</h3>
-                <span className="category">{blogpost.blogs_category}</span>
-                <span className="date">{blogpost.blogs_date}</span>
-                <p>{blogpost.blogs_description}</p>
-              </div>
-                <button>
-                  <Link to={`/posts/${blogpost.id}`}>
-                    Lire l'article
-                  </Link>
-                </button>
-              </div>
-            ))}
-        </article>
+      <article className="posts--container">
+       {posts.map(post => (
+          <div className="posts" key={post.posts_id}>
+          <img className="posts--image" src={post.posts_image} alt=""/>
+          <div className="posts--description">
+          <h3>{post.posts_title}</h3>
+          <span className="date">{post.posts_date}</span>
+          <p>{post.posts_category}</p>
+          <p>{post.posts_description}</p>
+          </div>
+           <button>
+            <NavLink to={`/posts/${post.posts_id}`}>
+              Lire l'article
+            </NavLink>
+           </button>
+          </div>
+        ))}
+      </article>
     )
 }; 
 
-export default Posts; 
+export default PostsByCategory; 

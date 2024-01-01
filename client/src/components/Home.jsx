@@ -9,10 +9,10 @@ const Home = () => {
   
 const catégorie = [
   {title: "Articles" , page: "/articles"}, 
-  {title: "Croissance" , page: "/croissance"}, 
-  {title: "Bien-être" , page: "/bien-être"},
-  {title: "Lifestyle" , page: "/lifestyle"},
-  {title: "Cuisine" , page: "/cuisine"},
+  {title: "Croissance" , page: "/category/croissance"}, 
+  {title: "Bien-être" , page: "/category/bien-être"},
+  {title: "Lifestyle" , page: "/category/lifestyle"},
+  {title: "Cuisine" , page: "/category/cuisine"},
 ]; 
 
 

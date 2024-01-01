@@ -7,14 +7,11 @@ import Apropos from './pages/apropos';
 import Login from './pages/login';
 import Register from './pages/register'; 
 import Articles from './pages/articles';
-import Croissance from './pages/croissance'; 
-import BienÊtre from './pages/bienêtre';
-import Lifestyle from './pages/lifestyle'; 
-import Cuisine from './pages/cuisine'; 
 import PolitiquesDeConfidentialité from './pages/politiques-de-confidentialité'; 
 import MentionsLégales from './pages/mentions-légales'; 
 import Contact from './pages/contact';
 import Article from './pages/article';
+import PostsByCategory from './components/PostByCategory';
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -24,12 +21,9 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/apropos" element={ <Apropos /> } />
     <Route path="/login" element={ <Login /> } />
     <Route path="/register" element={ <Register /> } />
+    <Route path="/category/:category" element={ <PostsByCategory />} />
     <Route path="/articles" element={ <Articles /> } />
-    <Route path="/croissance" element={ <Croissance /> } />
-    <Route path="/bien-être" element={ <BienÊtre /> } />
-    <Route path="/lifestyle" element={ <Lifestyle /> } />
     <Route path="/post/:id" element={ <ArticlePage /> } />
-    <Route path="/cuisine" element={ <Cuisine /> } />
     <Route path="/politiques-de-confidentialité" element={ <PolitiquesDeConfidentialité /> } />
     <Route path="/mentions-légales" element={ <MentionsLégales /> } />
     <Route path="/contact" element={ <Contact /> } /> 

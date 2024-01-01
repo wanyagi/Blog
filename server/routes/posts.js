@@ -1,9 +1,14 @@
 const express = require('express'); 
 const postsRouter = express.Router(); 
-const { getPosts, editPost, deletePost } = require('../controllers/posts'); 
+const { getAllPosts } = require('../controllers/posts'); 
+//editPost, deletePost
 
-postsRouter.get('/articles', getPosts); 
-postsRouter.put('/:id', editPost); 
-postsRouter.delete('/:id', deletePost); 
+postsRouter.get('/', getAllPosts);   
+/*postsRouter.put('/:id', editPost); 
+postsRouter.delete('/:id', deletePost); */
+
 
 module.exports = postsRouter; 
+/*editPost, deletePost 
+postsRouter.put('/:id', editPost); 
+postsRouter.delete('/:id', deletePost); */

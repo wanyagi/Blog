@@ -1,12 +1,15 @@
 const pool = require('../database');
-const getAllPosts = require('../Queries'); 
+const { getPosts } = require('../Queries'); 
 
-const getPosts = async (request, response) => {
+const getAllPosts = async (request, response) => {
     try {
-        const posts = await pool.query(getAllPosts); 
+        console.log(getPosts); 
+        const posts = await pool.query(getPosts);
+        console.log(posts.rows) 
         response.status(200).send(posts.rows); 
     } catch (error) {
-        response.status(400).send("il n'y a pas d'articles")
+        console.log(error)
+        response.status(400).send(`"error :" ${error.message}`)
     }
 }; 
 
@@ -20,4 +23,4 @@ const deletePost = async (request, response) => {
 
 
 
-module.exports = { getPosts, editPost, deletePost }; 
+module.exports = { getAllPosts, editPost, deletePost }; 

@@ -1,7 +1,7 @@
 const pool = require('../database'); 
 const { NewPost } = require('../Queries'); 
 
-const artcile =  async (request, response) => { 
+const newArticle =  async (request, response) => { 
     const { titre, date, description, category, content} = request.body;
     const file  = request.file; 
     const filePath = file.path; 
@@ -17,4 +17,4 @@ const artcile =  async (request, response) => {
 
 }; 
 
-module.exports = artcile; 
+module.exports = newArticle; 

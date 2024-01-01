@@ -1,19 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
 
-const URL = process.env.REACT_APP_BLOGPOSTS;
+const URL = process.env.REACT_APP_BLOGPOSTSBYCATEGORY;
 
-export const fetchPostsByCategory = createAsyncThunk("posts/fetchPostsByCategory", async (catégorie, thunkAPI) => {
+export const fetchPostsByCategory = createAsyncThunk("posts/fetchPostsByCategory", async (category, thunkAPI) => {
     try {
 
-      const response = await fetch(`${URL}/${encodeURIComponent(catégorie)}`);
+      const response = await fetch(`${URL}/${category}`);
 
       if (!response.ok) {
         throw new Error('Network HS');
       }
 
       const responseData = await response.json();
-      console.log(responseData)
       return responseData; 
 
 
@@ -23,7 +22,7 @@ export const fetchPostsByCategory = createAsyncThunk("posts/fetchPostsByCategory
 })
 
 
-const initialState = {posts: {}, loading: false, error: ""}; 
+const initialState = {posts: [], loading: false, error: ""}; 
 
 export const postsByCategorySlice = createSlice({
     name: "postsbycategory", 
@@ -36,7 +35,11 @@ export const postsByCategorySlice = createSlice({
           })
           .addCase(fetchPostsByCategory.fulfilled,  (state, action) => {
             state.loading = false; 
-            state.posts = action.payload; 
+            state.posts = action.payload.sort((nouveau, vieux) => {
+              const récent = new Date(nouveau.date);
+              const ancien = new Date(vieux.date);
+              return récent - ancien; 
+            }); 
             state.error = ""
           })
           .addCase(fetchPostsByCategory.rejected, (state,action) => {

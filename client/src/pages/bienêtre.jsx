@@ -1,10 +1,10 @@
 import React from 'react'; 
-import Posts from '../components/AllPosts'; 
+import PostsByCategory from '../components/PostByCategory';
 
 const BienÊtre = () => {
   return (
     <section>
-      <Posts />
+      <PostsByCategory />
     </section>
   )
 }; 

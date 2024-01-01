@@ -20,17 +20,17 @@ const Posts = () => {
 
     return (
       <article className="posts--container">
-       {posts.posts?.map(posts => (
-          <div className="posts" key={posts.posts_id}>
-          <img className="posts--image" src={posts.posts_image} alt=""/>
+       {posts.map(post => (
+          <div className="posts" key={post.posts_id}>
+          <img className="posts--image" src={post.posts_image} alt=""/>
           <div className="posts--description">
-          <h3>{posts.posts_title}</h3>
-          <span className="date">{posts.posts_date}</span>
-          <p>{posts.posts_category}</p>
-          <p>{posts.posts_description}</p>
+          <h3>{post.posts_title}</h3>
+          <span className="date">{post.posts_date}</span>
+          <p>{post.posts_category}</p>
+          <p>{post.posts_description}</p>
           </div>
            <button>
-            <NavLink to={posts.posts_id}>
+            <NavLink to={`/posts/${post.posts_id}`}>
               Lire l'article
             </NavLink>
            </button>

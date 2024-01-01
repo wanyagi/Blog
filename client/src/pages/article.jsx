@@ -76,7 +76,8 @@ const Article = () => {
     const handleSubmit = async (event) => {
 
         event.preventDefault();
-        const content = quillRef.current.getEditor().root.innerHTML; 
+        const content = quillRef.current.getEditor().root.innerHTML;
+        //const formattedDate = formatDate(date) 
 
         const data = new FormData(); 
         data.set('file', file); 
@@ -104,7 +105,7 @@ const Article = () => {
     }; 
 
     return (
-        <form className="writing--section" onSubmit={handleSubmit} /*enctype="multipart/form-data"*/>
+        <form className="writing--section" onSubmit={handleSubmit} >
             <ReactQuill className="editor" modules={modules} theme="snow" value={content} onChange={setContent} ref={quillRef} />
         <div className="info">
           <div className="item--resume">
@@ -116,8 +117,8 @@ const Article = () => {
           <div className="item--catégories">
             <h3>Catégories :</h3>
             <div className="label">
-            <input type="radio" checked={category === "Développement-Personnel"} name="category" id="Développement-personnel" value="Développement-Personnel" onChange={handleCategory}/>
-            <label htmlFor="Développement-personnel">Développement Personnel</label>
+            <input type="radio" checked={category === "Croissance"} name="category" id="Croissance" value="Croissance" onChange={handleCategory}/>
+            <label htmlFor="Croissance">Croissance</label>
             </div>
             <div className="label">
             <input type="radio" checked={category === "Bien-être"} name="category" id="Bien-être" value="Bien-être" onChange={handleCategory}/>

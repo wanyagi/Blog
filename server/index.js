@@ -9,12 +9,8 @@ const Port = 5000;
 app.use(cors({ origin: process.env.URL, credentials: true, })); 
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true}));
+app.use('/uploads', express.static('uploads')); 
 app.use('/uploads/images', express.static('uploads/images')); 
-  
-
-app.get('*', (request, response) => {
-    response.json()
-});
 
 const registerRouter = require("./routes/register"); 
 app.use('/register', registerRouter); 
@@ -34,16 +30,11 @@ app.use('/article', articleRouter);
 const postsRouter = require('./routes/posts'); 
 app.use('/posts', postsRouter); 
 
-const postByCategoryRouter = require('./routes/postsByCategory'); 
-app.use('/postsByCategory', postByCategoryRouter); 
+const categoryRouter = require('./routes/category'); 
+app.use('/category', categoryRouter); 
 
 const reactQuillImages = require('./routes/reactQuillImages'); 
 app.use('/upload-image', reactQuillImages); 
-
-app.get('/articles', (req, res) => {
-    res.send("yo")
-})
-
 
 app.listen(Port, () => {
     console.log(`listening on port: ${Port}`)

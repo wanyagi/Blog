@@ -1,8 +1,11 @@
 import React from 'react';
+import Posts from '../components/AllPosts'; 
 
 const Articles = () => {
   return (
-    <div>allPosts</div>
+    <section>
+      <Posts />
+    </section>
   )
 }
 

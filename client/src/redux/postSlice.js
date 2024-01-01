@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
-const URL = process.env.REACT_APP_BLOGPOSTS; 
+//const URL = process.env.REACT_APP_BLOGPOSTS; 
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) => {
     try {
 
-      const response = await fetch(URL);
+      const response = await fetch("http://localhost:5000/posts");
 
       if (!response.ok) {
         throw new Error('Network HS');
@@ -13,7 +13,6 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) 
 
       const responseData = await response.json();
       return responseData; 
-
 
     } catch (error) { 
        return thunkAPI.rejectWithValue(error.message);  
@@ -33,7 +32,9 @@ export const postsSlice = createSlice({
             state.loading = true; 
           })
           .addCase(fetchPosts.fulfilled,  (state, action) => {
+            state.loading = false;
             state.posts = action.payload; 
+            state.error = "";
           })
           .addCase(fetchPosts.rejected, (state,action) => {
             state.loading = false; 
