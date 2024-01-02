@@ -4,6 +4,7 @@ import registerReducer from './registerSlice';
 import authenticationReducer from './authenticationSlice'; 
 import commentReducer from './commentsSlice';
 import postsByCategoryReducer from './postsByCategorySlice';
+import postsByIDReducer from './postsByIDSlice';
 
 export const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
         register: registerReducer, 
         userAuthentication: authenticationReducer, 
         newComment: commentReducer,  
-        postsbycategory: postsByCategoryReducer,  
+        postsbycategory: postsByCategoryReducer,
+        postsbyid: postsByIDReducer,  
     }
 }); 
 

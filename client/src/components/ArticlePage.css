@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-bottom: 300px; 
+    margin-bottom: 100px; 
 }
 
 .articles--image, .articles--content {
@@ -35,6 +35,7 @@
 p {
     text-align: justify; 
     line-height: 1.6;
+    font-size: 18px;
 }
 
 .article--review {
@@ -42,10 +43,6 @@ p {
     justify-self: end;
     margin: 20px 0px; 
 } 
-
-/*h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-} */
 
 .articles--content h1 {
     font-size: 2.5rem;
@@ -61,4 +58,105 @@ p {
 .articles--content h3, .articles--content h4, .articles--content h5, .articles--content h6 {
     font-size: 1.4rem;
     font-weight: 500;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .articles--image, .articles--content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .article--image {
+        grid-column: 1 / -1;
+        width: 90vw;
+        height: 400px;
+        object-fit: cover;
+        margin: 50px; 
+        border-radius: 10px;
+    }
+    
+    .articles--content > * {
+        grid-column: 1/ -1;
+        margin: auto 50px; 
+    }
+    
+    .articles--content img {
+        width: 77vw;
+        height: 400px;
+        object-fit: cover;
+        margin: 30px auto;
+        border-radius: 10px; 
+    }
+
+    .articles--content h1 {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+
+    .articles--content h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    p {
+        text-align: justify;
+        font-size: 16px; 
+        line-height: 1;
+    }
+
+    .article--review {
+       display: none; 
+    } 
+}
+
+@media (min-width: 1025px) and (max-width: 1400px) {
+
+    .articles--image, .articles--content {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .article--image {
+        grid-column: 1 / -1;
+        width: 90vw;
+        height: 400px;
+        object-fit: cover;
+        margin: 50px; 
+        border-radius: 10px;
+    }
+    
+    .articles--content > * {
+        grid-column: 1/ -1;
+        margin: auto 50px; 
+    }
+    
+    .articles--content img {
+        width: 86vw;
+        height: 400px;
+        object-fit: cover;
+        margin: 30px auto;
+        border-radius: 10px; 
+    }
+
+    .articles--content h1 {
+        font-size: 1.7rem;
+        font-weight: bold;
+    }
+
+    .articles--content h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    p {
+        text-align: justify;
+        font-size: 16px; 
+        line-height: 1;
+    }
+
+    .article--review {
+       display: none; 
+    } 
 }

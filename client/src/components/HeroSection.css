@@ -13,7 +13,7 @@
 
 .hero--info {
     position: relative; 
-    top: 0; 
+    top: 76%; 
     padding: 0 1rem;
 }
 
@@ -31,7 +31,7 @@ button {
     text-align: center;
     border-radius: 50px;
     background-color: black;
-    color: #fcfcf7;
+    color:  white;
     width: 200px;
     height: 57px;
     font-size: 1.25rem;
@@ -39,7 +39,7 @@ button {
 
 button a {
     text-decoration: none;
-    color: #fcfcf7; 
+    color: #f7f7f7; 
 }
 
 button a:hover {
@@ -55,7 +55,6 @@ button a:hover {
         left: 50%;
         text-align: center; 
         object-fit: cover;
-        margin-bottom: 1000px; 
     }
 
     .hero--info {
@@ -66,9 +65,6 @@ button a:hover {
         align-items: flex-start;
         text-align: justify;
         font-size: 0.70rem;
-        /*word-break: break-all;
-        overflow-wrap: break-word;
-        word-wrap: break-word; */
     }
 
     button {
@@ -87,37 +83,34 @@ button a:hover {
       }
 }
 
-@media screen and /*(min-width: 600px) and */(max-width: 1366px) {
+@media screen and (max-width: 1366px) {
     .hero {
-     background-image: url(../assets/HeroPhone.PNG);
+      background-image: url(../assets/HeroPhone.PNG);
     } 
 }
 
 @media screen and (max-height: 932px) {
 
     .hero--info {
-        font-size: 0.78rem;
-        margin-top: 310px;
+        font-size: 0.78rem; 
     }
 }
 
 @media screen and (max-height: 844px) {
     .hero--info {
         font-size: 0.70rem;
-        margin-top: 295px;
     }
 } 
 
 @media screen and (max-height: 740px) {
     .hero--info {
         font-size: 0.65rem;
-        margin-top: 230px;
     }
 }
 
 @media screen and (max-height: 667px) {
     .hero--info {
         font-size: 0.70rem;
-        margin-top: 190px;
+        top: 68%;
     }
 }

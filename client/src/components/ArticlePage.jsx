@@ -1,44 +1,40 @@
-import React from 'react'; 
-import { Link } from "react-router-dom"; 
+import React, { useEffect } from 'react'; 
+import { Link, useParams } from "react-router-dom"; 
+import { fetchPostsByID } from '../redux/postsByIDSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdDelete } from 'react-icons/md'; 
 import { CiEdit } from "react-icons/ci"; 
 import Comments from './Comments';
-import Formulaire from '../assets/Formulaire.jpeg'; 
 import './ArticlePage.css'; 
 
 const ArticlePage = () => {
+
+  const { id } = useParams(); 
+  const dispatch = useDispatch(); 
+  const { post, loading, error } = useSelector((state) => state.postsbyid); 
+
+  useEffect(() => {
+    console.log('dispatch id', id)
+    dispatch(fetchPostsByID(id)); 
+  }, [dispatch, id]);  
+
+  if (loading) {return <div>Patientez...</div>}
+  if (error) {return <div>Réessayez plustard...</div>}
+  if (!post) return <div>Article not found or loading...</div>
+
   return (
     <article className="article--section">
       <div className="articles--image">
-          <img className="article--image" src={Formulaire} alt="articlesimage"/>
+          <img className="article--image" src={post.posts_image} alt="articlesimage"/>
       </div>
         <div className="articles--content">
           <div>
-            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+            <h1>{post.posts_title}</h1>
           </div>
           <div>
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+            <h2>{post.posts_title}</h2>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos ratione doloremque voluptate nam optio accusamus, facere fugit recusandae temporibus dolor provident, ex voluptatum ducimus quibusdam odit quas possimus explicabo. Dignissimos sequi veniam fuga corrupti eum debitis asperiores nisi, laudantium, itaque voluptatem amet deserunt. Voluptatibus, odio. Adipisci dignissimos exercitationem sapiente! Labore aliquid exercitationem quo quia est tempora itaque optio autem.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos ratione doloremque voluptate nam optio accusamus, facere fugit recusandae temporibus dolor provident, ex voluptatum ducimus quibusdam odit quas possimus explicabo. Dignissimos sequi veniam fuga corrupti eum debitis asperiores nisi, laudantium, itaque voluptatem amet deserunt. Voluptatibus, odio. Adipisci dignissimos exercitationem sapiente! Labore aliquid exercitationem quo quia est tempora itaque optio autem.
-          </p>
-          <img src={Formulaire} alt="articlesimage"/>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos ratione doloremque voluptate nam optio accusamus, facere fugit recusandae temporibus dolor provident, ex voluptatum ducimus quibusdam odit quas possimus explicabo. Dignissimos sequi veniam fuga corrupti eum debitis asperiores nisi, laudantium, itaque voluptatem amet deserunt. Voluptatibus, odio. Adipisci dignissimos exercitationem sapiente! Labore aliquid exercitationem quo quia est tempora itaque optio autem.
-          </p>
-          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos ratione doloremque voluptate nam optio accusamus, facere fugit recusandae temporibus dolor provident, ex voluptatum ducimus quibusdam odit quas possimus explicabo. Dignissimos sequi veniam fuga corrupti eum debitis asperiores nisi, laudantium, itaque voluptatem amet deserunt. Voluptatibus, odio. Adipisci dignissimos exercitationem sapiente! Labore aliquid exercitationem quo quia est tempora itaque optio autem.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos ratione doloremque voluptate nam optio accusamus, facere fugit recusandae temporibus dolor provident, ex voluptatum ducimus quibusdam odit quas possimus explicabo. Dignissimos sequi veniam fuga corrupti eum debitis asperiores nisi, laudantium, itaque voluptatem amet deserunt. Voluptatibus, odio. Adipisci dignissimos exercitationem sapiente! Labore aliquid exercitationem quo quia est tempora itaque optio autem.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quos ratione doloremque voluptate nam optio accusamus, facere fugit recusandae temporibus dolor provident, ex voluptatum ducimus quibusdam odit quas possimus explicabo. Dignissimos sequi veniam fuga corrupti eum debitis asperiores nisi, laudantium, itaque voluptatem amet deserunt. Voluptatibus, odio. Adipisci dignissimos exercitationem sapiente! Labore aliquid exercitationem quo quia est tempora itaque optio autem.
-          </p>
+          <div dangerouslySetInnerHTML={{__html: post.posts_content}}/>
           <div className="article--review">
             <Link to="/article?edit=id">
               <MdDelete size={30} style={{color: "red"}} />

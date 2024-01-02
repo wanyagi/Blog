@@ -1,13 +1,22 @@
 const pool = require('../database'); 
 const { NewPost } = require('../Queries'); 
+require('dotenv').config(); 
 
 const newArticle =  async (request, response) => { 
+
+    const URL = process.env.imageURL; 
     const { titre, date, description, category, content} = request.body;
     const file  = request.file; 
-    const filePath = file.path; 
+
+    if (!file) {
+        return response.status(404).json({message : 'no file uploaded'}); 
+    }
+
+    const fileURL = `${URL}/${file.filename}`
+    //const filePath = file.path; 
 
     try {
-        const newPost = await pool.query(NewPost, [filePath, titre, date, description, category, content]);
+        const newPost = await pool.query(NewPost, [fileURL, titre, date, description, category, content]);
             response.status(200).send(newPost); 
             console.log(newPost.rows[0]) 
     } catch (error) {

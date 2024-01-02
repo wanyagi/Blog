@@ -27,7 +27,13 @@
   transition: 0.3s ease-in-out;
 }
 
-@media (max-width: 932px) {
+@media screen and (max-width: 1024px) {
+  .cards--container button {
+    display: none;
+  } 
+}
+
+/*@media (max-width: 932px) {
 
   .cards--container {
     width: 100%;
@@ -37,4 +43,4 @@
     display: flex;
     width: 100%;
   }
-}
+} */

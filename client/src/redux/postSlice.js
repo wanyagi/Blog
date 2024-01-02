@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
-//const URL = process.env.REACT_APP_BLOGPOSTS; 
+const URL = process.env.REACT_APP_BLOGPOSTS; 
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) => {
     try {
 
-      const response = await fetch("http://localhost:5000/posts");
+      const response = await fetch(URL);
 
       if (!response.ok) {
         throw new Error('Network HS');

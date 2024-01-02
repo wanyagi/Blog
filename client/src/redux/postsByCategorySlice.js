@@ -17,7 +17,7 @@ export const fetchPostsByCategory = createAsyncThunk("posts/fetchPostsByCategory
 
 
     } catch (error) { 
-        return thunkAPI.rejectWithValue(error.message);  
+       return thunkAPI.rejectWithValue(error.message);  
     }
 })
 

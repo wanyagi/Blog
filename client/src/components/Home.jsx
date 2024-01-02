@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSection from './HeroSection';
 import Catégorie from './Catégorie';  
 import './Home.css';  
+import Posts from './AllPosts';
 
 
 const Home = () => {
@@ -29,6 +30,7 @@ const catégorie = [
           <Catégorie  title={catégorie[4].title} page={catégorie[4].page} />
         </div>
       </section>
+      <div className="posts--section"><Posts /></div>
     </>
   )
 }

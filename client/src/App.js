@@ -7,8 +7,7 @@ import Apropos from './pages/apropos';
 import Login from './pages/login';
 import Register from './pages/register'; 
 import Articles from './pages/articles';
-import PolitiquesDeConfidentialité from './pages/politiques-de-confidentialité'; 
-import MentionsLégales from './pages/mentions-légales'; 
+import PmCGV from './pages/cgv';
 import Contact from './pages/contact';
 import Article from './pages/article';
 import PostsByCategory from './components/PostByCategory';
@@ -24,8 +23,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/category/:category" element={ <PostsByCategory />} />
     <Route path="/articles" element={ <Articles /> } />
     <Route path="/post/:id" element={ <ArticlePage /> } />
-    <Route path="/politiques-de-confidentialité" element={ <PolitiquesDeConfidentialité /> } />
-    <Route path="/mentions-légales" element={ <MentionsLégales /> } />
+    <Route path="/cvg" element={ <PmCGV /> } />
     <Route path="/contact" element={ <Contact /> } /> 
   </Route>
 ))

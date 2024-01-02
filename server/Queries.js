@@ -7,6 +7,7 @@ const getUsersId = 'SELECT * FROM users WHERE id = $1';
 //Queries for handling posts
 const NewPost = 'INSERT INTO Posts (posts_image, posts_title, posts_date, posts_description, posts_category, posts_content) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
 const getPosts = 'SELECT * FROM Posts'; 
-const getPostsByCategory = 'SELECT * FROM Posts WHERE LOWER(posts_category) = LOWER($1)'
+const getPostsByCategory = 'SELECT * FROM Posts WHERE LOWER(posts_category) = LOWER($1)';
+const getPostsByID = 'SELECT * FROM Posts WHERE posts_id = $1';
 
-module.exports = { getEmail, getUsersId, addCredentials, getUsername, NewPost, getPosts, getPostsByCategory, }; 
+module.exports = { getEmail, getUsersId, addCredentials, getUsername, NewPost, getPosts, getPostsByCategory, getPostsByID}; 

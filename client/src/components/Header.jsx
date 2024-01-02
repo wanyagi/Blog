@@ -9,10 +9,24 @@ const Header = () => {
     const [ isMobileMenuOpened, setIsMobileMenuOpened ] = useState(false); 
 
     const handleMobileMenu = () => {
-        setIsMobileMenuOpened(!isMobileMenuOpened)
+      setIsMobileMenuOpened(!isMobileMenuOpened)
     }; 
 
-    const menuItems = [{title: "Articles", link: "/article"}, {title: "Accueil", link: "/"}, {title: "A propos", link: "/apropos"}, {title: "Login", link: "/login"}];
+    const closeMobileMenu = () => {
+      setIsMobileMenuOpened(false)
+    }; 
+
+    const menuItems = [ {title: "Articles", link: "/article"}, {title: "Accueil", link: "/"}, {title: "A propos", link: "/apropos"}, {title: "Login", link: "/login"},];
+
+    const mobileMenuItems = [  
+      {title: "Accueil", link: "/"},
+      {title: "Croissance" , link: "/category/croissance"}, 
+      {title: "Bien-être" , link: "/category/bien-être"},
+      {title: "Lifestyle" , link: "/category/lifestyle"},
+      {title: "Cuisine" , link: "/category/cuisine"},
+      {title: "A propos", link: "/apropos"}, 
+      {title: "Login", link: "/login"},
+    ];
 
   return (
     <header>
@@ -21,11 +35,11 @@ const Header = () => {
               <img src={Logo} alt="logo" className="logo--btn" />
             </Link>
             <ul className="desktop--menu">
-                {menuItems.map((menuItem) => <li><NavLink to={menuItem.link}>{menuItem.title}</NavLink></li>)}
+                {menuItems.map((menuItem) => <li><NavLink to={menuItem.link} onClick={closeMobileMenu} >{menuItem.title}</NavLink></li>)}
             </ul>
             { isMobileMenuOpened ? <IoClose size={25} className="mobile-menu-btn" onClick={handleMobileMenu} /> : <LuMenu size={25}  className="mobile-menu-btn" onClick={handleMobileMenu}/>}
             { isMobileMenuOpened ? <ul className="mobile--menu">
-                {menuItems.map((menuItem) => <li><NavLink to={menuItem.link}>{menuItem.title}</NavLink></li>)}
+                {mobileMenuItems.map((menuItem) => <li><NavLink to={menuItem.link} onClick={closeMobileMenu} >{menuItem.title}</NavLink></li>)}
             </ul> : ""}
        </nav>
     </header>

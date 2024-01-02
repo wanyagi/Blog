@@ -1,11 +1,12 @@
 .comment--section {
     display: flex; 
     flex-direction: column;
+    margin-top: 20px;
     width: 50vw;
     gap: 10px;
 } 
 
-::placeholder {
+.comment--section, placeholder {
     padding: 10px; 
 }
 
@@ -14,4 +15,11 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .comment--section {
+        width: 77vw;
+    } 
 }
