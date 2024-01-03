@@ -5,6 +5,7 @@ import authenticationReducer from './authenticationSlice';
 import commentReducer from './commentsSlice';
 import postsByCategoryReducer from './postsByCategorySlice';
 import postsByIDReducer from './postsByIDSlice';
+import getCommentsReducer from './getCommentsSlice';
 
 export const store = configureStore({
     reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
         userAuthentication: authenticationReducer, 
         newComment: commentReducer,  
         postsbycategory: postsByCategoryReducer,
-        postsbyid: postsByIDReducer,  
+        postsbyid: postsByIDReducer, 
+        comments: getCommentsReducer,  
     }
 }); 
 

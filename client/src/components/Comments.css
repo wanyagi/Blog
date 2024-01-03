@@ -6,7 +6,7 @@
     gap: 10px;
 } 
 
-.comment--section, placeholder {
+.comment--section, .display--section, placeholder {
     padding: 10px; 
 }
 
@@ -15,6 +15,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    cursor: pointer;
 }
 
 

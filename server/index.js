@@ -31,7 +31,10 @@ const postsRouter = require('./routes/posts');
 app.use('/posts', postsRouter); 
 
 const categoryRouter = require('./routes/category'); 
-app.use('/category', categoryRouter); 
+app.use('/category', categoryRouter);
+
+const commentsRouter = require('./routes/comments'); 
+app.use('/comments', commentsRouter); 
 
 const reactQuillImages = require('./routes/reactQuillImages'); 
 app.use('/upload-image', reactQuillImages); 

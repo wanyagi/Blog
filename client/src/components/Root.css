@@ -73,6 +73,7 @@ nav > ul > li > a:hover {
 }
 
 @media  screen and (max-width: 1180px) {
+
   nav > .desktop--menu {
     display: none;
   }

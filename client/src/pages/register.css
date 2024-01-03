@@ -92,6 +92,18 @@ input::placeholder {
     color: darkgrey; 
 }
 
+
+.register--errors {
+    color: red; 
+    height: 20px;
+    color: red; 
+    width: 220px;
+    font-size: 0.8rem; 
+    text-align: left;
+    margin-top: -20px;
+    margin-bottom: -10px;
+}
+
 @media screen and (max-width: 915px) {
     .register--section {
         flex-direction: column;

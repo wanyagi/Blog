@@ -56,13 +56,17 @@
    color:  #ff5800; 
 }
 
-.posts button {
+.posts--button {
    margin-top: auto;
    margin-bottom: 20px;
    width: 150px;
+   border-radius: 5px;
 }
 
 .loading--state {
+   display: flex;
+   align-items: center;
+   justify-content: center;
    margin: auto;
    width: 100vw;
    height: 100vh;
@@ -70,6 +74,9 @@
 }
 
 .error--state{
+   display: flex;
+   align-items: center;
+   justify-content: center;
    margin: auto; 
    width: 100vh;
    height: 100vh;

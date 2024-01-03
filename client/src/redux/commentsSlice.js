@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
 
-const URL = process.env.REACT_APP_SERVER; 
+const URL = process.env.REACT_APP_COMMENTS; 
 
-export const comments = createAsyncThunk("comments/addComments", async ({postID, username, comment}, thunkAPI) => {
+export const comments = createAsyncThunk("comments/addComments", async ({posts_id, userId, username, comment}, thunkAPI) => {
     try {
         const response = await fetch(URL, {
             method: "POST", 
-            body: JSON.stringify({postID, username, comment}), 
+            body: JSON.stringify({posts_id, user: userId, username, comment}), 
             headers: { "Content-Type" : "application/json"}
         }); 
-        const responseData = response.json(); 
+        const responseData = await response.json(); 
 
         if (!response.ok) {
             throw new Error()
@@ -28,7 +28,11 @@ const initialState = {comments: [], loading: false, error: null, };
 export const commentSlice = createSlice({
     name: "comments", 
     initialState,
-    reducers: {},
+    reducers: {
+        addComment: (state, action) => {
+            state.comments.push(action.payload); 
+        }
+    },
     extraReducers: (builder) => {
         builder
           .addCase(comments.pending, (state) => {
@@ -48,5 +52,7 @@ export const commentSlice = createSlice({
           })
     }  
 }); 
+
+export const { addComment } = commentSlice.actions;
 
 export default commentSlice.reducer; 

@@ -36,7 +36,7 @@ const Posts = () => {
           <p>{post.posts_category}</p>
           <p>{post.posts_description}</p>
           </div>
-           <button>
+           <button className="posts--button">
             <NavLink to={`/post/${post.posts_id}`}>
               Lire l'article
             </NavLink>

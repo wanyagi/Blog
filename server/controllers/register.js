@@ -1,8 +1,14 @@
 const pool = require('../database');
 const { getEmail, addCredentials } = require('../Queries'); 
-const bcrypt = require('bcrypt');  
+const bcrypt = require('bcrypt'); 
+const { validationResult } = require('express-validator');  
 
 const registerNewUser = async (request, response) => {
+
+    const errors = validationResult(request);
+    if (!errors.isEmpty()) {
+        return response.status(400).json({ errors: errors.array() });
+    }
 
     try {
         const { name, username, email, password } = request.body;

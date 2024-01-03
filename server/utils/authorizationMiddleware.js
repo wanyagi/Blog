@@ -16,4 +16,4 @@ const authorizationMiddleware = async (request, response, next) => {
     }; 
 }; 
 
-module.exports = authorizationMiddleware; 
+module.exports = { authorizationMiddleware }; 

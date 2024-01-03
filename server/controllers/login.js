@@ -18,8 +18,8 @@ const logUser = async (request, response) => {
             return response.status(401).json("Mot de passe incorrect")
         }
 
-        const token = jwt(user.rows[0].id, user.rows[0].users_role); 
-        response.cookie('refreshtoken', token.refreshToken, {httpOnly: true, secure: true, sameSite: "none", maxAge: 24 * 60 * 60 * 1000})
+        const token = jwt(user.rows[0].id, user.rows[0].users_role, username); 
+        response.cookie('accesstoken', token.accessToken, {httpOnly: true, secure: true, sameSite: "none", maxAge: 24 * 60 * 60 * 1000})
         response.status(200).json(token)
     } catch (error) {
         console.error(error); 

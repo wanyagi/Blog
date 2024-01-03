@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { MdDelete } from 'react-icons/md'; 
 import { CiEdit } from "react-icons/ci"; 
 import Comments from './Comments';
+import CommentsDisplay from './CommentsDisplay'; 
 import './ArticlePage.css'; 
 
 const ArticlePage = () => {
@@ -18,8 +19,8 @@ const ArticlePage = () => {
     dispatch(fetchPostsByID(id)); 
   }, [dispatch, id]);  
 
-  if (loading) {return <div>Patientez...</div>}
-  if (error) {return <div>Réessayez plustard...</div>}
+  if (loading) {return <div className="loading--state">Patientez...</div>}
+  if (error) {return <div className="error--state">Réessayez plustard...</div>}
   if (!post) return <div>Article not found or loading...</div>
 
   return (
@@ -44,6 +45,7 @@ const ArticlePage = () => {
             </Link>
         </div>
         </div>
+          <CommentsDisplay />
           <Comments />
     </article>
   )
