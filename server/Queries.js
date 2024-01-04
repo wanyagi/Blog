@@ -11,6 +11,6 @@ const getPostsByCategory = 'SELECT * FROM Posts WHERE LOWER(posts_category) = LO
 const getPostsByID = 'SELECT * FROM Posts WHERE posts_id = $1';
 //Queries for handling comments
 const NewComment = 'INSERT INTO comments (user_id, post_id, comment) VALUES ($1, $2, $3) RETURNING *';
-const getComments = 'SELECT * FROM comments WHERE post_id = $1';
+const getComments = 'SELECT comments.*, users.username FROM comments JOIN users ON comments.users_id = users.users_id';
 
 module.exports = { getEmail, getUsersId, addCredentials, getUsername, NewPost, getPosts, getPostsByCategory, getPostsByID, NewComment, getComments}; 

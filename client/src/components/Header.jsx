@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { Link, NavLink, useNavigate } from 'react-router-dom'; 
 import { useSelector, useDispatch } from 'react-redux';
 import { loggout } from '../redux/authenticationSlice';
@@ -13,6 +13,18 @@ const Header = () => {
   const isLogged = useSelector((state) => state.userAuthentication.loggedIn);
 
     const [ isMobileMenuOpened, setIsMobileMenuOpened ] = useState(false); 
+    const [ userRole, setUserRole ] = useState(false); 
+
+    useEffect(() => {
+      const role = localStorage.getItem("usersRole"); 
+      if (role) {
+        console.log(role);
+        setUserRole(role); 
+      }
+    }, []);  
+
+    const isAdmin = userRole === "admin"; 
+    console.log(isAdmin); 
 
     const handleMobileMenu = () => {
       setIsMobileMenuOpened(!isMobileMenuOpened)
@@ -37,9 +49,9 @@ const Header = () => {
     }; 
 
     const menuItems = [ 
-      {title: "Articles", link: "/article"}, 
-      {title: "Accueil", link: "/"}, 
-      {title: "A propos", link: "/apropos"}, 
+      {title: "Articles", link: "/article", show: isAdmin, }, 
+      {title: "Accueil", link: "/",}, 
+      {title: "A propos", link: "/apropos", }, 
       {title: isLogged ? "Log out" : "Login", link: isLogged ? "" : "/login"},
   ];
 
@@ -50,7 +62,7 @@ const Header = () => {
       {title: "Lifestyle" , link: "/category/lifestyle"},
       {title: "Cuisine" , link: "/category/cuisine"},
       {title: "A propos", link: "/apropos"}, 
-      {title: "Login", link: "/login"},
+      {title: isLogged ? "Log out" : "Login", link: isLogged ? "" : "/login"},
     ];
 
   return (
@@ -60,7 +72,13 @@ const Header = () => {
               <img src={Logo} alt="logo" className="logo--btn" />
             </Link>
             <ul className="desktop--menu">
-                {menuItems.map((menuItem) => <li><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)}>{menuItem.title}</NavLink></li>)}
+                {menuItems.map((menuItem) => { 
+                  if (menuItem.show !== false) { 
+                    return (
+                      <li><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)}>{menuItem.title}</NavLink></li>
+                      );
+                   } return null; 
+                  })}
             </ul>
             { isMobileMenuOpened ? <IoClose size={25} className="mobile-menu-btn" onClick={handleMobileMenu} /> : <LuMenu size={25}  className="mobile-menu-btn" onClick={handleMobileMenu}/>}
             { isMobileMenuOpened ? <ul className="mobile--menu">

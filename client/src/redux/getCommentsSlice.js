@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
-//import { fetchPosts } from './postSlice';
 
 const URL = process.env.REACT_APP_COMMENTS; 
 

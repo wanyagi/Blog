@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom'; 
 import { useDispatch } from 'react-redux'; 
 import { addComment } from '../redux/commentsSlice';
-import Cookies from 'js-cookie'; 
-import { jwtDecode } from 'jwt-decode'; 
 import './Comments.css';
 
 const Comments = () => {
@@ -19,15 +17,7 @@ const Comments = () => {
   const handleCommentSubmission = (event) => {
     event.preventDefault(); 
 
-    const accessToken = Cookies.get("accesstoken"); 
-    console.log(accessToken); 
-    if (!accessToken) {console.log("empty"); return;} 
-
-    const decodeToken = jwtDecode(accessToken); 
-    const userId = decodeToken.user.users_id;
-    const userName = decodeToken.user.username;
-
-    dispatch(addComment({posts_id: id, user: userId, username: userName, comment})); 
+    dispatch(addComment({id, comment})); 
     setComment('')
   }; 
 

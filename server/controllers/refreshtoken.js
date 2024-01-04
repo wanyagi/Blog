@@ -1,18 +1,31 @@
-require('dotenv').config(); 
+const jwt = require('../utils/jwtgenerator'); 
 
-const refreshToken = async (request, response) => {
+const refreshTheToken = (request, response) => {
+
+    const refreshToken = request.cookies.refreshtoken; 
+
     try {
-        const refreshToken = request.cookies.refreshtoken; 
-        if (!refreshToken) return response.status(401).json({error: error.message}); 
-        jwtgenerator.verify(refreshToken, process.env.REFRESHTOKEN_KEY, (error, user) => {
-            if (error) return response.status(403).json({error: error.message});
-            const token = jwt(user); 
-            response.cookie('refreshtoken', token.refreshToken, {httpOnly: true}); 
-            response.json(token)
+        if (!refreshToken) return response.status(401).json({message : "token unavailable"}); 
+        jwt.verify(refreshToken, process.env.REFRESHTOKEN_KEY, (error, decoded) => {
+            if (error) return response.status(401).json({error: error.message}); 
+            const { users_id, users_role, username } = decoded.user;
+            let token = jwt(users_id, users_role, username); 
+            response.cookie('refreshtoken :', token.refreshToken, {httpOnly: true, secure: true, sameSite: "none" })
         })
     } catch (error) {
-        response.status(401).json({error: error.message})
+        response.status(401).json({error: error.message});
     }
 }; 
 
-module.exports = refreshToken; 
+const deleteToken = (request, response) => {
+    try {
+        response.clearCookie('refreshtoken'); 
+        return response.status(200).json({message: 'token deleted'}); 
+    } catch (error) {
+        response.status(401).json({error: error.message});
+    }
+}; 
+
+
+
+module.exports = { refreshTheToken, deleteToken }; 

@@ -2,12 +2,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const URL = process.env.REACT_APP_COMMENTS; 
 
-export const comments = createAsyncThunk("comments/addComments", async ({posts_id, userId, username, comment}, thunkAPI) => {
+export const comments = createAsyncThunk("comments/addComments", async ({id, comment}, thunkAPI) => {
     try {
         const response = await fetch(URL, {
             method: "POST", 
-            body: JSON.stringify({posts_id, user: userId, username, comment}), 
-            headers: { "Content-Type" : "application/json"}
+            body: JSON.stringify({id, comment}), 
+            headers: { "Content-Type" : "application/json"},
+            credentials: "include", 
         }); 
         const responseData = await response.json(); 
 

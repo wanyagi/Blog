@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
 
-const URL = process.env.REACT_APP_LOGIN;  
+const URL = process.env.REACT_APP_LOGIN; 
 
 export const Authentication = createAsyncThunk("user/authentication", async ({username, password}, thunkAPI) => {
     try {
@@ -11,9 +11,12 @@ export const Authentication = createAsyncThunk("user/authentication", async ({us
             credentials: "include", 
         }); 
         const responseData = await response.json(); 
+        
          
-        if (!response.ok) {
-            throw new Error("vérifiez vos corrdonnées...")
+        if (response.ok) {
+            localStorage.setItem("usersRole", responseData.usersRole); 
+        } else {
+            throw new Error("vérifiez vos corrdonnées..."); 
         }
         return responseData; 
     } catch (error) {

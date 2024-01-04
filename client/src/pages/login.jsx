@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'; 
-import { Link, Navigate } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import { useSelector, useDispatch } from 'react-redux'; 
 import { Authentication } from '../redux/authenticationSlice';
 import Formulaire from '../assets/Formulaire.jpeg'; 
@@ -18,14 +18,17 @@ const Login = () => {
   const user = useSelector((state) => state.userAuthentication.user); 
   const error = useSelector((state) => state.userAuthentication.error);
   const dispatch = useDispatch();
+  const navigate = useNavigate(); 
 
-  const handleSubmission = (event) => {
+  const handleSubmission = async (event) => {
 
     event.preventDefault(); 
  
-    dispatch(Authentication(enteredValues)); 
+    const result = await dispatch(Authentication(enteredValues)); 
+    if (Authentication.fulfilled.match(result)) {
+      navigate('/')
+    } 
 
-    //setEnteredValues(""); 
   }; 
 
 
@@ -50,7 +53,7 @@ const Login = () => {
               </p>
           </div>
           {error && <div className="error--display">There's an error...</div>}
-          {user ? <Navigate to="/" /> : null}
+          {user ? <navigate to="/" /> : null}
         </form>
     </section>
   )

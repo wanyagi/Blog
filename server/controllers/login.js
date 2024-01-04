@@ -10,23 +10,23 @@ const logUser = async (request, response) => {
 
         const user = await pool.query(getUsername, [username]);
         if (user.rows.length === 0) {
-            return response.status(401).json("Nom d'utilisateur incorrect")
+            return response.status(401).json("Nom d'utilisateur incorrect");
         } 
 
         const usersPassword = await bcrypt.compare(password, user.rows[0].users_password); 
         if (!usersPassword) {
-            return response.status(401).json("Mot de passe incorrect")
+            return response.status(401).json("Mot de passe incorrect");
         }
 
-        const token = jwt(user.rows[0].id, user.rows[0].users_role, username); 
-        response.cookie('accesstoken', token.accessToken, {httpOnly: true, secure: true, sameSite: "none", maxAge: 24 * 60 * 60 * 1000})
-        response.status(200).json(token)
+        const token = jwt(user.rows[0].users_id, user.rows[0].users_role, username); 
+        response.cookie('accesstoken :', token.accessToken, {httpOnly: true, secure: true, sameSite: "none", maxAge: 10 * 60 * 1000 });
+        response.cookie('refreshtoken :', token.refreshToken, {httpOnly: true, secure: true, sameSite: "none" });
+        response.status(200).send({usersRole: user.rows[0].users_role}); 
     } catch (error) {
         console.error(error); 
-        response.status(500).json('server error')
+        response.status(401).json({error: error.message});
     }
      
 }; 
-
 
 module.exports = logUser; 

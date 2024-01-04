@@ -3,12 +3,13 @@ const { NewComment, getComments } = require('../Queries');
 
 const addComment = async (request, response) => {
 
-    const { post_id, comment } = request.body; 
-    const { user_id } = request.user; 
+    const { id, comment } = request.body; 
+    const { users_id, username } = request.user; 
 
     try {
+
         console.log(NewComment); 
-        const newComment = await pool.query(NewComment, [user_id, post_id, comment]); 
+        const newComment = await pool.query(NewComment, [users_id, id, username, comment]); 
         response.status(200).json(newComment); 
         console.log(newComment.rows[0]); 
     } catch (error) {

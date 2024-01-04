@@ -1,14 +1,16 @@
 const express = require("express"); 
 const app = express(); 
+const cookieParser = require('cookie-parser');
 const cors = require("cors"); 
 require('dotenv').config();  
 
 
-const Port = 5000;
+const Port = 5000 || process.env.PORT ;
 
 app.use(cors({ origin: process.env.URL, credentials: true, })); 
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser()); 
 app.use('/uploads', express.static('uploads')); 
 app.use('/uploads/images', express.static('uploads/images')); 
 

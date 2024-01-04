@@ -1,19 +1,20 @@
-const authorizationMiddleware = async (request, response, next) => {
+const authorizationMiddleware = (request, response, next) => {
     
-    try {
-        const authorizationToken = await request.headers['authorization']; 
-        const token = await authorizationToken && authorizationToken.split(' ')[1]; 
-        if (!token) {
-            return response.status(403).json("acces refuser"); 
-        } 
-        jwt.verify(token, process.env.ACCESSTOKEN, (error, user) => {
-            if (error) return response.status(403).json({error: error.message}); 
-            request.user = user; 
-            next(); 
-        })
-    } catch (error) {
-        return response.status(403).json("acces refuser"); 
-    }; 
+    const authorizationToken = request.headers['authorization']; 
+    const token = authorizationToken && authorizationToken.split(' ')[1]; 
+    if (!token) {
+        return response.status(403).json("pas de token"); 
+    } 
+    jwt.verify(token, process.env.ACCESSTOKEN_KEY, (error, decoded) => {
+        if (error) return response.status(403).json({error: error.message}); 
+        request.user = {
+            id: decoded.user.users_id,
+            username: decoded.user.username,
+            role: decoded.user.users_role
+        }; 
+        next(); 
+    })
+
 }; 
 
 module.exports = { authorizationMiddleware }; 

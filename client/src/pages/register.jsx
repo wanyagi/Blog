@@ -1,5 +1,5 @@
 import React, { useState } from 'react'; 
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import { useDispatch, useSelector} from 'react-redux';
 import { fetchUser } from '../redux/registerSlice';
 import Formulaire from '../assets/Formulaire.jpeg'; 
@@ -17,13 +17,18 @@ const Register = () => {
   const dispatch = useDispatch(); 
   const loading = useSelector((state) => state.register.loading); 
   const error = useSelector((state) => state.register.error); 
+
+  const navigate = useNavigate(); 
  
 
-  const handleSubmission = (event) => {
+  const handleSubmission = async (event) => {
 
     event.preventDefault();
 
-    dispatch(fetchUser(enteredValues)); 
+    const result = await dispatch(fetchUser(enteredValues)); 
+    if (fetchUser.fulfilled.match(result)) {
+      navigate('/login'); 
+    }
 
   }; 
 
