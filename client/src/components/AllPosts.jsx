@@ -21,7 +21,7 @@ const Posts = () => {
     const sortedPosts = posts.slice().sort((recent, ancient) => moment(ancient.posts_date) - moment(recent.posts_date)); 
 
     if (loading) { return <div className="loading--state">Patientez...</div> };
-    if (error) { return <div className="error--state">Veuillez réessayez plustard.</div> };
+    if (error) { return <div className="error--state">Un article arrivera bientôt.</div> };
 
 
 

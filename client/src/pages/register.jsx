@@ -1,11 +1,13 @@
 import React, { useState } from 'react'; 
-import { Link, useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
 import { useDispatch, useSelector} from 'react-redux';
 import { fetchUser } from '../redux/registerSlice';
 import Formulaire from '../assets/Formulaire.jpeg'; 
 import './register.css'; 
 
 const Register = () => {
+
+  const navigate = useNavigate(); 
 
   const values = { name: "", username: "", email: "", password: "", }; 
   const [ enteredValues, setEnteredValues ] = useState(values);
@@ -18,16 +20,13 @@ const Register = () => {
   const loading = useSelector((state) => state.register.loading); 
   const error = useSelector((state) => state.register.error); 
 
-  const navigate = useNavigate(); 
- 
-
   const handleSubmission = async (event) => {
 
     event.preventDefault();
 
     const result = await dispatch(fetchUser(enteredValues)); 
     if (fetchUser.fulfilled.match(result)) {
-      navigate('/login'); 
+      navigate('/'); 
     }
 
   }; 
@@ -53,10 +52,6 @@ const Register = () => {
             </button>
             <p>
               {loading && <div>Veuillez patienter...</div>}
-              Tu fais déjà parti de la cummuntauté ?<br /> 
-              <Link to="/login">
-                connectes toi
-              </Link>
             </p>
           </div>
       </form>

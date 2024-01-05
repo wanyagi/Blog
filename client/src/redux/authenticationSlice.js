@@ -14,11 +14,11 @@ export const Authentication = createAsyncThunk("user/authentication", async ({us
         
          
         if (response.ok) {
-            localStorage.setItem("usersRole", responseData.usersRole); 
+            const data = localStorage.setItem("users_role", responseData.users_role); 
+            return data; 
         } else {
             throw new Error("vérifiez vos corrdonnées..."); 
         }
-        return responseData; 
     } catch (error) {
         //console.error(error.message); 
         return thunkAPI.rejectWithValue(error.message); 
@@ -41,10 +41,10 @@ export const authenticationSlice = createSlice({
     extraReducers: (builder) => {
         builder
           .addCase(Authentication.pending, (state) => {
-              state.loading = true; 
+            state.loading = true; 
           }) 
           .addCase(Authentication.fulfilled, (state, action) => {
-            state.user = action.payload.username; 
+            state.user = action.payload; 
             state.loggedIn = true;
             state.loading = false;
             state.error = null; 

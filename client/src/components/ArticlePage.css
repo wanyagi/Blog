@@ -35,13 +35,15 @@
 p {
     text-align: justify; 
     line-height: 1.6;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .article--review {
     align-self: end;
     justify-self: end;
-    margin: 20px 0px; 
+    margin: 20px 0px;
+    white-space: nowrap; 
+    display: none;
 } 
 
 .articles--content h1 {
@@ -52,14 +54,13 @@ p {
 
 .articles--content h2 {
     font-size: 1.7rem;
-    font-weight: 600;
+    font-weight: normal;
 }
 
 .articles--content h3, .articles--content h4, .articles--content h5, .articles--content h6 {
     font-size: 1.4rem;
     font-weight: 500;
 }
-
 
 @media screen and (max-width: 1024px) {
 
@@ -73,13 +74,14 @@ p {
         width: 90vw;
         height: 400px;
         object-fit: cover;
-        margin: 50px; 
+        margin-top: 50px;
+        margin-bottom: 10px; 
         border-radius: 10px;
     }
     
     .articles--content > * {
         grid-column: 1/ -1;
-        margin: auto 50px; 
+        margin: auto 25px;  
     }
     
     .articles--content img {
@@ -91,19 +93,25 @@ p {
     }
 
     .articles--content h1 {
-        font-size: 1.7rem;
-        font-weight: bold;
+        font-size: 1.4rem;
+        font-weight: 800;
     }
 
     .articles--content h2 {
-        font-size: 1.5rem;
-        font-weight: 600;
+        font-size: 1.2rem;
+        font-weight: normal;
+    }
+    
+    .articles--content h3, .articles--content h4, .articles--content h5, .articles--content h6 {
+        font-size: 1.1rem;
+        font-weight: 500;
     }
 
     p {
         text-align: justify;
-        font-size: 16px; 
-        line-height: 1;
+        font-size: 12px; 
+        line-height: 1.5;
+        white-space: nowrap;
     }
 
     .article--review {
@@ -142,7 +150,7 @@ p {
 
     .articles--content h1 {
         font-size: 1.7rem;
-        font-weight: bold;
+        font-weight: 600;
     }
 
     .articles--content h2 {
@@ -152,11 +160,24 @@ p {
 
     p {
         text-align: justify;
-        font-size: 16px; 
+        font-size: 12px; 
         line-height: 1;
+        white-space: nowrap;
     }
 
     .article--review {
        display: none; 
     } 
+
+}
+
+@media (min-width: 415px) and (max-width: 932px) {
+    p {
+        grid-column: 1 / -1;
+        text-align: justify;
+        font-size: 18px; 
+        line-height: 1.6;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+    }
 }

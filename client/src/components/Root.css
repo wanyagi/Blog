@@ -123,13 +123,14 @@ background-color: black;
 .footer--list {
 display: flex;
 width: 100%;
-justify-content: flex-start;
-align-items: flex-start;
+justify-content: flex-end;
+align-items: flex-end;
 gap: 20px; 
 font-size: 18px;
 font-weight: 500;
 border-radius: 5px;
 cursor: pointer;
+margin-right: 15px;
 }
 
 .footer--list a {
@@ -165,11 +166,11 @@ cursor: pointer;
   }
 
   .footer--list {
+    margin-top: 50px;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-right: 15px;
   }
 
-  .icons {
-    margin-bottom: 50px;
-    overflow: visible;
-  }
 } 

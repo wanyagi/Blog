@@ -22,6 +22,7 @@
 
 @media screen and (max-width: 1024px) {
     .cgv--content {
+        margin-top: 50px;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px; 
     }

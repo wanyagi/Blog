@@ -1,31 +1,19 @@
 import React from 'react'; 
-import { FaInstagram, FaTiktok } from 'react-icons/fa6'; 
 import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
+
+  const footerItems = [
+    {title: "CGV", link: "/cgv", },
+    {title: "Instagram", link: "https://www.instagram.com/sayfemums/?igsh=ODA1NTc5OTg5Nw%3D%3D&utm_source=qr",},
+    {title: "Tiktok", link: "https://www.tiktok.com/@sayfemums?_t=8im7Gqd16H2&_r=1",},
+  ]; 
+
   return (
     <footer className="footer">
-            <ul className="footer--list">
-                <li>
-                  <NavLink to="/cvg">
-                    CGV
-                  </NavLink>
-                </li>
-                <li>
-                 <NavLink to="/contact">
-                    Contact
-                 </NavLink>
-                </li>
-            </ul>
-
-            <div className="icons">
-              <NavLink to="https://www.instagram.com/">
-                <FaInstagram size={45} />
-              </NavLink>
-              <NavLink to="https://www.tiktok.com/fr/">
-                <FaTiktok size={38} />
-              </NavLink>
-            </div>
+      <ul className="footer--list">
+        {footerItems.map((footerItem) => <li><NavLink to={footerItem.link}>{footerItem.title}</NavLink></li>)}
+      </ul>
     </footer>
   )
 }; 
