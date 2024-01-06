@@ -1,12 +1,44 @@
-import React, { useState } from 'react'; 
-import { Link, NavLink, } from 'react-router-dom'; 
+import React, { useState, useEffect } from 'react'; 
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { loggout } from '../redux/authenticationSlice'; 
 import { IoClose } from "react-icons/io5"; 
 import { LuMenu } from "react-icons/lu"; 
 import Logo from '../assets/Logo.png'; 
 
 const Header = () => {
 
-    const [ isMobileMenuOpened, setIsMobileMenuOpened ] = useState(false); 
+    const [ isMobileMenuOpened, setIsMobileMenuOpened ] = useState(''); 
+    const [ userRole, setUserRole ] = useState('');
+    
+    const dispatch = useDispatch(); 
+    const navigate = useNavigate(); 
+    const isLogged = useSelector((state) => state.userAuthentication.loggedIn);
+
+    const handleLogout = () => {
+      dispatch(loggout()); 
+      navigate('/'); 
+    }; 
+
+    const handleClick = (menuItem) => {
+      closeMobileMenu(); 
+      if (menuItem.title === "Log out") {
+        handleLogout(); 
+      } else {
+        navigate(menuItem.link)
+      }
+    }; 
+
+    useEffect(() => {
+      const role = localStorage.getItem('users_role'); 
+      if (role) {
+        console.log(role.toLowerCase().trim());
+        setUserRole(role.toLowerCase().trim()); 
+      }
+    }, []);  
+
+    const isAdmin = userRole === 'admin';
+    console.log(isAdmin);  
 
 
     const handleMobileMenu = () => {
@@ -18,15 +50,12 @@ const Header = () => {
     }; 
 
 
-    const handleClick = () => {
-      closeMobileMenu(); 
-    }; 
-
     const menuItems = [ 
+      isAdmin ? {title: "Post", link: "/article",} : null, 
       {title: "Accueil", link: "/",}, 
       {title: "A propos", link: "/apropos", }, 
-      {title: "Post", link: "/article", }, 
-  ];
+      {title: isLogged ? "Log out" : "Login", link: isLogged ? "" : "/login"}, 
+  ].filter(Boolean);
 
     const mobileMenuItems = [  
       {title: "Accueil", link: "/"},
@@ -34,7 +63,8 @@ const Header = () => {
       {title: "Bien-être" , link: "/category/bien-être"},
       {title: "Lifestyle" , link: "/category/lifestyle"},
       {title: "Cuisine" , link: "/category/cuisine"},
-      {title: "A propos", link: "/apropos"}, 
+      {title: "A propos", link: "/apropos"},
+      {title: isLogged ? "Log out" : "Login", link: isLogged ? "" : "/login"}, 
     ];
 
   return (

@@ -1,6 +1,6 @@
 const express = require('express'); 
 const articleRouter = express.Router(); 
-const newArticle = require('../controllers/article'); 
+const newArticle = require('../controllers/article');  
 const multer  = require('multer'); 
 
 const storage = multer.diskStorage({

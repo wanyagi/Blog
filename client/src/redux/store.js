@@ -6,6 +6,8 @@ import commentReducer from './commentsSlice';
 import postsByCategoryReducer from './postsByCategorySlice';
 import postsByIDReducer from './postsByIDSlice';
 import getCommentsReducer from './getCommentsSlice';
+import newTokenReducer from './refreshAccesTokenSlice'; 
+import deleteTokenReducer from './deleteTokenSlice';
 
 export const store = configureStore({
     reducer: {
@@ -16,6 +18,8 @@ export const store = configureStore({
         postsbycategory: postsByCategoryReducer,
         postsbyid: postsByIDReducer, 
         comments: getCommentsReducer,  
+        newToken: newTokenReducer, 
+        deleteToken: deleteTokenReducer,
     }
 }); 
 

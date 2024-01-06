@@ -1,6 +1,7 @@
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom'; 
 import { useDispatch, useSelector} from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchUser } from '../redux/registerSlice';
 import Formulaire from '../assets/Formulaire.jpeg'; 
 import './register.css'; 
@@ -26,7 +27,7 @@ const Register = () => {
 
     const result = await dispatch(fetchUser(enteredValues)); 
     if (fetchUser.fulfilled.match(result)) {
-      navigate('/'); 
+      navigate('/login'); 
     }
 
   }; 
@@ -52,6 +53,10 @@ const Register = () => {
             </button>
             <p>
               {loading && <div>Veuillez patienter...</div>}
+              Tu fais déjà parti de la cummuntauté ?<br /> 
+              <Link to="/login">
+                connectes toi
+              </Link>
             </p>
           </div>
       </form>

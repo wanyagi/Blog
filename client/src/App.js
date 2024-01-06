@@ -4,7 +4,7 @@ import Root from './components/Root';
 import Home from './components/Home';
 import ArticlePage from './components/ArticlePage';
 import Apropos from './pages/apropos';
-//import Login from './pages/login';
+import Login from './pages/login';
 import Register from './pages/register'; 
 import Articles from './pages/articles';
 import PmCGV from './pages/cgv';
@@ -18,7 +18,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route index element={ <Home /> } />
     <Route path="/article" element={ <Article /> } />
     <Route path="/apropos" element={ <Apropos /> } />
-    {/*<Route path="/login" element={ <Login /> } />*/}
+    <Route path="/login" element={ <Login /> } />
     <Route path="/register" element={ <Register /> } />
     <Route path="/category/:category" element={ <PostsByCategory />} />
     <Route path="/articles" element={ <Articles /> } />

@@ -2,7 +2,7 @@ const express = require('express');
 const refreshTokenRouter = express.Router(); 
 const { refreshTheToken, deleteToken} = require('../controllers/refreshtoken'); 
 
-refreshTokenRouter.get('/', refreshTheToken); 
-refreshTokenRouter.post('/', deleteToken); 
+refreshTokenRouter.post('/', refreshTheToken); 
+refreshTokenRouter.delete('/', deleteToken);  
 
 module.exports = refreshTokenRouter; 

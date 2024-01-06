@@ -1,11 +1,13 @@
 const authorizationMiddleware = (request, response, next) => {
+
+    const accessToken = request.cookies.accesstoken; 
     
-    const authorizationToken = request.headers['authorization']; 
-    const token = authorizationToken && authorizationToken.split(' ')[1]; 
-    if (!token) {
-        return response.status(403).json("pas de token"); 
+    /*const authorizationToken = request.headers['authorization']; 
+    const token = authorizationToken && authorizationToken.split(' ')[1]; */
+    if (!accessToken) {
+        return response.status(403).json({message: "Connectez vous"}); 
     } 
-    jwt.verify(token, process.env.ACCESSTOKEN_KEY, (error, decoded) => {
+    jwt.verify(accessToken, process.env.ACCESSTOKEN_KEY, (error, decoded) => {
         if (error) return response.status(403).json({error: error.message}); 
         request.user = {
             id: decoded.user.users_id,
@@ -15,6 +17,6 @@ const authorizationMiddleware = (request, response, next) => {
         next(); 
     })
 
-}; 
+};   
 
 module.exports = { authorizationMiddleware }; 

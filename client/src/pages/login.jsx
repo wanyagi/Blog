@@ -1,5 +1,5 @@
-import React, { useState }  from 'react'; 
-import { useNavigate } from 'react-router-dom'; 
+import React, { useState  }  from 'react'; 
+import { useNavigate, Link } from 'react-router-dom'; 
 import { useSelector, useDispatch } from 'react-redux'; 
 import { Authentication } from '../redux/authenticationSlice';
 import Formulaire from '../assets/Formulaire.jpeg'; 
@@ -46,6 +46,11 @@ const Login = () => {
               <button className="login--btn" type="submit">
                 Se connecter
               </button>
+              <p>Tu n'es pas encore inscrit ? <br />
+                <Link to="/register">
+                  rejoins nous
+                </Link>
+              </p>
           </div>
           {error && <div className="error--display">There's an error...</div>}
           {user ? <navigate to="/" /> : null}
