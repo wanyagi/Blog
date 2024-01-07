@@ -1,31 +1,31 @@
 .comment--section {
-    display: flex; 
-    flex-direction: column;
+    display: grid; 
+    grid-template-columns: repeat(12, 1fr); 
     margin-top: 20px;
-    width: 50vw;
     gap: 10px;
+    padding: 10px;
 } 
-
-.comment--section {
-    padding: 10px; 
-}
 
 .comment--section--button {
     margin-top: 10px;
+    grid-column: 4 / 10; 
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     cursor: pointer;
 }
 
-/*.display--section {
-    height: 50px;
-    width: 50px;
-} */
-
 
 @media screen and (max-width: 1024px) {
     .comment--section {
-        width: 77vw;
+        grid-template-columns: repeat(4, 1fr); 
+        width: 77vw; 
     } 
+}
+
+
+@media (min-width: 1025px) and (max-width: 1400px) {
+    .comment--section {
+        grid-template-columns: repeat(6, 1fr); 
+    }
 }

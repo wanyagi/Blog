@@ -32,7 +32,7 @@
     border-radius: 10px; 
 }
 
-p {
+.article--section p {
     text-align: justify; 
     line-height: 1.6;
     font-size: 16px;
@@ -57,12 +57,15 @@ p {
     font-weight: normal;
 }
 
-.articles--content h3, .articles--content h4, .articles--content h5, .articles--content h6 {
+.articles--content h3, 
+.articles--content h4, 
+.articles--content h5, 
+.articles--content h6 {
     font-size: 1.4rem;
     font-weight: 500;
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 1024px) {
 
     .articles--image, .articles--content {
         display: grid;
@@ -102,21 +105,34 @@ p {
         font-weight: normal;
     }
     
-    .articles--content h3, .articles--content h4, .articles--content h5, .articles--content h6 {
+    .articles--content h3, 
+    .articles--content h4, 
+    .articles--content h5, 
+    .articles--content h6 {
         font-size: 1.1rem;
         font-weight: 500;
     }
 
-    p {
+    .article--section p {
         text-align: justify;
-        font-size: 12px; 
+        font-size: 16px; 
         line-height: 1.5;
-        white-space: nowrap;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
     }
 
     .article--review {
        display: none; 
     } 
+
+    .article--section p {
+        grid-column: 1 / -1;
+        text-align: justify;
+        font-size: 18px; 
+        line-height: 1.6;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+    }
 }
 
 @media (min-width: 1025px) and (max-width: 1400px) {
@@ -158,11 +174,12 @@ p {
         font-weight: 600;
     }
 
-    p {
+    .article--section p {
         text-align: justify;
-        font-size: 12px; 
+        font-size: 16px; 
         line-height: 1;
-        white-space: nowrap;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
     }
 
     .article--review {
@@ -171,7 +188,7 @@ p {
 
 }
 
-@media (min-width: 415px) and (max-width: 932px) {
+/*@media (min-width: 415px) and (max-width: 1023px) {
     p {
         grid-column: 1 / -1;
         text-align: justify;
@@ -180,4 +197,4 @@ p {
         white-space: pre-wrap;
         overflow-wrap: break-word;
     }
-}
+} */

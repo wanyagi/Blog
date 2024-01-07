@@ -31,7 +31,7 @@ const Posts = () => {
           <div className={`posts ${index === 0 ? 'posts--recent' : ''}`} key={post.posts_id}>
           <img className="posts--image" src={post.posts_image} alt=""/>
           <div className="posts--description">
-          <h3>{post.posts_title}</h3>
+          <h2>{post.posts_title}</h2>
           <span className="date">{formatDate(post.posts_date)}</span>
           <p>{post.posts_category}</p>
           <p>{post.posts_description}</p>

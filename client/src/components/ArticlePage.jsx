@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { MdDelete } from 'react-icons/md'; 
 import { CiEdit } from "react-icons/ci";  
 import './ArticlePage.css'; 
+//import Comments from './Comments';
+//import CommentsDisplay from './CommentsDisplay';
 
 const ArticlePage = () => {
 
@@ -40,6 +42,8 @@ const ArticlePage = () => {
               <CiEdit size={30} style={{color: "blue"}} />
             </Link>
         </div>
+        { /*<CommentsDisplay />
+        <Comments />*/ }
         </div>
     </article>
   )

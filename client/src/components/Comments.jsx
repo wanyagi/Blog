@@ -8,13 +8,18 @@ import './Comments.css';
 const Comments = () => {
 
   const [ comment, setComment ] = useState(''); 
-  const { error } = useSelector((state) => state.accesToken); 
+  const { error } = useSelector((state) => state.newToken); 
   const dispatch = useDispatch(); 
   const { id } = useParams(); 
   console.log(useParams()); 
   console.log(id); 
 
-  const handleComment = (event) => setComment(event.target.value); 
+  const handleComment = (event) => {
+    setComment(event.target.value);
+    const textarea = event.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  }; 
 
   useEffect(() => {
     if (error === "Token expired") {
@@ -34,9 +39,9 @@ const Comments = () => {
     return (
       <form className="comment--section" onClick={handleCommentSubmission}>
         {error ? <div>{error.message}</div> : ""}
-        <textarea placeholder="Laisse un commentaire..." name="comments" id="comments" cols="30" rows="10" value={comment} onChange={handleComment}/>
+        <textarea placeholder="Laisse un commentaire..." name="comments" id="comments" value={comment} onChange={handleComment}/>
         <div className="comment--section--button">
-          <button type="submit">Poster</button>
+          <button type="submit">valider</button>
         </div>
       </form>
     )
