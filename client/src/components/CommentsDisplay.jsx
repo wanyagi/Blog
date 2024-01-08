@@ -9,21 +9,19 @@ const CommentsDisplay = () => {
   const {comments, loading, error } = useSelector((state) => state.comments); 
   const dispatch = useDispatch(); 
   const { id } = useParams(); 
-  console.log(`dispatch : ${id}`);
-  console.log(useParams());
 
   useEffect(() => {
     dispatch(fetchComments(id)); 
   }, [dispatch, id])
 
-  if (loading) { return <div className="loading--state">Patientez...</div> };
-  if (error) { return <div className="error--state">Veuillez réessayez plustard.</div> };
+  if (loading) { return <div className="comments--loading--state">Patientez...</div> };
+  if (error) { return <div className="comments--error--state">Il n'y a pas de commentaire.</div> };
 
 
     return (
-        <section className="display--section">
-            {!comments ? <div className="loading--state">Il n'y a pas de commentaire</div> : comments.map((comment) => (
-                <div key={comment.comment_id}>
+        <section className="comments--display--section">
+            {comments.map((comment) => (
+                <div className="displayed" key={comment.comment_id}>
                     <h6>{comment.comment_username}</h6>
                     <p>{comment.comment}</p>
                 </div>

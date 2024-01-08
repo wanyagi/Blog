@@ -6,7 +6,7 @@ export const comments = createAsyncThunk("comments/addComments", async ({id, com
     try {
         const response = await fetch(URL, {
             method: "POST", 
-            body: JSON.stringify({id, comment}), 
+            body: JSON.stringify({ id, comment }),
             headers: { "Content-Type" : "application/json"},
             credentials: "include", 
         }); 
@@ -43,7 +43,7 @@ export const commentSlice = createSlice({
           }) 
           .addCase(comments.fulfilled, (state, action) => {
             state.loading = false; 
-            state.comments = action.payload.comment; 
+            state.comments.push(action.payload);  
             state.error = null; 
           })
           .addCase(comments.rejected, (state) => {

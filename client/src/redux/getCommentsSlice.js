@@ -10,7 +10,7 @@ export const fetchComments = createAsyncThunk("comments/fetchComments", async (i
             throw new Error()
         } 
 
-        const responseData = response.json(); 
+        const responseData = await response.json(); 
         return responseData;
 
     } catch (error) {
@@ -34,13 +34,13 @@ export const getCommentsSlice = createSlice({
           }) 
           .addCase(fetchComments.fulfilled, (state, action) => {
             state.loading = false; 
-            state.comments = action.payload.comment; 
+            state.comments = action.payload; 
             state.error = null; 
           })
-          .addCase(fetchComments.rejected, (state) => {
+          .addCase(fetchComments.rejected, (state, action) => {
             state.loading = false; 
             state.comments = []; 
-            state.error = "There was an error. Please make sur you're signed in..."
+            state.error = action.payload;
           })
     }  
 }); 

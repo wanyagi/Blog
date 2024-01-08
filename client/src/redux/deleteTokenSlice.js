@@ -11,7 +11,7 @@ export const deleteTokens = createAsyncThunk("accessToken/deletesTokesn", async 
     }); 
 
     if(!response.ok) {
-      throw new Error("aurevoir"); 
+      throw new Error("something went wrong"); 
     }
 
     const responsedata = await response.json(); 
@@ -34,7 +34,7 @@ export const deleteTokenSlice = createSlice({
     })
     .addCase(deleteTokens.fulfilled, (state) => {
       state.loading = false; 
-      state.authenticated = null; 
+      state.authenticated = false; 
     })
     .addCase(deleteTokens.rejected, (state, action) => {
       state.loading = true;

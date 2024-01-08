@@ -7,8 +7,11 @@ const isAdminMiddleware = (request, response, next) => {
     } 
     jwt.verify(accessToken, process.env.ACCESSTOKEN_KEY, (error, decoded) => {
         if (error) return response.status(403).json({error: error.message}); 
-        request.user = {role: decoded.user.users_role}; 
-        request.user.users_role !== 'admin' ? request.isAdmin = false : request.isAdmin = true; 
+        request.user = { id: decoded.user.users_id, username: decoded.user.username, role: decoded.user.users_role }; 
+        if (request.user.role !== 'admin') {
+            return response.status(403).json({message: "accès refusé"}); 
+        }; 
+
         next(); 
     })
 

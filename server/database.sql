@@ -11,7 +11,7 @@ CREATE TABLE users (
 
 CREATE TABLE comments (
     comments_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    users_id uuid REFERENCES users(id),
+    users_id uuid REFERENCES users(users_id),
     posts_id uuid REFERENCES Posts(posts_id), 
     comment_username VARCHAR(255),
     comment VARCHAR(1000)

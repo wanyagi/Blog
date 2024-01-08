@@ -28,16 +28,34 @@ const getPostByID = async (request, response) => {
         } 
     } catch (error) {
         console.log(error)
-        response.status(400).send(`"error :" ${error.message}`)
+        response.status(401).send(`"error :" ${error.message}`); 
     }
 }; 
 
 const editPost = async (request, response) => {
-    response.send("yo")
+
+    const { id } = request.params;
+
+    try {
+        console.log(getPostsByID); 
+        const postEdit = await pool.query(getPostsByID, [id]);
+        if (postEdit.rows.length === 0 ) {
+            return response.status(403).json({message: error.message}); 
+        } else {
+            console.log(postEdit.rows[0]); 
+            response.status(200).json(postEdit.rows[0].posts_content); 
+        }
+    } catch (error) {
+        response.status(401).json(`"error :" ${error.message}`); 
+    }
 }; 
 
 const deletePost = async (request, response) => {
-    response.send("yo")
+
+    const { id } = request.params;
+    try {
+        //const postDelete
+    } catch (error) {} 
 };
 
 
