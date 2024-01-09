@@ -5,6 +5,8 @@
     width: 50%; 
     height: 100vh;
     margin: auto; 
+    font-size: 28px;
+    color: #ff5800; 
 }
 
 .form--contact {
@@ -55,4 +57,17 @@
 .form--contact button:hover {
     color: #ff5800; 
     cursor: pointer;
+}
+
+@media (max-width: 1400px) {
+
+    .contact--form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+    }
+
 }

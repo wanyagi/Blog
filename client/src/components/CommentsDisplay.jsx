@@ -22,8 +22,10 @@ const CommentsDisplay = () => {
         <section className="comments--display--section">
             {comments.map((comment) => (
                 <div className="displayed" key={comment.comment_id}>
-                    <h6>{comment.comment_username}</h6>
-                    <p>{comment.comment}</p>
+                    <div className="comment--container">
+                      <h6>{comment.comment_username}</h6>
+                      <p>{comment.comment}</p>
+                    </div>
                 </div>
             ))}
         </section>

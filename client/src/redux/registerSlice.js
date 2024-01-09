@@ -12,7 +12,7 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async ({name, userna
         const responseData = await response.json(); 
 
         if (!response.ok) {
-          throw new Error("vérifier vos coordonées")
+          return thunkAPI.rejectWithValue(responseData.errors);
         }
         return responseData; 
     } catch (error) { 

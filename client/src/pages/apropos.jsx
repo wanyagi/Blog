@@ -5,8 +5,8 @@ import './apropos.css';
 
 const Apropos = () => {
   return (
-    <section>
-      <div className="apropos">
+    <section className="apropos">
+      <div className="apropos-content">
         <img src={apropos} alt="Lindsay" aria-label="La raison de ce blog" />
         <h4>
           Qui suis-je ?

@@ -19,7 +19,7 @@ const Register = () => {
 
   const dispatch = useDispatch(); 
   const loading = useSelector((state) => state.register.loading); 
-  const error = useSelector((state) => state.register.error); 
+  //const error = useSelector((state) => state.register.error);
 
   const handleSubmission = async (event) => {
 
@@ -39,20 +39,16 @@ const Register = () => {
           <h2>Rejoins notre communauté</h2>
           <div className="inputs">
             <input required type="text" placeholder="Nom et Prénom :" name="name" id="name" onChange={(event) => handleChange('name', event.target.value)} value={enteredValues.name}/>
-            {error && <div className="register--errors">{error}</div>}
             <input required type="text" placeholder="Nom utilisateur :" name="username" id="username" onChange={ (event) => handleChange('username', event.target.value)} value={enteredValues.username}/>
-            {error && <div className="register--errors">{error}</div>}
             <input required type="email" placeholder="E-mail :" name="email" id="email" onChange={ (event) => handleChange('email', event.target.value)} value={enteredValues.email}/>
-            {error && <div className="register--errors">{error}</div>}
             <input required type="password" placeholder="Mot de passe :" name="password" id="password" onChange={ (event) => handleChange('password', event.target.value)} value={enteredValues.password}/>
-            {error && <div className="register--errors">{error}</div>}
           </div>
           <div className="form--buttons">
             <button className="form--btn" type="submit">
             Je m'incris
             </button>
             <p>
-              {loading && <div>Veuillez patienter...</div>}
+              {loading && <div className="patientez">Veuillez patientez...</div>}
               Tu fais déjà parti de la cummuntauté ?<br /> 
               <Link to="/login">
                 connectes toi

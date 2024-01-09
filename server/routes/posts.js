@@ -5,7 +5,7 @@ const { getAllPosts, getPostByID, editPost, deletePost } = require('../controlle
 postsRouter.get('/', getAllPosts);   
 postsRouter.get('/:id', getPostByID);   
 postsRouter.put('/:id', editPost); 
-postsRouter.delete('/:id', deletePost); 
+postsRouter.delete('/:id',deletePost); 
 
 
 module.exports = postsRouter; 

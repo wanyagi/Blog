@@ -13,9 +13,8 @@ export const fetchNewAccesToken = createAsyncThunk("accessToken/fetchNewAccessTo
     if(!response.ok) {
       throw new Error("Connectes toi"); 
     }
-
-    const responsedata = await response.json(); 
-    return responsedata; 
+ 
+    return true; 
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message); 
   }

@@ -77,7 +77,6 @@ const Article = () => {
 
         event.preventDefault();
         const content = quillRef.current.getEditor().root.innerHTML;
-        //const formattedDate = formatDate(date) 
 
         const data = new FormData(); 
         data.set('file', file); 
@@ -88,9 +87,9 @@ const Article = () => {
         data.set('content', content);
 
         try {
-            const response = await fetch(process.env.REACT_APP_NEW_BLOGPOST, {
-            method: "POST", 
-            body: data,
+          const response = await fetch(process.env.REACT_APP_NEW_BLOGPOST, {
+          method: "POST", 
+          body: data,
         })
         const responseData = await response.json(); 
 

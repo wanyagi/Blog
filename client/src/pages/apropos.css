@@ -1,4 +1,4 @@
-.apropos {
+/* .apropos {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,4 +124,73 @@
         display: none; 
     }
 
+} */
+
+.apropos {
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin: 100px 100px;
+}
+
+.apropos-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.apropos-content img {
+    grid-column: 4 / 10;
+    width: 100%;
+    height: 488px;
+    object-fit: cover;
+    margin-bottom: 30px;
+    border-radius: 5px;
+} 
+
+.apropos-content > * {
+    grid-column: 4 / 10;
+}
+
+.apropos-content p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.apropos h4 {
+    color: #ff5800; 
+}
+.apropos-content button {
+    margin-top: 50px;
+    justify-self: center;
+}
+
+
+
+@media (max-width: 1400px) {
+
+    .apropos {
+        display:  flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        margin: 100px 20px;
+    }
+
+    .apropos-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .apropos-content img {
+        grid-column: 1 / -1;
+    }
+
+    .apropos-content > * {
+        grid-column: 1 / -1;
+    }
+
+    .apropos-content p {
+        line-height: 1..6;
+        font-size: 16px;
+    }
 }

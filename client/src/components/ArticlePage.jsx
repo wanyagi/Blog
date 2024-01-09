@@ -13,8 +13,6 @@ import CommentsDisplay from './CommentsDisplay';
 const ArticlePage = () => {
 
   const { id } = useParams(); 
-  console.log(useParams()); 
-  console.log(id); 
   const dispatch = useDispatch(); 
   const { post, loading, error } = useSelector((state) => state.postsbyid); 
 
