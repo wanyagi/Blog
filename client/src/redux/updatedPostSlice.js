@@ -2,13 +2,14 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const URL = process.env.REACT_APP_BLOGPOSTS; 
 
-export const editPost = createAsyncThunk("post/editPost", async ( {id}, thunkAPI) => {
+export const updatedPost = createAsyncThunk("post/updatedPost", async ( {id, post}, thunkAPI) => {
     try {
 
       const response = await fetch(`${URL}/${id}`, {
         method: "PUT", 
         credentials: "include", 
         headers: {'Content-Type': "application/json"}, 
+        body: JSON.stringify(post),
       });
 
       if (!response.ok) {
@@ -26,25 +27,25 @@ export const editPost = createAsyncThunk("post/editPost", async ( {id}, thunkAPI
 
 const initialState = {posts: {}, loading: false, error: ""}; 
 
-export const editPostSlice = createSlice({
-    name: "editpost", 
+export const updatedPostSlice = createSlice({
+    name: "updatedpost", 
     initialState, 
     reducers: {}, 
     extraReducers: (builder) => {
         builder
-          .addCase(editPost.pending,  (state) => {
+          .addCase(updatedPost.pending,  (state) => {
             state.loading = true; 
           })
-          .addCase(editPost.fulfilled,  (state, action) => {
+          .addCase(updatedPost.fulfilled,  (state, action) => {
             state.loading = false;
-            state.editpost = action.payload; 
+            state.updatedpost = action.payload; 
             state.error = "";
           })
-          .addCase(editPost.rejected, (state,action) => {
+          .addCase(updatedPost.rejected, (state,action) => {
             state.loading = false; 
             state.error = action.payload; 
           })
     }
 }); 
 
-export default editPostSlice.reducer; 
+export default updatedPostSlice.reducer; 

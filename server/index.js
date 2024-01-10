@@ -15,6 +15,9 @@ app.use(cookieParser());
 app.use('/uploads', express.static('uploads')); 
 app.use('/uploads/images', express.static('uploads/images')); 
 
+const refreshToken = require('./routes/refreshtoken'); 
+app.use('/refreshtoken', refreshToken); 
+
 const registerRouter = require("./routes/register"); 
 app.use('/register', registerRouter); 
 
@@ -23,9 +26,6 @@ app.use('/login', loginRouter);
 
 const logoutRouter = require('./routes/logout'); 
 app.use('/logout', logoutRouter); 
-
-const refreshToken = require('./routes/refreshtoken'); 
-app.use('/refreshtoken', refreshToken); 
 
 const articleRouter = require('./routes/article'); 
 app.use('/article', articleRouter); 

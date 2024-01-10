@@ -1,5 +1,5 @@
 const pool = require('../database');
-const { getPosts, getPostsByID } = require('../Queries'); 
+const { getPosts, getPostsByID, editPostByID, deletePostByID } = require('../Queries'); 
 
 const getAllPosts = async (request, response) => {
     try {
@@ -34,11 +34,12 @@ const getPostByID = async (request, response) => {
 
 const editPost = async (request, response) => {
 
+    const { posts_image, posts_title, posts_date, posts_description, posts_category, posts_content } = request.body;
     const { id } = request.params;
 
     try {
-        console.log(getPostsByID); 
-        const postEdit = await pool.query(getPostsByID, [id]);
+        console.log(editByID); 
+        const postEdit = await pool.query(editPostByID, [posts_image, posts_title, posts_date, posts_description, posts_category, posts_content, id]);
         if (postEdit.rows.length === 0 ) {
             return response.status(403).json({message: error.message}); 
         } else {
@@ -54,8 +55,13 @@ const deletePost = async (request, response) => {
 
     const { id } = request.params;
     try {
-        //const postDelete
-    } catch (error) {} 
+        const postDelete = await pool.query(deletePostByID, [id]); 
+        console.log(deletePostByID); 
+        console.log(postDelete); 
+        response.status(200).send('Post deleted successfully'); 
+    } catch (error) {
+        response.status(404).json(`"error :" ${error.message}`);
+    } 
 };
 
 

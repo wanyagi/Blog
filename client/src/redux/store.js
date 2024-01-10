@@ -9,7 +9,8 @@ import getCommentsReducer from './getCommentsSlice';
 import newTokenReducer from './refreshAccesTokenSlice'; 
 import deleteTokenReducer from './deleteTokenSlice';
 import deletePostReducer from './deletePostSlice'; 
-import editPostReducer from './editPostSlice';
+import updatedPostReducer from './updatedPostSlice';
+import getPostToUpdateReducer from './getPostToUpdateSlice';
 
 export const store = configureStore({
     reducer: {
@@ -23,7 +24,8 @@ export const store = configureStore({
         newToken: newTokenReducer, 
         deleteToken: deleteTokenReducer,
         deletePost: deletePostReducer,
-        editPost: editPostReducer,
+        updatedPost: updatedPostReducer,
+        posttoupdate: getPostToUpdateReducer,
     }
 }); 
 

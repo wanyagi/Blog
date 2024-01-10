@@ -1,4 +1,7 @@
-import React, { useState, useRef, useMemo } from 'react'; 
+import React, { useState, useRef, useMemo, useEffect } from 'react'; 
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { updatedPost } from '../redux/updatedPostSlice';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './article.css'; 
@@ -59,6 +62,10 @@ const Article = () => {
     ['clean'] ]), []); 
   
     const modules = useMemo(() => ({toolbar: {container: toolBarOptions, handlers: { image: imageHandler }}}), [toolBarOptions]);
+ 
+    const { post } = useSelector((state) => state.posttoupdate); 
+    const dispatch = useDispatch(); 
+    const { id } = useParams(); 
 
     const [ file, setFile ] = useState(""); 
     const [ titre, setTitre ] = useState(""); 
@@ -67,11 +74,37 @@ const Article = () => {
     const [ category, setCategory ] = useState(""); 
     const [ content, setContent ] = useState(""); 
 
+    useEffect(() => {
+      console.log(post); 
+      if (post) {
+        setFile(post.posts_image); 
+        setTitre(post.posts_title);
+        setDate(post.posts_date);
+        setDescription(post.posts_description);
+        setCategory(post.posts_category);
+        setContent(post.posts_content);
+      }
+    }, [post]);
+
     const handleFile = (event) => setFile(event.target.files[0]); 
     const handleTitre = (event) => setTitre(event.target.value); 
     const handleDescription = (event) => setDescription(event.target.value); 
     const handleDate = (event) => setDate(event.target.value); 
-    const handleCategory = (event) => setCategory(event.target.value); 
+    const handleCategory = (event) => setCategory(event.target.value);
+    
+    const handleUpdate = () => {
+      const updatedData = {
+        id: id, 
+        post: {
+          posts_image: file, 
+          posts_title: titre, 
+          posts_description: description, 
+          posts_date: date, 
+          posts_category: category, 
+          posts_content: content 
+        }
+      }; dispatch(updatedPost(updatedData)); 
+    };
 
     const handleSubmit = async (event) => {
 
@@ -101,6 +134,7 @@ const Article = () => {
         } catch (error) {
             console.error(error); 
         } 
+  
     }; 
 
     return (
@@ -135,6 +169,11 @@ const Article = () => {
           <div className="btn--publier">
             <button  type="submit">
               Publier
+            </button>
+          </div>
+          <div className="btn--publier">
+            <button  onClick={handleUpdate}>
+              M.A.J
             </button>
           </div>
         </div>
