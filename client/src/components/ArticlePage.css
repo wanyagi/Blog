@@ -9,6 +9,7 @@
 .articles--image, .articles--content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    margin-bottom: 100px;
 }
 
 .article--image {
@@ -82,7 +83,7 @@
     }
     
     .articles--content > * {
-        grid-column: 1/ -1;
+        grid-column: 1 / -1;
         margin: auto 25px;  
     }
     
@@ -186,14 +187,3 @@
     } 
 
 }
-
-/*@media (min-width: 415px) and (max-width: 1023px) {
-    p {
-        grid-column: 1 / -1;
-        text-align: justify;
-        font-size: 18px; 
-        line-height: 1.6;
-        white-space: pre-wrap;
-        overflow-wrap: break-word;
-    }
-} */

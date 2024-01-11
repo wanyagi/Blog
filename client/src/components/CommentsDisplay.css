@@ -1,0 +1,20 @@
+.comments--display--section .c--title {
+    color: #ff5800;
+    margin: 0;
+}
+
+.comments--display--section .c--paragraphe {
+    margin: 0;
+}
+
+.displayed {
+    padding: 1rem 0;
+    background-color: hsla(0, 0, 75%, 10);
+    box-shadow: 5px 5px 5px hsla(0, 10%, 92%, 0.5);
+    border-radius: 10px;
+    grid-column: 4 / 10;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

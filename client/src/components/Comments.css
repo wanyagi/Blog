@@ -1,114 +1,38 @@
 .comment--section {
-    display: flex; 
-    flex-direction: column;
-    width: 50vw;
-    gap: 10px;
-} 
-
-.comment--section {
-    padding: 10px; 
-}
-
-#comment--section--button {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    cursor: pointer;
-}
-
-.comments--error--state, 
-.comments--loading--state {
-    color: orange; 
-}
-
-.comment--section--button {
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.comments--display--section {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-  text-align: left;
-  margin: 100px;
-} 
-
-.comments--display--section p{
-  font-size: 16px;
-  margin-left: 480px;
-} 
-
-.comments--display--section h6{
-    margin: 0;
-    margin-left: 480px;
-    font-size: 14px;
-    color: #ff5800; 
-} 
-
-@media (max-width: 1024px) {
-    .comment--section {
-        width: 90vw;
-    } 
-
-    .display--section {
-        height: 50px;
-        width: 50px;
-    } 
-
-    .comments--display--section p, .comments--display--section h6{
-      font-size: 16px;
-      margin-left: 27px;
-    } 
-
-} 
-
-
-/*.comment--section, .comments--display--section {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-}
+} 
 
 .comment--section textarea {
-    grid-column: 4 / 10;
+    width: 100%;
+    grid-column: 1 / -1;
     grid-row: 1;
+    margin-top: 50px;
 }
 
 .comment--section #comment--section--button {
-    grid-column: 8 / 10;
+    grid-column: 12;
     grid-row: 2;
-    justify-self: end;
-}  
-
-.comments--display--section {
-    grid-column: 4 / 10;
-    text-align: left;
+    align-self: end;
+    margin-bottom: 20px;
 }
 
-.comments--display--section p {
-    display: flex;
-    flex-direction: column;
-    grid-column: 4 / 10;
-    justify-self: start;
-    font-size: 18px;
-    justify-items: start;
-}
-
-.comments--display--section h6 {
-    grid-column: 4 / 10;
-    text-align: left;
-    justify-self: start;
-    font-size: 16px;
-}
 
 .comments--error--state, 
 .comments--loading--state {
-    color: orange; 
+    color: #ff5800; 
 }
 
 .comment--section--button {
     border-radius: 5px;
     cursor: pointer;
-} */
+} 
+
+
+@media (max-width: 1024px) {
+    .comment--section textarea {
+        grid-column: 1 / -1;
+        margin-top: 50px;
+    }
+} 
+

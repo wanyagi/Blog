@@ -8,7 +8,7 @@ import { MdDelete } from 'react-icons/md';
 import { CiEdit } from "react-icons/ci";  
 import './ArticlePage.css';
 import Comments from './Comments'; 
-import CommentsDisplay from './CommentsDisplay'; 
+import CommentsDisplay from './CommentsDisplay';
 
 const ArticlePage = () => {
 
@@ -51,9 +51,9 @@ const ArticlePage = () => {
               <MdDelete size={30} style={{color: "red"}} />
             </Link>
           </div>
+          <CommentsDisplay />
+          <Comments />
         </div>
-        <CommentsDisplay />
-        <Comments />
     </article>
   )
 }

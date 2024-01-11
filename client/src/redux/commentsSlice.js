@@ -18,7 +18,6 @@ export const comments = createAsyncThunk("comments/addComments", async ({id, com
             return responseData; 
         }
     } catch (error) {
-        console.error(error); 
         return thunkAPI.rejectWithValue(error.message); 
     }
 }); 
@@ -49,7 +48,7 @@ export const commentSlice = createSlice({
           .addCase(comments.rejected, (state) => {
             state.loading = false; 
             state.comments = []; 
-            state.error = "There was an error. Please make sur you're signed in..."
+            state.error = "Tu dois te connecter afin de poster un commentaire"; 
           })
     }  
 }); 

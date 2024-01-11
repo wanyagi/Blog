@@ -19,16 +19,13 @@ const Register = () => {
 
   const dispatch = useDispatch(); 
   const loading = useSelector((state) => state.register.loading); 
-  //const error = useSelector((state) => state.register.error);
 
   const handleSubmission = async (event) => {
 
     event.preventDefault();
 
-    const result = await dispatch(fetchUser(enteredValues)); 
-    if (fetchUser.fulfilled.match(result)) {
-      navigate('/login'); 
-    }
+    dispatch(fetchUser(enteredValues)); 
+    navigate('/login');
 
   }; 
 
