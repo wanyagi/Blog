@@ -1,5 +1,5 @@
 const pool = require('../database'); 
-const { NewComment, getComments } = require('../Queries'); 
+const { NewComment, getComments, deleteComment } = require('../Queries'); 
 
 const addComment = async (request, response) => {
 
@@ -8,31 +8,40 @@ const addComment = async (request, response) => {
     console.log(request.user) 
 
     try {
-
-        console.log(NewComment); 
         const newComment = await pool.query(NewComment, [usersid, id, username, comment]); 
         response.status(200).json(newComment); 
-        console.log(newComment.rows[0]); 
     } catch (error) {
-        console.error(error);
-        response.status(500).json({erro: error.message})
+        response.status(500).json({error: error.message})
     }
 }; 
 
 const viewComment = async (request, response) => {
 
+    const postId = request.params.id; 
+
     try {
-        console.log(getComments); 
-        const comments = await pool.query(getComments); 
+        const comments = await pool.query(getComments, [postId]); 
         if (!comments.rows) {
             response.status(200).send("empty")
         }
         response.status(200).send(comments.rows); 
-        console.log(comments.rows); 
-    } catch (error) {
-        console.error(error); 
+    } catch (error) { 
         response.status(400).json({error: error.message}); 
     }
 }; 
 
-module.exports = {addComment, viewComment}; 
+const deleteTheComment = async (request, response) => {
+
+    const comments_id = request.params.id; 
+
+    try {
+        console.log(deleteComment); 
+        const commentDeleted = await pool.query(deleteComment, [comments_id]); 
+        response.status(200).send('Comment deleted'); 
+    } catch (error) {
+        console.error(`this is the error: ${error}`)
+        response.status(404).json({error: error.message}); 
+    }
+}; 
+
+module.exports = {addComment, viewComment, deleteTheComment}; 

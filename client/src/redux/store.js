@@ -11,6 +11,7 @@ import deleteTokenReducer from './deleteTokenSlice';
 import deletePostReducer from './deletePostSlice'; 
 import updatedPostReducer from './updatedPostSlice';
 import getPostToUpdateReducer from './getPostToUpdateSlice';
+import deleteCommentReducer from './deleteCommentsSlice';
 
 export const store = configureStore({
     reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
         deletePost: deletePostReducer,
         updatedPost: updatedPostReducer,
         posttoupdate: getPostToUpdateReducer,
+        deleteComment: deleteCommentReducer, 
     }
 }); 
 

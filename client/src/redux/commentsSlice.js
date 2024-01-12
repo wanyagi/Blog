@@ -28,11 +28,7 @@ const initialState = {comments: [], loading: false, error: null, };
 export const commentSlice = createSlice({
     name: "comments", 
     initialState,
-    reducers: {
-        addComment: (state, action) => {
-            state.comments.push(action.payload); 
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
           .addCase(comments.pending, (state) => {
@@ -41,18 +37,16 @@ export const commentSlice = createSlice({
             state.error = null; 
           }) 
           .addCase(comments.fulfilled, (state, action) => {
-            state.loading = false; 
-            state.comments.push(action.payload);  
+            state.comments = [...state.comments, action.payload];
+            state.loading = false;  
             state.error = null; 
           })
-          .addCase(comments.rejected, (state) => {
+          .addCase(comments.rejected, (state, action) => {
             state.loading = false; 
             state.comments = []; 
-            state.error = "Tu dois te connecter afin de poster un commentaire"; 
+            state.error = action.payload; 
           })
     }  
 }); 
-
-export const { addComment } = commentSlice.actions;
 
 export default commentSlice.reducer; 

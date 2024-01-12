@@ -1,6 +1,15 @@
+
 .comments--display--section .c--title {
     color: #ff5800;
     margin: 0;
+}
+
+.delete--icon {
+    color: red; 
+    justify-self: end;
+    align-self: end;
+    margin-right: 20px;
+    cursor: pointer;
 }
 
 .comments--display--section .c--paragraphe {
@@ -8,11 +17,13 @@
 }
 
 .displayed {
-    padding: 1rem 0;
+    margin-bottom: 10px;
+    padding: 1rem 1rem;
     background-color: hsla(0, 0, 75%, 10);
     box-shadow: 5px 5px 5px hsla(0, 10%, 92%, 0.5);
-    border-radius: 10px;
+    border-radius: 10px; 
     grid-column: 4 / 10;
+    /*border: 1px solid #ff5800;*/
     text-align: left;
     display: flex;
     flex-direction: column;

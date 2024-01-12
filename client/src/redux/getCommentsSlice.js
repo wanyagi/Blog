@@ -7,10 +7,11 @@ export const fetchComments = createAsyncThunk("comments/fetchComments", async (i
         const response = await fetch(`${URL}/${id}`); 
 
         if (!response.ok) {
-            throw new Error()
+          throw new Error()
         } 
 
         const responseData = await response.json(); 
+        console.log(responseData)
         return responseData;
 
     } catch (error) {

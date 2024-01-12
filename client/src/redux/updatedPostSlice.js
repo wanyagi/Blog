@@ -1,15 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
-const URL = process.env.REACT_APP_BLOGPOSTS; 
+const URL = process.env.REACT_APP_ARTICLE; 
 
 export const updatedPost = createAsyncThunk("post/updatedPost", async ( {id, post}, thunkAPI) => {
     try {
 
+      console.log(`${URL}/${id}`)
       const response = await fetch(`${URL}/${id}`, {
         method: "PUT", 
+        headers: {'Content-Type': "application/json"},
         credentials: "include", 
-        headers: {'Content-Type': "application/json"}, 
-        body: JSON.stringify(post),
+        body: JSON.stringify(post), 
       });
 
       if (!response.ok) {
@@ -39,7 +40,6 @@ export const updatedPostSlice = createSlice({
           .addCase(updatedPost.fulfilled,  (state, action) => {
             state.loading = false;
             state.updatedpost = action.payload; 
-            state.error = "";
           })
           .addCase(updatedPost.rejected, (state,action) => {
             state.loading = false; 

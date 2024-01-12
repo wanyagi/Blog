@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'; 
-import { Link, useParams } from "react-router-dom"; 
+import { Link, useParams, useNavigate } from "react-router-dom"; 
 import { fetchPostsByID } from '../redux/postsByIDSlice';
 import { deletePost } from '../redux/deletePostSlice';
 import { fetchPostToUpdate } from '../redux/getPostToUpdateSlice';
@@ -15,18 +15,20 @@ const ArticlePage = () => {
   const { id } = useParams(); 
   const dispatch = useDispatch(); 
   const { post, loading, error } = useSelector((state) => state.postsbyid); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     dispatch(fetchPostsByID(id)); 
   }, [dispatch, id]);  
 
-  const handleEdit = () => {
-    dispatch((fetchPostToUpdate(id))); 
-  }
+  const handleEdit = () => {dispatch((fetchPostToUpdate(id)))}; 
 
-  const handleDelete = () => {
-    dispatch(deletePost({id})); 
+  const handleDelete = async () => {
+    await dispatch(deletePost({id})); 
+    navigate('/'); 
   };
+
+  const user = localStorage.getItem('users_role'); 
 
   if (loading) {return <div className="loading--state">Patientez...</div>}
   if (error) {return <div className="error--state">Un article arrivera bientôt.</div>}
@@ -43,14 +45,13 @@ const ArticlePage = () => {
             <h2>{post.posts_description}</h2>
           </div>
           <div dangerouslySetInnerHTML={{__html: post.posts_content}}/>
-          <div className="article--review" state={post}>
-            <Link to={`/article?edit=${id}`} onClick={handleEdit}>
+          {user === 'admin' && (<div className="article--review" state={post}>
+            <Link to={`/article/${id}`} onClick={handleEdit}>
               <CiEdit size={30} style={{color: "blue"}} />
             </Link>
-            <Link to={`/article?delete=${id}`} onClick={handleDelete}>
-              <MdDelete size={30} style={{color: "red"}} />
-            </Link>
-          </div>
+            <MdDelete className="delete--icon" size={30} style={{color: "red"}} onClick={handleDelete}/>
+          </div>)}
+          <div className="comments-header"><hr /><h3>Commentaires</h3><hr /></div>
           <CommentsDisplay />
           <Comments />
         </div>

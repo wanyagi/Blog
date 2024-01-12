@@ -1,5 +1,5 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react'; 
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updatedPost } from '../redux/updatedPostSlice';
 import ReactQuill from 'react-quill';
@@ -65,7 +65,10 @@ const Article = () => {
  
     const { post } = useSelector((state) => state.posttoupdate); 
     const dispatch = useDispatch(); 
-    const { id } = useParams(); 
+    const { id } = useParams();
+    console.log(`this is useparams : ${useParams()}`); 
+    console.log(`this is the id : ${id}`); 
+    const navigate = useNavigate(); 
 
     const [ file, setFile ] = useState(""); 
     const [ titre, setTitre ] = useState(""); 
@@ -91,8 +94,20 @@ const Article = () => {
     const handleDescription = (event) => setDescription(event.target.value); 
     const handleDate = (event) => setDate(event.target.value); 
     const handleCategory = (event) => setCategory(event.target.value);
-    
-    const handleUpdate = () => {
+
+    const handleSubmit = async (event) => {
+
+      event.preventDefault();
+      const content = quillRef.current.getEditor().root.innerHTML;
+
+      const data = new FormData(); 
+      data.set('file', file); 
+      data.set('titre', titre); 
+      data.set('description', description); 
+      data.set('date', date); 
+      data.set('category', category);
+      data.set('content', content);
+
       const updatedData = {
         id: id, 
         post: {
@@ -103,37 +118,31 @@ const Article = () => {
           posts_category: category, 
           posts_content: content 
         }
-      }; dispatch(updatedPost(updatedData)); 
-    };
+      }; 
 
-    const handleSubmit = async (event) => {
+      console.log(updatedData); 
 
-        event.preventDefault();
-        const content = quillRef.current.getEditor().root.innerHTML;
-
-        const data = new FormData(); 
-        data.set('file', file); 
-        data.set('titre', titre); 
-        data.set('description', description); 
-        data.set('date', date); 
-        data.set('category', category);
-        data.set('content', content);
-
+      if (id) {
+        await dispatch(updatedPost(updatedData)).then(() => {navigate('/')});
+      } else {
         try {
-          const response = await fetch(process.env.REACT_APP_NEW_BLOGPOST, {
+          const response = await fetch(process.env.REACT_APP_ARTICLE, {
           method: "POST", 
           body: data,
-        })
+        }); 
+        console.log(data); 
         const responseData = await response.json(); 
-
+  
         if (!response.ok) {
           throw new Error("Appel daniel"); 
         } else {
+          navigate('/'); 
           return responseData; 
         }
         } catch (error) {
-            console.error(error); 
+          console.error(error); 
         } 
+      }; 
   
     }; 
 
@@ -169,11 +178,6 @@ const Article = () => {
           <div className="btn--publier">
             <button  type="submit">
               Publier
-            </button>
-          </div>
-          <div className="btn--publier">
-            <button  onClick={handleUpdate}>
-              M.A.J
             </button>
           </div>
         </div>

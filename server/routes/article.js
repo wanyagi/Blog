@@ -1,6 +1,6 @@
 const express = require('express'); 
 const articleRouter = express.Router(); 
-const newArticle = require('../controllers/article');  
+const { newArticle, editArticle } = require('../controllers/article');  
 const multer  = require('multer'); 
 
 const storage = multer.diskStorage({
@@ -15,5 +15,6 @@ const storage = multer.diskStorage({
 const imageUploadMiddleware = multer({storage}); 
 
 articleRouter.post('/', imageUploadMiddleware.single('file'), newArticle); 
+articleRouter.put('/:id', editArticle); 
 
 module.exports = articleRouter; 

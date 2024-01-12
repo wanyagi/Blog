@@ -27,7 +27,7 @@ const catégorie = [
           <Catégorie  title={catégorie[1].title} page={catégorie[1].page} />
           <Catégorie  title={catégorie[2].title} page={catégorie[2].page} />
           <Catégorie  title={catégorie[3].title} page={catégorie[3].page} />
-          <Catégorie  title={catégorie[4].title} page={catégorie[4].page} />
+          <Catégorie  title={catégorie[4].title} page={catégorie[4].page} /> 
         </div>
       </section>
       <div className="posts--section"><Posts /></div>

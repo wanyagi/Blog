@@ -56,7 +56,6 @@ export const authenticationSlice = createSlice({
             state.loggedIn = false; 
             state.loading = false; 
             state.error = null;
-            state.accessTokenExpiryTime = null; 
             localStorage.removeItem('users_role'); 
         }, 
     }, 
@@ -70,7 +69,6 @@ export const authenticationSlice = createSlice({
             state.loggedIn = true;
             state.loading = false;
             state.error = null;
-            state.accessTokenExpiryTime = action.payload.accessTokenExpiryTime; 
             state.users_role = action.payload.users_role; 
           })
           .addCase(Authentication.rejected, (state) => {

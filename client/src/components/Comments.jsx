@@ -23,14 +23,15 @@ const Comments = () => {
 
     event.preventDefault(); 
 
-    dispatch(comments({id, comment}));  
-    setComment('')
+    dispatch(comments({id, comment}));
+    setComment('');
+
   }; 
 
 
     return (
       <form className="comment--section" onSubmit={handleCommentSubmission}>
-        {error ? <div>{error}</div> : ""}
+        {error && <div>{error}</div>}
         <textarea placeholder="Laisse un commentaire..." name="comments" id="comments" value={comment} onChange={handleComment}/>
         <div id="comment--section--button">
           <button className="comment--section--button" type="submit">Valider</button>

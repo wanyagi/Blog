@@ -1,5 +1,5 @@
 const pool = require('../database'); 
-const { NewPost } = require('../Queries'); 
+const { NewPost, editPostByID } = require('../Queries'); 
 require('dotenv').config(); 
 
 const newArticle =  async (request, response) => { 
@@ -13,17 +13,37 @@ const newArticle =  async (request, response) => {
     }
 
     const fileURL = `${URL}/${file.filename}`
-    //const filePath = file.path; 
+
 
     try {
         const newPost = await pool.query(NewPost, [fileURL, titre, date, description, category, content]);
-            response.status(200).send(newPost); 
-            console.log(newPost.rows[0]) 
+        response.status(200).send(newPost); 
     } catch (error) {
-        console.error(error); 
         response.status(500).json({error: error.message}); 
     }; 
 
 }; 
 
-module.exports = newArticle; 
+const editArticle = async (request, response) => {
+
+    const { posts_title, posts_date, posts_description, posts_category, posts_content } = request.body;
+    const { id } = request.params;
+    const file = request.file; 
+
+    const urlFile = `${URL}/${file.filename}`
+
+    try {
+        const postEdit = await pool.query(editPostByID, [urlFile, posts_title, posts_date, posts_description, posts_category, posts_content, id]);
+
+        if (postEdit.rows.length === 0 ) {
+            return response.status(403).json('error'); 
+        } else {
+            response.status(200).json(postEdit.rows[0].posts_content); 
+        }
+    } catch (error) {
+        console.error(error); 
+        response.status(401).json(`error : ${error.message}`); 
+    }
+}; 
+
+module.exports = {newArticle, editArticle }; 
