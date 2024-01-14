@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchUser } from '../redux/registerSlice';
+import { registerUser } from '../redux/registerSlice';
 import Formulaire from '../assets/Formulaire.jpeg'; 
 import './register.css'; 
 
@@ -24,7 +24,7 @@ const Register = () => {
 
     event.preventDefault();
 
-    dispatch(fetchUser(enteredValues)); 
+    dispatch(registerUser(enteredValues)); 
     navigate('/login');
 
   }; 
@@ -42,13 +42,13 @@ const Register = () => {
           </div>
           <div className="form--buttons">
             <button className="form--btn" type="submit">
-            Je m'incris
+            Je m'inscris
             </button>
             <p>
               {loading && <div className="patientez">Veuillez patientez...</div>}
-              Tu fais déjà parti de la cummuntauté ?<br /> 
+              Tu fais déjà partie de la communauté ?<br /> 
               <Link to="/login">
-                connectes toi
+                Connecte-toi
               </Link>
             </p>
           </div>

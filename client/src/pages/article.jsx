@@ -100,30 +100,27 @@ const Article = () => {
       event.preventDefault();
       const content = quillRef.current.getEditor().root.innerHTML;
 
-      const data = new FormData(); 
-      data.set('file', file); 
-      data.set('titre', titre); 
-      data.set('description', description); 
-      data.set('date', date); 
-      data.set('category', category);
-      data.set('content', content);
+      const data = new FormData();
+      if (file instanceof File) {
+        data.append('file', file); 
+      } 
+      console.log(file);  
+      data.append('titre', titre); 
+      data.append('description', description); 
+      data.append('date', date); 
+      data.append('category', category);
+      data.append('content', content);
 
-      const updatedData = {
-        id: id, 
-        post: {
-          posts_image: file, 
+      if (id) {
+        const newData = {
+          posts_image: file ? file : post.posts_image, 
           posts_title: titre, 
           posts_description: description, 
           posts_date: date, 
           posts_category: category, 
-          posts_content: content 
-        }
-      }; 
-
-      console.log(updatedData); 
-
-      if (id) {
-        await dispatch(updatedPost(updatedData)).then(() => {navigate('/')});
+          posts_content: content, 
+        }; 
+        await dispatch(updatedPost({id, post: newData,})).then(() => {navigate('/')});
       } else {
         try {
           const response = await fetch(process.env.REACT_APP_ARTICLE, {

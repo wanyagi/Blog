@@ -12,9 +12,8 @@ export const fetchNewAccesToken = createAsyncThunk("accessToken/fetchNewAccessTo
 
     if(!response.ok) {
       throw new Error("Connectes toi"); 
-    }
- 
-    return true; 
+    };
+
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message); 
   }
@@ -33,7 +32,6 @@ export const newTokenSlice = createSlice({
     })
     .addCase(fetchNewAccesToken.fulfilled, (state, action) => {
       state.loading = false; 
-      state.accesToken = action.payload; 
     })
     .addCase(fetchNewAccesToken.rejected, (state, action) => {
       state.error = action.payload; 

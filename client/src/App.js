@@ -1,4 +1,6 @@
-import React from 'react'; 
+import React, { useEffect } from 'react'; 
+import { useDispatch } from 'react-redux';
+import { logIn } from './redux/authenticationSlice';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom"; 
 import Root from './components/Root'; 
 import Home from './components/Home';
@@ -30,6 +32,18 @@ const router = createBrowserRouter(createRoutesFromElements(
 ))
 
 const App = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem('loggedIn') === 'true'; 
+
+    if (loggedIn) {
+      dispatch(logIn()); 
+    }; 
+
+  }, [dispatch]); 
+
   return (
     <RouterProvider router={router} />
   );

@@ -15,8 +15,7 @@ const Login = () => {
     setEnteredValues(previousInputs => ({...previousInputs, [identifier] : value, }))
   }; 
 
-  const user = useSelector((state) => state.userAuthentication.user); 
-  const error = useSelector((state) => state.userAuthentication.error);
+  const { user, error } = useSelector((state) => state.userAuthentication); 
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
 
@@ -26,8 +25,8 @@ const Login = () => {
  
     const result = await dispatch(Authentication(enteredValues)); 
     if (Authentication.fulfilled.match(result)) {
-      navigate('/')
-    } 
+      navigate('/'); 
+    }; 
 
   }; 
 
@@ -48,7 +47,7 @@ const Login = () => {
               </button>
               <p>Tu n'es pas encore inscrit ? <br />
                 <Link to="/register">
-                  rejoins nous
+                  Rejoins-nous
                 </Link>
               </p>
           </div>

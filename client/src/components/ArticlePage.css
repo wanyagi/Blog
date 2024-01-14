@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 40px; 
+    margin-top: 70px; 
 }
 
 .articles--image, .articles--content {
@@ -13,8 +14,8 @@
 }
 
 .article--image {
-    grid-column: 2 / 12;
-    width: 90vw;
+    grid-column: 4 / 10;
+    width: 50vw;
     height: 600px;
     object-fit: cover;
     margin: 50px; 

@@ -1,7 +1,7 @@
 const express = require("express"); 
 const app = express(); 
-const cookieParser = require('cookie-parser');
 const cors = require("cors"); 
+const cookieParser = require("cookie-parser");
 require('dotenv').config();  
 
 
@@ -24,9 +24,6 @@ app.use('/register', registerRouter);
 const loginRouter = require('./routes/login'); 
 app.use('/login', loginRouter); 
 
-const logoutRouter = require('./routes/logout'); 
-app.use('/logout', logoutRouter); 
-
 const articleRouter = require('./routes/article'); 
 app.use('/article', articleRouter); 
 
@@ -45,4 +42,3 @@ app.use('/upload-image', reactQuillImages);
 app.listen(Port, () => {
     console.log(`listening on port: ${Port}`)
 });
-

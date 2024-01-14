@@ -1,7 +1,7 @@
 const pool = require('../database'); 
 const bcrypt = require('bcrypt'); 
 const { getUsername } = require('../Queries'); 
-const jwtToken= require('../utils/jwtgenerator'); 
+const { tokenGenerator } = require('../utils/jwtgenerator'); 
 
 const logUser = async (request, response) => {
 
@@ -18,7 +18,7 @@ const logUser = async (request, response) => {
             return response.status(401).json("Mot de passe incorrect");
         }
 
-        const token = jwtToken(user.rows[0].users_id, user.rows[0].users_role, username); 
+        const token = tokenGenerator(user.rows[0].users_id, user.rows[0].users_role, username); 
         response.cookie('accesstoken', token.accessToken, {httpOnly: true, secure: true, sameSite: "none", maxAge: 10 * 60 * 1000 });
         response.cookie('refreshtoken', token.refreshToken, {httpOnly: true, secure: true, sameSite: "none" });
         response.status(200).send({users_role: user.rows[0].users_role, token}); 

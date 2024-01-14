@@ -2,16 +2,20 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const URL = process.env.REACT_APP_ARTICLE; 
 
-export const updatedPost = createAsyncThunk("post/updatedPost", async ( {id, post}, thunkAPI) => {
+export const updatedPost = createAsyncThunk("post/updatedPost", async ( {id, post }, thunkAPI) => {
     try {
 
       console.log(`${URL}/${id}`)
       const response = await fetch(`${URL}/${id}`, {
         method: "PUT", 
-        headers: {'Content-Type': "application/json"},
         credentials: "include", 
-        body: JSON.stringify(post), 
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify(post),  
       });
+
+      for (let [key, value] of post.entries()) {
+        console.log(key, value);
+      }
 
       if (!response.ok) {
         throw new Error('Network HS');
@@ -21,7 +25,7 @@ export const updatedPost = createAsyncThunk("post/updatedPost", async ( {id, pos
       return responseData; 
 
     } catch (error) { 
-       return thunkAPI.rejectWithValue(error.message);  
+      return thunkAPI.rejectWithValue(error.message);  
     }
 })
 

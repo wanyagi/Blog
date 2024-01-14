@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'; 
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loggout } from '../redux/authenticationSlice'; 
+import { deleteToken } from '../redux/deleteTokenSlice'; 
+import { logOut } from '../redux/authenticationSlice';
 import { IoClose } from "react-icons/io5"; 
 import { LuMenu } from "react-icons/lu"; 
 import Logo from '../assets/Logo.png'; 
@@ -16,8 +17,10 @@ const Header = () => {
     const isLogged = useSelector((state) => state.userAuthentication.loggedIn);
 
     const handleLogout = () => {
-      dispatch(loggout()); 
-      navigate('/'); 
+      dispatch(deleteToken())
+      .unwrap()
+      .then(() => {localStorage.clear(); dispatch(logOut()); navigate('/')})
+      .catch((error) => console.error(`logout: ${error}`)); 
     }; 
 
     const handleClick = (menuItem) => {

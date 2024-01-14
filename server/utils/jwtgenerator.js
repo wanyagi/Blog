@@ -5,9 +5,9 @@ const tokenGenerator = (users_id, users_role, username, ) => {
 
     const payload = {user: {"userid": users_id,"role": users_role, "user": username, }};
  
-    const accessToken = jwt.sign(payload, process.env.ACCESSTOKEN_KEY, {expiresIn: "1d"});
-    const refreshToken = jwt.sign(payload, process.env.REFRESHTOKEN_KEY, {expiresIn: "3d"});
+    const accessToken = jwt.sign(payload, process.env.ACCESSTOKEN_KEY, {expiresIn: "70s"});
+    const refreshToken = jwt.sign(payload, process.env.REFRESHTOKEN_KEY, {expiresIn: "2d"});
     return ({accessToken, refreshToken}); 
 }; 
 
-module.exports = tokenGenerator; 
+module.exports = { tokenGenerator }; 

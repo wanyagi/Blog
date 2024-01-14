@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const URL = process.env.REACT_APP_REFRESHTOKEN;
 
-export const deleteTokens = createAsyncThunk("accessToken/deletesTokesn", async (thunkAPI) => {
+export const deleteToken = createAsyncThunk("accessToken/deleteToken", async (thunkAPI) => {
   try {
     const response = await fetch(URL, {
       method: "DELETE", 
@@ -12,10 +12,8 @@ export const deleteTokens = createAsyncThunk("accessToken/deletesTokesn", async 
 
     if(!response.ok) {
       throw new Error("something went wrong"); 
-    }
+    }; 
 
-    const responsedata = await response.json(); 
-    return responsedata; 
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message); 
   }
@@ -29,15 +27,13 @@ export const deleteTokenSlice = createSlice({
   reducers: {}, 
   extraReducers: (builder) => {
     builder 
-    .addCase(deleteTokens.pending, (state) => {
+    .addCase(deleteToken.pending, (state) => {
       state.loading = true; 
     })
-    .addCase(deleteTokens.fulfilled, (state) => {
-      state.loading = false; 
+    .addCase(deleteToken.fulfilled, (state) => {
       state.authenticated = false; 
     })
-    .addCase(deleteTokens.rejected, (state, action) => {
-      state.loading = true;
+    .addCase(deleteToken.rejected, (state, action) => {
       state.error = action.payload; 
     }); 
   }

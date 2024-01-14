@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
 
 const URL = process.env.REACT_APP_LOGIN;
-const tokenURL = process.env.REACT_APP_REFRESHTOKEN
 
 export const Authentication = createAsyncThunk("user/authentication", async ({username, password}, thunkAPI) => {
     try {
@@ -26,37 +25,22 @@ export const Authentication = createAsyncThunk("user/authentication", async ({us
     }; 
 }); 
 
-export const refreshToken = createAsyncThunk("user/refreshToken", async (thunkAPI) => {
-    try {
-        const response = await fetch(tokenURL, {
-            method: "POST", 
-            credentials: "include", 
-        }); 
-        const responseData = await response.json(); 
-        
-         
-        if (response.ok) {
-            return {...responseData, accessTokenExpiryTime: responseData.exp};  
-        } else {
-            throw new Error("pas de token"); 
-        }
-    } catch (error) {
-        return thunkAPI.rejectWithValue(error.message); 
-    }; 
-}); 
-
-const initialState = { user: "", loggedIn: false, loading: "", error: "", users_role: '', accessTokenExpiryTime: null };
+const initialState = { user: "", loggedIn: false, loading: "", error: "", users_role: '', };
 
 export const authenticationSlice = createSlice({
     name: "userAuthentication", 
     initialState, 
     reducers: {
-        loggout: (state) => {
+        logIn: (state) => {
+            state.loggedIn = true; 
+            localStorage.setItem('loggedIn', 'true'); 
+        }, 
+        logOut: (state) => {
             state.user = ""; 
             state.loggedIn = false; 
             state.loading = false; 
             state.error = null;
-            localStorage.removeItem('users_role'); 
+            localStorage.removeItem('loggedIn'); 
         }, 
     }, 
     extraReducers: (builder) => {
@@ -70,15 +54,14 @@ export const authenticationSlice = createSlice({
             state.loading = false;
             state.error = null;
             state.users_role = action.payload.users_role; 
+            localStorage.setItem('loggedIn', 'true'); 
           })
-          .addCase(Authentication.rejected, (state) => {
-            state.loading = false; 
-            state.loggedIn = false; 
-            state.error = "Il y a eu une erreur... rééssayez plus tard."; 
+          .addCase(Authentication.rejected, (state, action) => {
+            state.error = action.payload; 
           })
     }, 
 }); 
 
-export const { loggout } = authenticationSlice.actions; 
+export const { logOut, logIn } = authenticationSlice.actions; 
 
 export default authenticationSlice.reducer; 

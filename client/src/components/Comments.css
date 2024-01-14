@@ -1,25 +1,34 @@
 .comment--section {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 1fr); 
+    margin-top: 30px;
 } 
 
 .comment--section textarea {
     width: 100%;
     grid-column: 1 / -1;
-    grid-row: 1;
-    margin-top: 50px;
+    grid-row: 2;
 }
 
 .comment--section #comment--section--button {
     grid-column: 12;
-    grid-row: 2;
+    grid-row: 3;
     align-self: end;
 }
 
 
-.comments--error--state, 
-.comments--loading--state {
-    color: #ff5800; 
+.comments--error--state {
+    grid-row: 1; 
+    grid-column: 1 / -1;
+    color: red; 
+    height: 20px;
+    color: red; 
+    width: 220px;
+    font-size: 1.1rem; 
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    white-space: nowrap;
 }
 
 .comment--section--button {
@@ -28,10 +37,48 @@
 } 
 
 
-@media (max-width: 1024px) {
+@media (min-width: 667px) and (max-width: 1024px) {
     .comment--section textarea {
         grid-column: 1 / -1;
-        margin-top: 50px;
+        margin-top: 20px;
+        max-width: 100%; 
+        margin-left: auto; 
+        margin-right: auto;
+    }
+
+    .comments--error--state {
+        grid-row: 1; 
+        grid-column: 1 / -1;
+        color: red; 
+        height: 20px;
+        color: red; 
+        width: 220px;
+        font-size: 1rem; 
+        text-align: left;
+        margin-top: 10px;
+        margin-bottom: -10px; 
+        white-space: nowrap;
+    }
+} 
+
+@media (max-width: 915px) {
+    .comment--section textarea {
+        grid-column: 1 / -1;
+        margin-top: 20px;
+    }
+
+    .comments--error--state {
+        grid-row: 1; 
+        grid-column: 1 / -1;
+        color: red; 
+        height: 20px;
+        color: red; 
+        width: 220px;
+        font-size: 1rem; 
+        text-align: left;
+        margin-top: 10px;
+        margin-bottom: -10px; 
+        white-space: nowrap;
     }
 } 
 

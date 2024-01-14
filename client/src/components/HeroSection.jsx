@@ -21,7 +21,7 @@ const HeroSection = () => {
             </h1>
             <button>
               <NavLink to="/register" className="hero--btn">
-                REJOINS NOUS
+                REJOINS-NOUS
               </NavLink>
             </button>
         </div>

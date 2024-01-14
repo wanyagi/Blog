@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 const URL = process.env.REACT_APP_REGISTER;
 
-export const fetchUser = createAsyncThunk("user/fetchUser", async ({name, username, email, password}, thunkAPI) => {
+export const registerUser = createAsyncThunk("user/registerUser", async ({name, username, email, password}, thunkAPI) => {
     try {
         const response = await fetch(URL, {
           method: "POST",  
@@ -12,6 +12,7 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async ({name, userna
         const responseData = await response.json(); 
 
         if (!response.ok) {
+          console.log(responseData.errors); 
           return thunkAPI.rejectWithValue(responseData.errors);
         }
         return responseData; 
@@ -28,18 +29,23 @@ export const registerSlice = createSlice({
     reducers: {}, 
     extraReducers: (builder) => {
         builder 
-          .addCase(fetchUser.pending, (state) => {
+          .addCase(registerUser.pending, (state) => {
             state.loading = true;
           })
-          .addCase(fetchUser.fulfilled, (state, action) => {
+          .addCase(registerUser.fulfilled, (state, action) => {
             state.user = action.payload;
             state.loading = false; 
             state.error = false; 
           })
-          .addCase(fetchUser.rejected, (state, action) => {
-            state.error = action.payload; 
-            state.user = ""; 
-            state.loading = false; 
+          .addCase(registerUser.rejected, (state, action) => {
+            if (action.payload && Array.isArray(action.payload)) {
+              state.error = action.payload.reduce((accumulator, error) => {
+                  accumulator[error.param] = error.msg;
+                  return accumulator;
+              }, {});
+          } else {
+            state.error = { general: "Réessayez plus tard" };
+          } 
           })
     }, 
 }); 

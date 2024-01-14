@@ -15,6 +15,6 @@ const storage = multer.diskStorage({
 const imageUploadMiddleware = multer({storage}); 
 
 articleRouter.post('/', imageUploadMiddleware.single('file'), newArticle); 
-articleRouter.put('/:id', editArticle); 
+articleRouter.put('/:id', imageUploadMiddleware.single('file'),editArticle); 
 
 module.exports = articleRouter; 
