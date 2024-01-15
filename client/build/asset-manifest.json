@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c461cd4e.css",
+    "main.js": "/static/js/main.aaa7acda.js",
+    "static/media/Apropos.JPEG": "/static/media/Apropos.9352c382bfc55065bc1e.JPEG",
+    "static/media/Formulaire.jpeg": "/static/media/Formulaire.0eca0ecb4b7461191e0c.jpeg",
+    "static/media/HeroEssai.jpg": "/static/media/HeroEssai.c85273d19a0aba11028c.jpg",
+    "static/media/HeroPhone.PNG": "/static/media/HeroPhone.29adfa43df40dd254195.PNG",
+    "static/media/Logo.png": "/static/media/Logo.d917de40e06fc4567c54.png",
+    "index.html": "/index.html",
+    "main.c461cd4e.css.map": "/static/css/main.c461cd4e.css.map",
+    "main.aaa7acda.js.map": "/static/js/main.aaa7acda.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c461cd4e.css",
+    "static/js/main.aaa7acda.js"
+  ]
+}
