@@ -15,7 +15,6 @@ export const fetchPostsByCategory = createAsyncThunk("posts/fetchPostsByCategory
       const responseData = await response.json();
       return responseData; 
 
-
     } catch (error) { 
        return thunkAPI.rejectWithValue(error.message);  
     }

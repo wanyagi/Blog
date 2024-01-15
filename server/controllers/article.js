@@ -30,8 +30,6 @@ const editArticle = async (request, response) => {
     const { id } = request.params;
 
     const file = request.file; 
-    console.log(file);
-    console.log(request.body);
     
     let urlFile;
     if (file) {

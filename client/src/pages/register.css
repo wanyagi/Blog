@@ -92,7 +92,6 @@ input::placeholder {
     color: darkgrey; 
 }
 
-
 .register--errors {
     color: red; 
     height: 20px;
@@ -109,10 +108,10 @@ input::placeholder {
     margin: 5px; 
 }
 
-@media screen and (max-width: 915px) {
+@media screen and (max-width: 1040px) {
     .register--section {
         flex-direction: column;
-        margin-bottom: 60px;
+        margin: 60px;
     }
 
     .register--form h2 {

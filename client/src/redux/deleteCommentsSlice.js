@@ -5,7 +5,6 @@ const URL = process.env.REACT_APP_COMMENTS;
 export const deleteComment = createAsyncThunk("comment/deleteComment", async ({id}, thunkAPI) => {
 
     try {
-      console.log(`${URL}/${id}`); 
       const response = await fetch(`${URL}/${id}`, {
         method: "DELETE", 
         headers: { "Content-Type" : "application/json", }, 

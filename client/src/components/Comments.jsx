@@ -9,7 +9,6 @@ const Comments = () => {
 
   const [ comment, setComment ] = useState(''); 
   const [ textarea, setTextarea ] = useState(false); 
-  //const { error } = useSelector((state) => state.comments);
   const isLogged = useSelector((state) => state.userAuthentication.loggedIn);  
   const dispatch = useDispatch(); 
   const { id } = useParams(); 
@@ -43,7 +42,6 @@ const Comments = () => {
     }; 
 
   }; 
-
 
     return (
       <form className="comment--section" onSubmit={handleCommentSubmission}>

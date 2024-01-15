@@ -40,8 +40,7 @@ const Header = () => {
       }
     }, []);  
 
-    const isAdmin = userRole === 'admin';
-    console.log(isAdmin);  
+    const isAdmin = userRole === 'admin'; 
 
 
     const handleMobileMenu = () => {
@@ -72,7 +71,7 @@ const Header = () => {
 
   return (
     <header>
-       <nav className="navbar" id="glass">
+       <nav>
             <Link to="/" >
               <img src={Logo} alt="logo" className="logo--btn" />
             </Link>

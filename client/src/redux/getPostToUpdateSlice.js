@@ -4,18 +4,17 @@ const URL = process.env.REACT_APP_BLOGPOSTS;
 
 export const fetchPostToUpdate = createAsyncThunk("posttoupdate/fetchPostToUpdate", async (id, thunkAPI) => {
     try {
-        const response = await fetch(`${URL}/${id}`); 
+      const response = await fetch(`${URL}/${id}`); 
 
-        if (!response.ok) {
-            throw new Error()
-        } 
+      if (!response.ok) {
+          throw new Error()
+      } 
 
-        const responseData = await response.json(); 
-        console.log(responseData); 
-        return responseData;
+      const responseData = await response.json(); 
+      return responseData;
 
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message); 
+      return thunkAPI.rejectWithValue(error.message); 
     }
 }); 
 

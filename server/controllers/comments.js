@@ -35,11 +35,9 @@ const deleteTheComment = async (request, response) => {
     const comments_id = request.params.id; 
 
     try {
-        console.log(deleteComment); 
         const commentDeleted = await pool.query(deleteComment, [comments_id]); 
         response.status(200).send('Comment deleted'); 
     } catch (error) {
-        console.error(`this is the error: ${error}`)
         response.status(404).json({error: error.message}); 
     }
 }; 

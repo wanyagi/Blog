@@ -31,7 +31,6 @@ const Article = () => {
           if (response.ok && responseData.imageUrl) {
           const editor = quillRef.current.getEditor(); 
           const range = editor.getSelection(true); 
-          console.log(responseData.imageUrl)
           editor.insertEmbed(range.index, 'image', responseData.imageUrl);
           } else {
             console.error('failed to upload file'); 
@@ -78,7 +77,6 @@ const Article = () => {
     const [ content, setContent ] = useState(""); 
 
     useEffect(() => {
-      console.log(post); 
       if (post) {
         setFile(post.posts_image); 
         setTitre(post.posts_title);

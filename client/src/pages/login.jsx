@@ -12,7 +12,7 @@ const Login = () => {
   const [ enteredValues, setEnteredValues ] = useState(inputs); 
 
   const handleChange = (identifier, value) => {
-    setEnteredValues(previousInputs => ({...previousInputs, [identifier] : value, }))
+    setEnteredValues(previousInputs => ({...previousInputs, [identifier] : value, }));
   }; 
 
   const { user, error } = useSelector((state) => state.userAuthentication); 

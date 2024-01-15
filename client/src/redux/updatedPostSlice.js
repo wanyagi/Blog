@@ -13,10 +13,6 @@ export const updatedPost = createAsyncThunk("post/updatedPost", async ( {id, pos
         body: JSON.stringify(post),  
       });
 
-      for (let [key, value] of post.entries()) {
-        console.log(key, value);
-      }
-
       if (!response.ok) {
         throw new Error('Network HS');
       }

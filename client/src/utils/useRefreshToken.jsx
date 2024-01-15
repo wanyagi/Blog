@@ -9,7 +9,7 @@ const useRefreshToken = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             dispatch(fetchNewAccesToken()); 
-        }, 1000*60*1); 
+        }, 1000*60*9); 
 
         return () => clearInterval(interval); 
     }, [dispatch]); 

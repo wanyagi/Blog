@@ -11,7 +11,7 @@
 
 @media screen and (max-height: 1368px) {
   .homecards--section {
-    margin-top: 1350px;
+    margin-top: 1300px;
     gap: 20px; 
   }
 } 

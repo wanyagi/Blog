@@ -15,7 +15,6 @@ export const Authentication = createAsyncThunk("user/authentication", async ({us
          
         if (response.ok) { 
             localStorage.setItem('users_role', responseData.users_role); 
-            console.log(responseData); 
             return responseData; 
         } else {
             throw new Error("vérifiez vos corrdonnées..."); 

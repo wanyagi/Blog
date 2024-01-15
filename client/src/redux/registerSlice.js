@@ -12,7 +12,6 @@ export const registerUser = createAsyncThunk("user/registerUser", async ({name, 
         const responseData = await response.json(); 
 
         if (!response.ok) {
-          console.log(responseData.errors); 
           return thunkAPI.rejectWithValue(responseData.errors);
         }
         return responseData; 
