@@ -1,4 +1,5 @@
 CREATE DATABASE BlogSayfemums; 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE users (
     users_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -9,14 +10,6 @@ CREATE TABLE users (
     users_password VARCHAR(255) UNIQUE
 );
 
-CREATE TABLE comments (
-    comments_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    users_id uuid REFERENCES users(users_id),
-    posts_id uuid REFERENCES Posts(posts_id), 
-    comment_username VARCHAR(255),
-    comment VARCHAR(1000)
-);
-
 CREATE TABLE Posts (
     posts_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     posts_image VARCHAR,
@@ -25,4 +18,12 @@ CREATE TABLE Posts (
     posts_description TEXT,
     posts_category VARCHAR(255), 
     posts_content TEXT
+);
+
+CREATE TABLE comments (
+    comments_id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    users_id uuid REFERENCES users(users_id),
+    posts_id uuid REFERENCES Posts(posts_id), 
+    comment_username VARCHAR(255),
+    comment VARCHAR(1000)
 );
