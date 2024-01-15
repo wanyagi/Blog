@@ -1,0 +1,16 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "A blog where future mothers can learn and share about motherhood.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "build": "npm run build",
+    "start": "npm start"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
