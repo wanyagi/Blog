@@ -36,8 +36,8 @@
     "build-client": "cd client && react-scripts build",
     "test-client": "cd client && react-scripts test",
     "eject": "react-scripts eject",
-    "server": "cd server && nodemon src/index.js",
-    "start-server": "cd server && node src/index.js",
+    "server": "cd server && nodemon ./src/index.js",
+    "start-server": "cd server && node ./src/index.js",
     "start": "npm run build-client && npm run start-server"
   },
   "eslintConfig": {
