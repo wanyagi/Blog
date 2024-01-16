@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 require('dotenv').config();  
 
 
-const Port = 5000 || process.env.PORT ;
+const Port = process.env.PORT ;
 
 
 app.use(cors({ origin: process.env.URL, credentials: true, })); 
