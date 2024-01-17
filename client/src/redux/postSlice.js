@@ -15,7 +15,8 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) 
       return responseData; 
 
     } catch (error) { 
-       return thunkAPI.rejectWithValue(error.message);  
+      console.error(error); 
+      return thunkAPI.rejectWithValue(error.message);  
     }
 })
 

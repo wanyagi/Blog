@@ -15,6 +15,7 @@ export const fetchNewAccesToken = createAsyncThunk("accessToken/fetchNewAccessTo
     };
 
   } catch (error) {
+    console.error(error); 
     return thunkAPI.rejectWithValue(error.message); 
   }
 }); 

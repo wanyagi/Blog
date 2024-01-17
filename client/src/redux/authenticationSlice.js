@@ -20,6 +20,7 @@ export const Authentication = createAsyncThunk("user/authentication", async ({us
             throw new Error("vérifiez vos corrdonnées..."); 
         }
     } catch (error) {
+        console.error(error); 
         return thunkAPI.rejectWithValue(error.message); 
     }; 
 }); 

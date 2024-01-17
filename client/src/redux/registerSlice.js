@@ -16,6 +16,7 @@ export const registerUser = createAsyncThunk("user/registerUser", async ({name, 
         }
         return responseData; 
     } catch (error) { 
+      console.error(error); 
         return thunkAPI.rejectWithValue(error.message); 
     }
 }); 

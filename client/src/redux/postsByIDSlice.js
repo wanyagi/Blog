@@ -18,6 +18,7 @@ export const fetchPostsByID = createAsyncThunk("posts/fetchPostsByID", async (id
       return {...responseData, posts_content: sanitize}; 
 
     } catch (error) { 
+      console.error(error); 
        return thunkAPI.rejectWithValue(error.message);  
     }
 })

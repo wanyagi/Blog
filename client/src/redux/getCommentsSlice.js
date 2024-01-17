@@ -14,6 +14,7 @@ export const fetchComments = createAsyncThunk("comments/fetchComments", async (i
         return responseData;
 
     } catch (error) {
+      console.error(error); 
         return thunkAPI.rejectWithValue(error.message); 
     }
 }); 
