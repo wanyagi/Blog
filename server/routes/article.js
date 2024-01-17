@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
     }, 
     filename: (request, file, cb) => {
         return cb(null, `${Date.now()}_${file.originalname}`)
-    }
+    } 
 }); 
 
 const imageUploadMiddleware = multer({storage}); 
