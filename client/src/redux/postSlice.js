@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const URL = process.env.REACT_APP_BLOGPOSTS; 
 
-export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (thunkAPI) => {
+export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (_, thunkAPI) => {
     try {
 
       const response = await fetch(URL);

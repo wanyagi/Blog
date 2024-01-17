@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const URL = process.env.REACT_APP_REFRESHTOKEN;
 
-export const fetchNewAccesToken = createAsyncThunk("accessToken/fetchNewAccessToken", async (thunkAPI) => {
+export const fetchNewAccesToken = createAsyncThunk("accessToken/fetchNewAccessToken", async (_, thunkAPI) => {
   try {
     const response = await fetch(URL, {
       method: "POST", 
