@@ -37,6 +37,6 @@ app.use('/comments', commentsRouter);
 const reactQuillImages = require('./routes/reactQuillImages'); 
 app.use('/upload-image', reactQuillImages); 
 
-app.listen(Port, () => {
+app.listen(port, () => {
     console.log(`listening on port: ${port}`)
 });
