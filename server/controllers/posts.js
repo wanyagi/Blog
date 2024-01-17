@@ -34,7 +34,7 @@ const deletePost = async (request, response) => {
         const postDelete = await pool.query(deletePostByID, [id]); 
         response.status(200).send('Post deleted successfully'); 
     } catch (error) {
-        response.status(404).json(`"error :" ${error.message}`);
+        response.status(401).json(`error : ${error.message}`);
     } 
 };
 

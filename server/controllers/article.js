@@ -19,7 +19,7 @@ const newArticle =  async (request, response) => {
         const newPost = await pool.query(NewPost, [fileURL, titre, date, description, category, content]);
         response.status(200).send(newPost); 
     } catch (error) {
-        response.status(500).json({error: error.message}); 
+        response.status(401).json({error: error.message}); 
     }; 
 
 }; 
