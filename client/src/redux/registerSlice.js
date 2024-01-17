@@ -4,20 +4,22 @@ const URL = process.env.REACT_APP_REGISTER;
 
 export const registerUser = createAsyncThunk("user/registerUser", async ({name, username, email, password}, thunkAPI) => {
     try {
-        const response = await fetch(URL, {
-          method: "POST",  
-          body: JSON.stringify({name, username, email, password}),
-          headers: {'Content-Type': 'application/json'},
-        }); 
-        const responseData = await response.json(); 
+      const response = await fetch(URL, {
+        method: "POST",  
+        body: JSON.stringify({name, username, email, password}),
+        headers: {'Content-Type': 'application/json'},
+      }); 
 
-        if (!response.ok) {
-          return thunkAPI.rejectWithValue(responseData.errors);
-        }
-        return responseData; 
+      if (!response.ok) {
+        throw new Error(error.message);
+      }; 
+
+      const responseData = await response.json(); 
+      return responseData;
+
     } catch (error) { 
       console.error(error); 
-        return thunkAPI.rejectWithValue(error.message); 
+      return thunkAPI.rejectWithValue(error.message); 
     }
 }); 
 
@@ -38,14 +40,7 @@ export const registerSlice = createSlice({
             state.error = false; 
           })
           .addCase(registerUser.rejected, (state, action) => {
-            if (action.payload && Array.isArray(action.payload)) {
-              state.error = action.payload.reduce((accumulator, error) => {
-                  accumulator[error.param] = error.msg;
-                  return accumulator;
-              }, {});
-          } else {
-            state.error = { general: "Réessayez plus tard" };
-          } 
+            state.error = action.payload; 
           })
     }, 
 }); 
