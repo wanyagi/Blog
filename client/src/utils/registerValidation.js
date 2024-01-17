@@ -2,8 +2,8 @@ const registerValidation = (enteredValues) => {
 
     let errors = {}; 
 
-    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{6,}$/;
-    const regexPassword = /^(?=.*[0-9]).{8,}$/;
+    const regexEmail = /^[A-Za-z0-9+_.-]+@(.+)$/;
+    const regexPassword = /^(?=.*[0-9]).{8,12}$/;
 
     if (!enteredValues.name) {
         errors.name = "Ce champ ne peut pas être vide"; 
