@@ -9,7 +9,7 @@ const registerNewUser = async (request, response) => {
 
         const user = await pool.query(getEmail, [email]); 
         if (user.rows.length !== 0) {
-            return response.status(401).json({message : "Cet usager existe"})
+            return response.status(401).json({error: error.message})
         }
 
         const saltRound = 15;

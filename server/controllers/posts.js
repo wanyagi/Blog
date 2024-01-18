@@ -6,7 +6,7 @@ const getAllPosts = async (request, response) => {
         const posts = await pool.query(getPosts); 
         response.status(200).send(posts.rows); 
     } catch (error) {
-        response.status(400).send(`"error :" ${error.message}`)
+        response.status(400).json({error: error.message}); 
     }
 }; 
 
