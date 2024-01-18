@@ -20,6 +20,7 @@ const registerNewUser = async (request, response) => {
 
         response.status(200).json({ message: "user created"}); 
     }  catch (error) {
+        console.error(error); 
         response.status(500).json({error: error.message}); 
     }
 
