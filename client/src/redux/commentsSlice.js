@@ -18,6 +18,7 @@ export const comments = createAsyncThunk("comments/addComments", async ({id, com
             return responseData; 
         }
     } catch (error) {
+        console.error(error);
         return thunkAPI.rejectWithValue(error.message); 
     }
 }); 

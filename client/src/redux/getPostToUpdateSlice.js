@@ -14,6 +14,7 @@ export const fetchPostToUpdate = createAsyncThunk("posttoupdate/fetchPostToUpdat
       return responseData;
 
     } catch (error) {
+      console.error(error);
       return thunkAPI.rejectWithValue(error.message); 
     }
 }); 

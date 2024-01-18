@@ -21,6 +21,7 @@ export const updatedPost = createAsyncThunk("post/updatedPost", async ( {id, pos
       return responseData; 
 
     } catch (error) { 
+      console.error(error);
       return thunkAPI.rejectWithValue(error.message);  
     }
 })
