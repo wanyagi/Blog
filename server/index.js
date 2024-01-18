@@ -11,7 +11,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser()); 
 app.use('/uploads', express.static('uploads')); 
-app.use('/uploads/images', express.static('uploads/images')); 
+app.use('/uploads/images', express.static('uploads/images'));
+
+app.get('/', (request, response) => {response.status(200).send('saufemums')}); 
 
 const refreshToken = require('./routes/refreshtoken'); 
 app.use('/refreshtoken', refreshToken); 
