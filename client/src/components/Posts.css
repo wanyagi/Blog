@@ -82,6 +82,17 @@
       padding: 10px;  
    }
 
+   .loading--state, .error--state{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto; 
+      width: 100vw;
+      height: 100vh;
+      color:  #ff5800;
+      font-size: 1.5rem;
+   } 
+
    .posts button {
      width: 100%; 
      font-size: 1.5rem;
