@@ -1,8 +1,14 @@
 const Pool = require("pg").Pool; 
 require('dotenv').config(); 
 
+
 const pool = new Pool({
-    connectionString: 'postgres://danielpostgres:4aRocU8HsBzmL9tmPKMC3dNn6BAjfxMV@dpg-cmj9ctocmk4c739nf950-a/blogsayfemums_t695'
+    client_encoding: process.env.CODE,
+    DATABASE_USER: process.env.USER, 
+    DATABASE_PASSWORD: process.env.PASSWORD,
+    DATABASE_HOST: process.env.HOST, 
+    DATABASE_PORT: process.env.PORT,
+    DATABASE: process.env.DATABASE
 }); 
 
 module.exports = pool; 

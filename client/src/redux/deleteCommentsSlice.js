@@ -19,7 +19,6 @@ export const deleteComment = createAsyncThunk("comment/deleteComment", async ({i
       return responseData; 
 
     } catch (error) { 
-      console.error(error);
        return thunkAPI.rejectWithValue(error.message);  
     }
 })

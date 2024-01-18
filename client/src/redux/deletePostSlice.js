@@ -19,7 +19,6 @@ export const deletePost = createAsyncThunk("post/deletePost", async ({id}, thunk
       return responseData; 
 
     } catch (error) {  
-      console.error(error);
        return thunkAPI.rejectWithValue(error.message);  
     }
 })
