@@ -11,7 +11,7 @@ export const registerUser = createAsyncThunk("user/registerUser", async ({name, 
       }); 
 
       if (!response.ok) {
-        throw new Error(error.message);
+        throw new Error("tu es ici registerslice");
       }; 
 
       const responseData = await response.json(); 
