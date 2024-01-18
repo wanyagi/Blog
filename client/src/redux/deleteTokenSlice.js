@@ -15,7 +15,6 @@ export const deleteToken = createAsyncThunk("accessToken/deleteToken", async (_,
     }; 
 
   } catch (error) {
-    console.error(error); 
     return thunkAPI.rejectWithValue(error.message); 
   }
 }); 
