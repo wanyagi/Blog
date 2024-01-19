@@ -4,7 +4,11 @@ require('dotenv').config();
 
 const pool = new Pool({
     client_encoding: process.env.CODE,
-    DATABASE_URL: process.env.DATABASE_URL_RENDER,
+    DATABASE_USER: process.env.USER,
+    DATABASE_NAME: process.env.NAME,
+    DATABASE_PASSWORD: process.env.PASSWORD,
+    DATABASE_PORT: process.env.PORT,
+    DATABASE_HOST: process.env.HOST,
 }); 
 
 module.exports = pool; 
