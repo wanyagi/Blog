@@ -16,7 +16,8 @@ const registerNewUser = async (request, response) => {
         const salt = await bcrypt.genSalt(saltRound); 
         const hash = await bcrypt.hash(password, salt); 
 
-        const newUser = await pool.query(addCredentials, [name, username, email, hash]); 
+        const newUser = await pool.query(addCredentials, [name, username, email, hash]);
+        console.log(newUser);  
 
         response.status(200).json({ message: "user created"}); 
     }  catch (error) {

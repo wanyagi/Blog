@@ -55,7 +55,7 @@ const Register = () => {
             Je m'inscris
             </button>
             <p>
-              {loading && <div className="patientez">Veuillez patientez...</div>}
+              {loading && <div className="patientez">{errors}</div>}
               Tu fais déjà partie de la communauté ?<br /> 
               <Link to="/login">
                 Connecte-toi
