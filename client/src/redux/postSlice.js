@@ -5,12 +5,11 @@ console.log(URL);
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (_, thunkAPI) => {
     try {
-
       const response = await fetch(URL);
 
       if (!response.ok) {
         throw new Error('Network HS');
-      }
+      };
 
       const responseData = await response.json();
       return responseData; 
