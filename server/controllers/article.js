@@ -10,13 +10,12 @@ const newArticle =  async (request, response) => {
 
     if (!file) {
         return response.status(404).json({message : 'no file uploaded'}); 
-    }
+    };
 
-    const fileURL = `${URL}/${file.filename}`
-
+    const image = `${URL}/${file.filename}`;
 
     try {
-        const newPost = await pool.query(NewPost, [fileURL, titre, date, description, category, content]);
+        const newPost = await pool.query(NewPost, [image, titre, date, description, category, content]);
         response.status(200).send(newPost); 
     } catch (error) {
         response.status(401).json({error: error.message}); 
@@ -26,24 +25,24 @@ const newArticle =  async (request, response) => {
 
 const editArticle = async (request, response) => {
 
+    const URL = process.env.imageURL;
     const { posts_title, posts_date, posts_description, posts_category, posts_content } = request.body;
     const { id } = request.params;
 
-    const file = request.file; 
+    const file = request.file;
     
     let urlFile;
     if (file) {
         urlFile = `${URL}/${file.filename}`;
-    }
+    }; 
     
     try {
         const postEdit = await pool.query(editPostByID, [urlFile, posts_title, posts_date, posts_description, posts_category, posts_content, id]);
         response.status(200).json(postEdit.rows[0]); 
     } catch (error) {
-      console.error(error); 
       response.status(401).json(`error : ${error.message}`); 
     }
 
 }; 
 
-module.exports = {newArticle, editArticle }; 
+module.exports = { newArticle, editArticle }; 

@@ -146,7 +146,7 @@ const Article = () => {
             <ReactQuill className="editor" modules={modules} theme="snow" value={content} onChange={setContent} ref={quillRef} />
         <div className="info">
           <div className="item--resume">
-            <input  required placeholder="image" type="file" name="file" id="file" onChange={handleFile} />
+            <input placeholder="image" type="file" name="file" id="file" onChange={handleFile} />
             <input required placeholder="Titre :" type="text" name="titre" id="titre" value={titre} onChange={handleTitre} />
             <textarea required placeholder="Resume :" type="text" name="description" id="description"  value={description} onChange={handleDescription} />
             <input required placeholder="date" type="date" name="date" id="date" value={date} onChange={handleDate} />

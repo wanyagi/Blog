@@ -3,13 +3,13 @@ require('dotenv').config();
 
 
 const pool = new Pool({
+    host: process.env.HOST,
+    port: process.env.DATABASE_PORT,
+    database: process.env.DATABASE,
+    user: process.env.DB_USERNAME, 
+    password: process.env.PASSWORD, 
     client_encoding: process.env.CODE,
-    DB_HOST: process.env.HOST,
-    DB_PORT: process.env.DATABASE_PORT,
-    DB_NAME: process.env.DATABASE,
-    DB_USERNAME: process.env.USERNAME, 
-    DB_PASSWORD: process.env.PASSWORD, 
+    ssl: true, 
 }); 
-console.log(pool);
 
 module.exports = pool; 

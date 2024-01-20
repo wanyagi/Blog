@@ -4,7 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require('dotenv').config();  
 
-const port = process.env.PORT || 5000 ;
+const port = process.env.PORT || 5000;
 
 app.use(cors({ origin: process.env.URL, credentials: true, })); 
 app.use(express.json()); 
