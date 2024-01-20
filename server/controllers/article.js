@@ -6,18 +6,21 @@ const newArticle =  async (request, response) => {
 
     const URL = process.env.imageURL; 
     const { titre, date, description, category, content} = request.body;
-    const file  = request.file; 
+    const file  = request.file;
 
     if (!file) {
         return response.status(404).json({message : 'no file uploaded'}); 
     };
 
-    const image = `${URL}/uploads/${file.filename}`;
+    const image = `${URL}/${file.filename}`;
+    console.log(image);
 
     try {
         const newPost = await pool.query(NewPost, [image, titre, date, description, category, content]);
         response.status(200).send(newPost); 
+        console.log(newPost); 
     } catch (error) {
+        console.log(error); 
         response.status(401).json({error: error.message}); 
     }; 
 

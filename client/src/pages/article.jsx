@@ -65,8 +65,6 @@ const Article = () => {
     const { post } = useSelector((state) => state.posttoupdate); 
     const dispatch = useDispatch(); 
     const { id } = useParams();
-    console.log(`this is useparams : ${useParams()}`); 
-    console.log(`this is the id : ${id}`); 
     const navigate = useNavigate(); 
 
     const [ file, setFile ] = useState(""); 
@@ -119,13 +117,15 @@ const Article = () => {
           posts_content: content, 
         }; 
         await dispatch(updatedPost({id, post: newData,})).then(() => {navigate('/')});
+        console.log(newData); 
       } else {
         try {
-          const response = await fetch(process.env.REACT_APP_ARTICLE, {
+          const response = await fetch(`${process.env.REACT_APP_SERVER}/article`, {
           method: "POST", 
           body: data,
         }); 
         console.log(data); 
+        console.log(process.env.REACT_APP_SERVER); 
         const responseData = await response.json(); 
   
         if (!response.ok) {
@@ -135,7 +135,7 @@ const Article = () => {
           return responseData; 
         }
         } catch (error) {
-          console.error(error); 
+          console.error(error.message); 
         } 
       }; 
   

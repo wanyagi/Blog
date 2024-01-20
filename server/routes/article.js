@@ -4,12 +4,12 @@ const { newArticle, editArticle } = require('../controllers/article');
 const multer  = require('multer'); 
 
 const storage = multer.diskStorage({
-    destination: (request, file, cb) => {
-        return cb(null, "uploads/")
-    }, 
-    filename: (request, file, cb) => {
-        return cb(null, `${Date.now()}_${file.originalname}`)
-    } 
+        destination: (request, file, cb) => {
+            return cb(null, "uploads/")
+        }, 
+        filename: (request, file, cb) => {
+            return cb(null, `${Date.now()}_${file.originalname}`)
+        } 
 }); 
 
 const imageUploadMiddleware = multer({storage}); 
