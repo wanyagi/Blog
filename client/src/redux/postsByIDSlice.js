@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import DOMPurify from 'dompurify'; 
 
 
-const URL = process.env.REACT_APP_BLOGPOSTS;
+const URL = `${process.env.REACT_APP_SERVER}/posts`;
 
 export const fetchPostsByID = createAsyncThunk("posts/fetchPostsByID", async (id, thunkAPI) => {
     try {

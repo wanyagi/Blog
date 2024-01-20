@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
-const URL = process.env.REACT_APP_BLOGPOSTS; 
+const URL = `${process.env.REACT_APP_SERVER}/posts`; 
 
 export const deletePost = createAsyncThunk("post/deletePost", async ({id}, thunkAPI) => {
     try {

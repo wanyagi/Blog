@@ -12,7 +12,7 @@ const newArticle =  async (request, response) => {
         return response.status(404).json({message : 'no file uploaded'}); 
     };
 
-    const image = `${URL}/${file.filename}`;
+    const image = `${URL}/uploads/${file.filename}`;
 
     try {
         const newPost = await pool.query(NewPost, [image, titre, date, description, category, content]);

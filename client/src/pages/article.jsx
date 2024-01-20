@@ -23,7 +23,7 @@ const Article = () => {
           data.set('image', file); 
 
           try {
-            const response = await fetch(process.env.REACT_APP_NEW_BLOGPOST_IMAGES, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER}/upload-image`, {
               method: "POST",  
               body: data,
           }); 

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
 
-const URL = process.env.REACT_APP_COMMENTS; 
+const URL = `${process.env.REACT_APP_SERVER}/comments`; 
 
 export const comments = createAsyncThunk("comments/addComments", async ({id, comment,}, thunkAPI) => {
     try {
