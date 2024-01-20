@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 const URL = process.env.REACT_APP_REGISTER;
+console.log(URL);  
 
 export const registerUser = createAsyncThunk("user/registerUser", async ({name, username, email, password}, thunkAPI) => {
     try {
