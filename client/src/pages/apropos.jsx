@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';  
-import apropos from '../assets/Apropos.JPEG'; 
+import apropos from '../assets/Apropos.jpg'; 
 import './apropos.css'; 
 
 const Apropos = () => {

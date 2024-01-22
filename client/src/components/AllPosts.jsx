@@ -3,12 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchPosts } from '../redux/postSlice';
 import { NavLink } from 'react-router-dom'; 
 import moment from 'moment'; 
+import 'moment/locale/fr'; 
 import './Posts.css'; 
 
 const Posts = () => {
 
   const formatDate = (date) => {
-    return moment(date).format("DD.MM.YYYY"); 
+    moment.locale('fr');
+    return moment(date).format("DD MMMM YYYY"); 
   }
 
   const dispatch = useDispatch(); 
@@ -28,12 +30,14 @@ const Posts = () => {
     return (
       <article className="posts--container">
        {sortedPosts.map((post, index) => (
-          <div className={`posts ${index === 0 ? 'posts--recent' : ''}`} key={post.posts_id}>
+          <div className='posts' key={post.posts_id}>
           <img className="posts--image" src={post.posts_image} alt=""/>
           <div className="posts--description">
           <h2>{post.posts_title}</h2>
+          <div className="posts--info">
           <span className="date">{formatDate(post.posts_date)}</span>
-          <p>{post.posts_category}</p>
+          <p className='posts--cat'>{post.posts_category}</p>
+          </div>
           <p>{post.posts_description}</p>
           </div>
            <button className="posts--button">

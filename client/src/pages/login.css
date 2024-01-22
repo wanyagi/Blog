@@ -25,7 +25,7 @@
     height: 414px;
     border-left: 0px;
     border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 .login--form h2 {
@@ -87,13 +87,23 @@
 }
 
 
-@media  screen and (max-width: 915px) {
+@media  screen and (max-width: 767px) {
     .login--section {
         flex-direction: column;
+        margin: auto;
+    }
+
+    .login--form {
+        border-radius: 15px;
     }
 
     .form--image {
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 15px;
+        display: none;
+    } 
+
+    .login--btn {
+        text-decoration: none; 
+        color: #fcfcf7;
+        font-size: 1rem;
     }
 }

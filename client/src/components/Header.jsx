@@ -9,7 +9,7 @@ import Logo from '../assets/Logo.png';
 
 const Header = () => {
 
-    const [ isMobileMenuOpened, setIsMobileMenuOpened ] = useState(''); 
+    const [ isMobileMenuOpened, setIsMobileMenuOpened ] = useState(false); 
     const [ userRole, setUserRole ] = useState('');
     
     const dispatch = useDispatch(); 
@@ -76,9 +76,9 @@ const Header = () => {
               <img src={Logo} alt="logo" className="logo--btn" />
             </Link>
             <ul className="desktop--menu">
-                {menuItems.map((menuItem) => <li><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)}>{menuItem.title}</NavLink></li>)}
+                {menuItems.map((menuItem, index) => <li key={index}><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)} activeClassName='activated'>{menuItem.title}</NavLink></li>)}
             </ul>
-            { isMobileMenuOpened ? <IoClose size={25} className="mobile-menu-btn" onClick={handleMobileMenu} /> : <LuMenu size={25}  className="mobile-menu-btn" onClick={handleMobileMenu}/>}
+            { isMobileMenuOpened ? <IoClose size={25} className="mobile-menu-btn" onClick={handleMobileMenu} style={{'color': '#fcfcf7'}} /> : <LuMenu size={25}  className="mobile-menu-btn" onClick={handleMobileMenu}/>}
             { isMobileMenuOpened ? <ul className="mobile--menu">
               {mobileMenuItems.map((menuItem) => <li><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)} >{menuItem.title}</NavLink></li>)}
             </ul> : ""}

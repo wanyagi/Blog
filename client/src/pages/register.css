@@ -111,7 +111,7 @@ input::placeholder {
 @media screen and (max-width: 1040px) {
     .register--section {
         flex-direction: column;
-        margin: 60px;
+        margin: auto;
     }
 
     .register--form h2 {
@@ -123,8 +123,17 @@ input::placeholder {
         line-height: 1.6;
     }
 
+    .register--form {
+        border-radius: 15px;
+    }
+
+    .form--btn {
+        text-decoration: none; 
+        color: #fcfcf7;
+        font-size: 1rem;
+    }
+
     .register--image {
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 15px;
+        display: none;
     }
 }

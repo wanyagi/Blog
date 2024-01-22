@@ -1,10 +1,11 @@
 .hero {
-    background-image: url(../assets/mumchild.jpg);
+    background-image: url(../assets/mummychild.png);
     width: 100vw;
     height: 100%;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
+    background-position: center;
     aspect-ratio: 16/9;
     position: absolute;
     top: 0;
@@ -13,34 +14,43 @@
 
 .hero--info {
     position: relative; 
-    top: 76%; 
-    padding: 0 1rem;
-    color: #f7f7f7;
+    top: 40%; 
+    padding: 0 2rem;
+    color: #010101;
 }
 
 .hero--info h1, .hero--info h2 {
     margin: 0;
 }
 
-.hero--info h2 {
+.hero--info h1 {
+    font-weight: normal;
     font-size: 2rem;
+}
+
+.hero--info h2 {
+    font-size: 3rem;
     font-weight: bold;
+    color: #010101;
 }
 
 button {
-    margin-top: 10px;
+    margin-top: 15px;
     text-align: center;
     border-radius: 50px;
     background-color: black;
     color: #f7f7f7;
     width: 200px;
     height: 57px;
-    font-size: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button a {
     text-decoration: none;
     color: #f7f7f7; 
+    font-size: 1rem;
 }
 
 button a:hover {
@@ -48,70 +58,189 @@ button a:hover {
     transition: 0.3s ease-in-out;
 }
 
-
-@media screen and (max-width: 1400px) {
-    .hero--section {
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-        text-align: center; 
-        object-fit: cover;
-    }
+@media screen and (max-width: 1024px) {
+    .hero {
+        background-image: url(../assets/childmumphone.jpg);
+    } 
 
     .hero--info {
-        margin-top: auto;
+        top: 92%; 
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        text-align: justify;
-        font-size: 0.70rem;
+        font-size: 0.78rem;
+        padding: 1rem .4rem; 
+    }
+
+    .hero--info h2 {
+        color: #010101;
+        margin-bottom: 30px;
+        font-size: 3.5rem;
+    }
+
+    .hero--info h1 {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 500;
+        margin: 1rem 0;
     }
 
     button {
-        font-weight: 100;
-        text-align: center;
-        border-radius: 50px;
-        background-color: black;
-        color: #fcfcf7;
-        width: 150px;
-        height: 57px;
-        font-size: .95rem; 
-      }
-      
-      button a:hover {
-        color: #FF5800; 
-      }
-}
+        align-self: center;
+        height: 65px;
+        width: 250px;
+        font-size: 2rem;
+        margin: 0;
+    }
+  }
 
-@media screen and (max-width: 1366px) {
+@media (min-width: 746px) and (max-width: 912px) {
+
     .hero {
-      background-image: url(../assets/HeroPhone.PNG);
+        background-image: url(../assets/childmumphone.jpg);
     } 
-}
-
-@media screen and (max-height: 932px) {
 
     .hero--info {
-        font-size: 0.78rem; 
+        top: 88%; 
+        display: flex;
+        flex-direction: column;
+        font-size: 0.78rem;
+        padding: 1rem .4rem; 
     }
-}
 
-@media screen and (max-height: 844px) {
-    .hero--info {
-        font-size: 0.70rem;
+    .hero--info h2 {
+        color: #010101;
+        margin-bottom: 30px;
+        font-size: 3.5rem;
     }
+
+    .hero--info h1 {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 500;
+        margin: 1rem 0;
+    }
+
+    button {
+        align-self: center;
+        height: 65px;
+        width: 250px;
+        font-size: 2rem;
+        margin: 0;
+    }
+
 } 
 
-@media screen and (max-height: 740px) {
+@media (max-width: 430px) {
+
+    .hero {
+        background-image: url(../assets/childmumphone.jpg);
+    } 
+
     .hero--info {
-        font-size: 0.65rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.78rem;
+        padding: 1rem 1rem;
+        top: 90.5%; 
+    }
+
+    .hero--info h2 {
+        color: #f7f7f7;
+        margin-bottom: 20px;
+        font-size: 2.7rem;
+    }
+
+    .hero--info h1 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 1rem 1.3rem;
+    }
+
+    button {
+        align-self: center;
+        height: 55px;
+        width: 200px;
+        font-size: 2rem;
+        margin: 0;
     }
 }
 
-@media screen and (max-height: 667px) {
+@media (max-width: 414px) {
+
     .hero--info {
-        font-size: 0.70rem;
-        top: 68%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.78rem;
+        padding: 1rem 1rem;
+        top: 90%; 
     }
+
+    .hero--info h2 {
+        color: #f7f7f7;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+    }
+
+    .hero--info h1 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 1rem 1rem;
+    }
+
+}
+
+@media (max-width: 390px) {
+
+    .hero--info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.78rem;
+        padding: 1rem 1rem;
+        top: 90%; 
+    }
+
+    .hero--info h2 {
+        color: #f7f7f7;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+    }
+
+    .hero--info h1 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        margin: .8rem .2rem;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .hero--info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.78rem;
+        padding: 1rem .4rem;
+        top: 90%; 
+    }
+
+    .hero--info h2 {
+        color: #f7f7f7;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+    }
+
+    .hero--info h1 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        margin: .8rem 0;
+    }
+
 }

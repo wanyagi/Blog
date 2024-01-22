@@ -1,60 +1,62 @@
-.homecards--section {
+.catégorie--home--section {
   display: flex;
   position: relative; 
   flex-wrap: wrap;
   min-height: auto;
   justify-content: space-around;
   flex-direction: row;
-  margin-top: 900px;
-  margin-bottom: 50px;
+  margin-top: 930px;
 } 
 
-@media screen and (max-height: 1368px) {
-  .homecards--section {
-    margin-top: 1300px;
-    gap: 20px; 
-  }
-} 
-
-@media screen and (max-height: 1180px) {
-  .homecards--section {
-    margin-top: 1150px;
-    gap: 20px; 
-  }
-} 
-
-@media screen and (max-height: 1024px) {
-  .homecards--section {
-    margin-top: 1000px; 
-  }
-  
+.posts--section {
+  margin-top: 160px;
 }
 
-@media screen and (max-height: 932px) {
-  .homecards--section {
-    margin-top: 905px;
+@media screen and (max-width: 1024px) {
+  .posts--section {
+    margin-top: 630px;
+    gap: 20px; 
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .posts--section {
+    margin-top: 400px;
     gap: 20px; 
   }
 } 
 
-@media screen and (max-height: 844px) {
-    .homecards--section {
-      margin-top: 825px;
-      gap: 20px; 
-    }
-} 
-
-@media screen and (max-height: 740px) {
-  .homecards--section {
-    margin-top: 710px;
+@media screen and (max-width: 768px) {
+  .posts--section {
+    margin-top: 270px;
     gap: 20px; 
   }
 } 
 
-@media screen and (max-height: 667px) {
-  .homecards--section {
-    margin-top: 650px;
+@media screen and (max-width: 430px) {
+  .posts--section {
+    margin-top: 125px;
     gap: 20px; 
   }
 } 
 
+@media screen and (max-width: 412px) {
+  .posts--section {
+    margin-top: 95px;
+    gap: 20px; 
+  }
+} 
+
+@media screen and (max-width: 390px) {
+  .posts--section {
+    margin-top: -30px;
+    gap: 20px; 
+  }
+} 
+
+@media screen and (max-width: 360px) {
+  .posts--section {
+    margin-top: -120px;
+    gap: 20px; 
+  }
+} 

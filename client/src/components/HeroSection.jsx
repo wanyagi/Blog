@@ -16,15 +16,15 @@ const HeroSection = () => {
         <div className="hero--info">
           <h2>SAYFEMUMS</h2>
             <h1>
-                Bienvenue dans le monde de la maternité :
-                <br /><span>un aperçu des joies et des défis.</span>
+              Bienvenue dans le monde de la maternité :
+              <br /><span>un aperçu des joies et des défis.</span>
             </h1>
             <button>
               <NavLink to="/register" className="hero--btn">
-                REJOINS-NOUS
+                Rejoins-nous
               </NavLink>
             </button>
-        </div>
+           </div>
     </section>
   )
 }

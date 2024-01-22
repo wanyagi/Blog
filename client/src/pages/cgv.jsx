@@ -7,7 +7,7 @@ const PmCGV = () => {
       <div className="cgv--content">
       <h2>Politiques de confidentialité & Mentions Légales</h2>
       <p>
-        L'entreprise individuelle Sayfemums ,soucieuse des droits des individus,
+        L'entreprise individuelle Sayfemums, soucieuse des droits des individus,
         notamment au regard des traitements automatisés et dans une volonté de
         transparence avec ses clients, a mis en place une politique reprenant
         l’ensemble de ces traitements, des finalités poursuivies par ces

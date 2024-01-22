@@ -1,3 +1,8 @@
+.cards--container {
+  background-color: hsla(0, 50%, 1%, 0);
+  box-shadow: 5px 5px 5px hsla(0, 50%, 1%, 0);
+}
+
 .cards--container:hover {
   transform: scale(1.06);
 }
@@ -8,17 +13,16 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background-color: transparent;
   min-width: 100px;
   max-width: 900px;
   white-space: nowrap;
   font-size: 1.5rem;
-  margin-top: auto;
-}
+  margin-bottom: -9000px;
+} 
 
 .cards--container a {
   text-decoration: none;
-  color: black; 
+  color: #fcfcf7; 
   font-size: 1.5rem;
 }
 
@@ -29,7 +33,6 @@
 
 @media screen and (max-width: 1024px) {
   .cards--container button {
-    margin: 0;
     display: none;
   } 
 }
