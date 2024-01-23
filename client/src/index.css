@@ -6,6 +6,13 @@
   font-family: 'Poppins', sans-serif;
 }
 
+* > img {
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+  object-position: top center;
+}
+
 body {
   width: 100%;
   height: 100%;

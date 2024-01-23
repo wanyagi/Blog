@@ -1,12 +1,11 @@
 .hero {
-    background-image: url(../../public/herodesktop.png);
+    background-image: url(../../public/herodesktop.webp);
     width: 100%;
     height: 100%;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
-    aspect-ratio: 16/9;
     position: absolute;
     top: 0;
     z-index: 1;
@@ -60,7 +59,7 @@ button a:hover {
 
 @media screen and (max-width: 1024px) {
     .hero {
-        background-image: url(../../public/heromobile.png);
+        background-image: url(../../public/heromobile.webp);
         width: 100%;
         height: 100%;
     } 
@@ -97,12 +96,6 @@ button a:hover {
 
 @media (min-width: 746px) and (max-width: 912px) {
 
-    .hero {
-        background-image: url(../../public/heromobile.png);
-        width: 100%;
-        height: 100%;
-    } 
-
     .hero--info {
         top: 88%; 
         display: flex;
@@ -135,12 +128,6 @@ button a:hover {
 } 
 
 @media (max-width: 430px) {
-
-    .hero {
-        background-image: url(../../public/heromobile.png);
-        width: 100%;
-        height: 100%;
-    } 
 
     .hero--info {
         display: flex;
@@ -175,12 +162,6 @@ button a:hover {
 
 @media (max-width: 414px) {
 
-    .hero {
-        background-image: url(../../public/heromobile.png);
-        width: 100%;
-        height: 100%;
-    } 
-
     .hero--info {
         display: flex;
         flex-direction: column;
@@ -206,12 +187,6 @@ button a:hover {
 }
 
 @media (max-width: 390px) {
-
-    .hero {
-        background-image: url(../../public/heromobile.png);
-        width: 100%;
-        height: 100%;
-    } 
 
     .hero--info {
         display: flex;
@@ -239,12 +214,6 @@ button a:hover {
 
 @media (max-width: 375px) {
 
-    .hero {
-        background-image: url(../../public/heromobile.png);
-        width: 100%;
-        height: 100%;
-    } 
-
     .hero--info {
         display: flex;
         flex-direction: column;
@@ -270,12 +239,6 @@ button a:hover {
 }
 
 @media (max-width: 360px) {
-
-    .hero {
-        background-image: url(../../public/heromobile.png);
-        width: 100%;
-        height: 100%;
-    } 
 
     .hero--info {
         display: flex;
