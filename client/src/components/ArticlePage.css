@@ -15,7 +15,7 @@
 
 .article--image {
     grid-column: 4 / 10;
-    width: 50vw;
+    width: 100%;
     height: 600px;
     object-fit: cover;
 }
@@ -25,7 +25,7 @@
 }
 
 .articles--content img {
-    width: 50vw;
+    width: 100%;
     height: 400px;
     object-fit: cover;
     margin: 30px auto;
@@ -35,7 +35,7 @@
 .article--section p {
     text-align: justify; 
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .article--review {
@@ -54,6 +54,7 @@
 .articles--content h2 {
     font-size: 1.7rem;
     font-weight: normal;
+    text-align: justify; 
 }
 
 .articles--content h3, 
@@ -94,7 +95,6 @@
         height: 400px;
         object-fit: cover;
         margin-bottom: 10px; 
-        /*border-radius: 10px;*/ 
     }
     
     .articles--content > * {
@@ -105,7 +105,7 @@
     .articles--content img {
         grid-column: 1 / -1;
         width: 100%;
-        height: 400px;
+        height: 300px;
         object-fit: cover;
         margin: 30px auto;
         border-radius: 10px; 

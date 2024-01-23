@@ -34,16 +34,22 @@
 .comment--section--button {
     border-radius: 5px;
     cursor: pointer;
+    font-size: 22px;
+    width: 120px;
+    height: 50px;
 } 
 
 
 @media (min-width: 667px) and (max-width: 1024px) {
+
     .comment--section textarea {
         grid-column: 1 / -1;
         margin-top: 20px;
+        margin-bottom: 15px;
         max-width: 100%; 
         margin-left: auto; 
         margin-right: auto;
+        font-size: 16px;
     }
 
     .comments--error--state {
@@ -59,12 +65,21 @@
         margin-bottom: -10px; 
         white-space: nowrap;
     }
+
+    .comment--section--button {
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    } 
 } 
 
 @media (max-width: 915px) {
+
     .comment--section textarea {
         grid-column: 1 / -1;
         margin-top: 20px;
+        font-size: 16px;
+        margin-bottom: 15px;
     }
 
     .comments--error--state {
@@ -80,5 +95,11 @@
         margin-bottom: -10px; 
         white-space: nowrap;
     }
+
+    .comment--section--button {
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    } 
 } 
 

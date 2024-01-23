@@ -29,7 +29,7 @@ const Posts = () => {
 
     return (
       <article className="posts--container">
-       {sortedPosts.map((post, index) => (
+       {sortedPosts.map((post) => (
           <div className='posts' key={post.posts_id}>
           <img className="posts--image" src={post.posts_image} alt=""/>
           <div className="posts--description">

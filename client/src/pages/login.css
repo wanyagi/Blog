@@ -105,5 +105,12 @@
         text-decoration: none; 
         color: #fcfcf7;
         font-size: 1rem;
+        font-weight: normal !important;
+    }
+
+    .login--inputs input {
+        width: 220px;
+        height: 30px;
+        font-size: 16px;
     }
 }

@@ -14,7 +14,7 @@
 
 .cgv--content > * {
    grid-column: 4 /10;
-   text-align: justify;
+   text-align: justify; 
 }
 
 .cgv p {
