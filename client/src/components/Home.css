@@ -54,6 +54,12 @@
   }
 } 
 
+@media (max-width: 375px) {
+  .posts--section{
+    margin-top: -210px; 
+  }
+}
+
 @media screen and (max-width: 360px) {
   .posts--section {
     margin-top: -120px;

@@ -1,6 +1,6 @@
 .hero {
-    background-image: url(../assets/mummychild.png);
-    width: 100vw;
+    background-image: url(../../public/herodesktop.png);
+    width: 100%;
     height: 100%;
     background-size: cover;
     background-attachment: fixed;
@@ -60,7 +60,7 @@ button a:hover {
 
 @media screen and (max-width: 1024px) {
     .hero {
-        background-image: url(../assets/childmumphone.jpg);
+        background-image: url(../../public/heromobile.png);
     } 
 
     .hero--info {
@@ -96,7 +96,7 @@ button a:hover {
 @media (min-width: 746px) and (max-width: 912px) {
 
     .hero {
-        background-image: url(../assets/childmumphone.jpg);
+        background-image: url(../../public/heromobile.png);
     } 
 
     .hero--info {
@@ -133,7 +133,7 @@ button a:hover {
 @media (max-width: 430px) {
 
     .hero {
-        background-image: url(../assets/childmumphone.jpg);
+        background-image: url(../../public/heromobile.png);
     } 
 
     .hero--info {
@@ -215,6 +215,32 @@ button a:hover {
         font-size: 16px;
         font-weight: 500;
         margin: .8rem .2rem;
+    }
+
+}
+
+@media (max-width: 375px) {
+
+    .hero--info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 0.78rem;
+        padding: 1rem 1rem;
+        top: 89%; 
+    }
+
+    .hero--info h2 {
+        color: #f7f7f7;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+    }
+
+    .hero--info h1 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        margin: 5px 0.1px;
     }
 
 }
