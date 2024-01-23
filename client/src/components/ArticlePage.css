@@ -15,19 +15,19 @@
 
 .article--image {
     grid-column: 4 / 10;
-    width: 100%;
+    width: 50vw;
     height: 600px;
     object-fit: cover;
 }
 
 .articles--content > * {
     grid-column: 4 / 10;
+    text-align: justify;
 }
 
 .articles--content img {
     width: 100%;
     height: 400px;
-    object-fit: cover;
     margin: 30px auto;
     border-radius: 10px; 
 }
@@ -54,7 +54,7 @@
 .articles--content h2 {
     font-size: 1.7rem;
     font-weight: normal;
-    text-align: justify; 
+    text-align: justify;
 }
 
 .articles--content h3, 
@@ -104,7 +104,7 @@
     
     .articles--content img {
         grid-column: 1 / -1;
-        width: 100%;
+        width: 50%;
         height: 300px;
         object-fit: cover;
         margin: 30px auto;
