@@ -13,14 +13,11 @@ const newArticle =  async (request, response) => {
     };
 
     const image = `${URL}/${file.filename}`;
-    console.log(image);
 
     try {
         const newPost = await pool.query(NewPost, [image, titre, date, description, category, content]);
         response.status(200).send(newPost); 
-        console.log(newPost); 
     } catch (error) {
-        console.log(error); 
         response.status(401).json({error: error.message}); 
     }; 
 

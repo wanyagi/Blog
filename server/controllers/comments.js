@@ -5,7 +5,6 @@ const addComment = async (request, response) => {
 
     const { id, comment } = request.body; 
     const { usersid, username } = request.user;
-    console.log(request.user) 
 
     try {
         const newComment = await pool.query(NewComment, [usersid, id, username, comment]); 

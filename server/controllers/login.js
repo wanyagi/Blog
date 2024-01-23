@@ -23,7 +23,6 @@ const logUser = async (request, response) => {
         response.cookie('refreshtoken', token.refreshToken, {httpOnly: true, secure: true, sameSite: "none" });
         response.status(200).send({users_role: user.rows[0].users_role}); 
     } catch (error) {
-        console.error(error); 
         response.status(401).json({error: error.message});
     }
      

@@ -6,14 +6,14 @@ require('dotenv').config();
 
 const port = process.env.PORT || 5000;
 
-app.use(cors({ origin: process.env.URL, credentials: true, })); 
+app.use(cors({ origin: process.env.CLIENT, credentials: true, })); 
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser()); 
 app.use('/uploads', express.static('uploads')); 
 app.use('/uploads/images', express.static('uploads/images'));
 
-app.get('/', (request, response) => {response.status(200).send('saufemums')}); 
+app.get('/', (request, response) => {response.status(200).send('sayfemums')}); 
 
 const refreshToken = require('./routes/refreshtoken'); 
 app.use('/refreshtoken', refreshToken); 
