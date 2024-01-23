@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
-const URL = `${process.env.REACT_APP_SERVER}/posts`;
-console.log(URL);  
+const URL = `${process.env.REACT_APP_SERVER}/posts`; 
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (_, thunkAPI) => {
     try {

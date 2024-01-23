@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
-
 const URL = `${process.env.REACT_APP_SERVER}/refreshtoken`;
 
 export const fetchNewAccesToken = createAsyncThunk("accessToken/fetchNewAccessToken", async (_, thunkAPI) => {

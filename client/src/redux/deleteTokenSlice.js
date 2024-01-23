@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
 
-
 const URL = `${process.env.REACT_APP_SERVER}/refreshtoken`;
 
 export const deleteToken = createAsyncThunk("accessToken/deleteToken", async (_, thunkAPI) => {
