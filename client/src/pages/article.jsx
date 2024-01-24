@@ -99,8 +99,7 @@ const Article = () => {
       const data = new FormData();
       if (file instanceof File) {
         data.append('file', file); 
-      } 
-      console.log(file);  
+      }  
       data.append('titre', titre); 
       data.append('description', description); 
       data.append('date', date); 
@@ -117,23 +116,21 @@ const Article = () => {
           posts_content: content, 
         }; 
         await dispatch(updatedPost({id, post: newData,})).then(() => {navigate('/')});
-        console.log(newData); 
       } else {
         try {
           const response = await fetch(`${process.env.REACT_APP_SERVER}/article`, {
           method: "POST", 
           body: data,
-        }); 
-        console.log(data); 
-        console.log(process.env.REACT_APP_SERVER); 
-        const responseData = await response.json(); 
+         }); 
+
+         const responseData = await response.json(); 
   
-        if (!response.ok) {
-          throw new Error("Appel daniel"); 
-        } else {
+         if (!response.ok) {
+           throw new Error("Appel daniel"); 
+          } else {
           navigate('/'); 
           return responseData; 
-        }
+          }
         } catch (error) {
           console.error(error.message); 
         } 

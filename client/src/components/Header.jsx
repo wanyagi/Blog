@@ -79,9 +79,9 @@ const Header = () => {
                 {menuItems.map((menuItem, index) => <li key={index}><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)} activeClassName='activated'>{menuItem.title}</NavLink></li>)}
             </ul>
             { isMobileMenuOpened ? <IoClose size={25} className="mobile-menu-btn" onClick={handleMobileMenu} style={{'color': '#fcfcf7'}} /> : <LuMenu size={25}  className="mobile-menu-btn" onClick={handleMobileMenu}/>}
-            { isMobileMenuOpened ? <ul className="mobile--menu">
+            {isMobileMenuOpened ? <ul className='mobile--menu'>
               {mobileMenuItems.map((menuItem) => <li><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)} >{menuItem.title}</NavLink></li>)}
-            </ul> : ""}
+            </ul> : ''}
        </nav>
     </header>
   )
