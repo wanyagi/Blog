@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
+import { fetchComments } from './getCommentsSlice';
 
 const URL = `${process.env.REACT_APP_SERVER}/comments`; 
 
-export const comments = createAsyncThunk("comments/addComments", async ({id, comment,}, thunkAPI) => {
+export const submitComments = createAsyncThunk("submitComments/addComments", async ({id, comment,}, thunkAPI) => {
     try {
         const response = await fetch(URL, {
             method: "POST", 
@@ -11,13 +12,16 @@ export const comments = createAsyncThunk("comments/addComments", async ({id, com
             credentials: "include", 
         }); 
         const responseData = await response.json(); 
+        console.log(responseData); 
 
         if (!response.ok) {
             throw new Error()
         } else {
+            thunkAPI.dispatch(fetchComments(id)); 
             return responseData; 
         }
     } catch (error) {
+        console.log(error); 
         return thunkAPI.rejectWithValue(error.message); 
     }
 }); 
@@ -31,17 +35,17 @@ export const commentSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-          .addCase(comments.pending, (state) => {
+          .addCase(submitComments.pending, (state) => {
             state.loading = true; 
             state.comments = []; 
             state.error = null; 
           }) 
-          .addCase(comments.fulfilled, (state, action) => {
-            state.comments = [...state.comments, action.payload];
+          .addCase(submitComments.fulfilled, (state, action) => {
+            state.comments = action.payload;  
             state.loading = false;  
             state.error = null; 
           })
-          .addCase(comments.rejected, (state, action) => {
+          .addCase(submitComments.rejected, (state, action) => {
             state.loading = false; 
             state.comments = []; 
             state.error = action.payload; 

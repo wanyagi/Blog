@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom'; 
 import { useDispatch, useSelector } from 'react-redux'; 
-import { comments } from '../redux/commentsSlice';
+import { submitComments } from '../redux/commentsSlice';
 import './Comments.css';
 
 
@@ -29,8 +29,7 @@ const Comments = () => {
       return; 
     }; 
 
-    const temporaryID = Date.now(); 
-    dispatch(comments({id, comment, temporaryID}));
+    dispatch(submitComments({id, comment}));
     setComment('');
 
   }; 

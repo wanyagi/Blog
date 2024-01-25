@@ -9,7 +9,7 @@ import './CommentsDisplay.css';
 
 const CommentsDisplay = () => {
 
-  const {comments, loading, error } = useSelector((state) => state.comments);
+  const { comments, loading, error } = useSelector((state) => state.comments);
   const dispatch = useDispatch(); 
   const { id } = useParams(); 
 
@@ -18,8 +18,8 @@ const CommentsDisplay = () => {
   }, [dispatch, id]); 
 
   const handleDelete = (comment_id) => {
-    dispatch(deleteComment({id: comment_id}))
-}; 
+    dispatch(deleteComment({id: comment_id, postID: id})); 
+  }; 
 
   const user = localStorage.getItem('users_role'); 
 

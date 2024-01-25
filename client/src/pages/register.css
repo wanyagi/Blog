@@ -103,9 +103,12 @@ input::placeholder {
     margin-bottom: -10px;
 }
 
-.patientez {
+.register--loading {
+    margin: 10px;
     color: #ff5800; 
-    margin: 5px; 
+    height: 20px;
+    font-size: 0.8rem; 
+    text-align: center;
 }
 
 @media screen and (max-width: 1040px) {

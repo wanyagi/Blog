@@ -50,12 +50,12 @@ const Register = () => {
             <input required type="password" placeholder="Mot de passe :" name="password" id="password" onChange={ (event) => handleChange('password', event.target.value)} value={enteredValues.password}/>
             {errors.password && <p className="register--errors">{errors.password}</p>}
           </div>
+          {loading && <div className="register--loading">Veuillez patienter...</div>}
           <div className="form--buttons">
             <button className="form--btn" type="submit">
             Je m'inscris
             </button>
             <p>
-              {loading && <div className="patientez">Veuillez patienter...</div>}
               Tu fais déjà partie de la communauté ?<br /> 
               <Link to="/login">
                 Connecte-toi

@@ -15,7 +15,7 @@ const Login = () => {
     setEnteredValues(previousInputs => ({...previousInputs, [identifier] : value, }));
   }; 
 
-  const { user, error } = useSelector((state) => state.userAuthentication); 
+  const { user, loading, error } = useSelector((state) => state.userAuthentication); 
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
 
@@ -41,6 +41,7 @@ const Login = () => {
             <input required placeholder="Nom d'utilisateur :" type="text" id="username" name="username" onChange={(event) => handleChange("username", event.target.value)} value={enteredValues.username} />
             <input required placeholder="Mots de passe :" type="password" id="password" name="password" onChange={(event) => handleChange("password", event.target.value)} value={enteredValues.password}/>
           </div> 
+          {loading && <p className='login--loading'>Veuillez patientez...</p>}
             <div className="login--buttons">
               <button className="login--btn" type="submit">
                 Se connecter

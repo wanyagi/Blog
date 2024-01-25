@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
+import { fetchComments } from "./getCommentsSlice";
 
 const URL = `${process.env.REACT_APP_SERVER}/comments`; 
 
-export const deleteComment = createAsyncThunk("comment/deleteComment", async ({id}, thunkAPI) => {
+export const deleteComment = createAsyncThunk("comment/deleteComment", async ({id, postID}, thunkAPI) => {
 
     try {
       const response = await fetch(`${URL}/${id}`, {
@@ -10,13 +11,14 @@ export const deleteComment = createAsyncThunk("comment/deleteComment", async ({i
         headers: { "Content-Type" : "application/json", }, 
         credentials: "include",
       });
+      const responseData = await response.json();
 
       if (!response.ok) {
         throw new Error('Network HS');
+      } else {
+        thunkAPI.dispatch(fetchComments(postID)); 
+        return responseData; 
       }
-
-      const responseData = await response.json();
-      return responseData; 
 
     } catch (error) { 
        return thunkAPI.rejectWithValue(error.message);  

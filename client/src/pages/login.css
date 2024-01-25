@@ -86,6 +86,14 @@
     background-color: hsla(0, 0, 75%, 10);
 }
 
+.login--loading {
+    margin: 10px;
+    color: #ff5800; 
+    height: 20px;
+    font-size: 0.8rem; 
+    text-align: center;
+}
+
 
 @media  screen and (max-width: 767px) {
     .login--section {
