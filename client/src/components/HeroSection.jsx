@@ -8,7 +8,7 @@ const HeroSection = () => {
     <section className="hero">
         <Helmet>
             <meta charSet="UTF-8" />
-            <link rel="canonical" href="http://localhost:3000" />
+            <link rel="canonical" href="https://sayfemums.com" />
             <meta name="description" content="blog maternité" />
             <title>sayfemums</title>
         </Helmet> 
