@@ -13,14 +13,13 @@ export const Authentication = createAsyncThunk("user/authentication", async ({us
         const responseData = await response.json(); 
         
          
-        if (response.ok) { 
-            localStorage.setItem('users_role', responseData.users_role); 
-            return responseData; 
+        if (!response.ok) { 
+            return thunkAPI.rejectWithValue(responseData); 
         } else {
-            throw new Error("vérifiez vos corrdonnées..."); 
+            return responseData;
         }
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message); 
+        return thunkAPI.rejectWithValue(error.toString()); 
     }; 
 }); 
 
@@ -30,16 +29,18 @@ export const authenticationSlice = createSlice({
     name: "userAuthentication", 
     initialState, 
     reducers: {
-        logIn: (state) => {
+        logIn: (state, action) => {
+            if (action.payload && action.payload.users_role !== undefined) {
+              state.users_role = action.payload.users_role;   
+            };
             state.loggedIn = true; 
-            localStorage.setItem('loggedIn', 'true'); 
         }, 
         logOut: (state) => {
             state.user = ""; 
             state.loggedIn = false; 
             state.loading = false; 
             state.error = null;
-            localStorage.removeItem('loggedIn'); 
+            localStorage.clear(); 
         }, 
     }, 
     extraReducers: (builder) => {
@@ -54,6 +55,7 @@ export const authenticationSlice = createSlice({
             state.error = null;
             state.users_role = action.payload.users_role; 
             localStorage.setItem('loggedIn', 'true'); 
+            localStorage.setItem('users_role', action.payload.users_role); 
           })
           .addCase(Authentication.rejected, (state, action) => {
             state.error = action.payload; 

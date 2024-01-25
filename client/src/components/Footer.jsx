@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <ul className="footer--list">
-        {footerItems.map((footerItem) => <li><NavLink to={footerItem.link}>{footerItem.title}</NavLink></li>)}
+        {footerItems.map((footerItem, index) => <li key={index}><NavLink to={footerItem.link}>{footerItem.title}</NavLink></li>)}
       </ul>
     </footer>
   )

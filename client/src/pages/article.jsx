@@ -122,6 +122,7 @@ const Article = () => {
           method: "POST", 
           body: data,
          }); 
+         console.log(`${process.env.REACT_APP_SERVER}/article`); 
 
          const responseData = await response.json(); 
   

@@ -10,12 +10,12 @@ const logUser = async (request, response) => {
 
         const user = await pool.query(getUsername, [username]);
         if (user.rows.length === 0) {
-            return response.status(401).json("Nom d'utilisateur incorrect");
+            return response.status(401).json({usernameError: "Nom d'utilisateur incorrect"});
         } 
 
         const usersPassword = await bcrypt.compare(password, user.rows[0].users_password); 
         if (!usersPassword) {
-            return response.status(401).json("Mot de passe incorrect");
+            return response.status(401).json({passwordError: "Mot de passe incorrect"});
         }
 
         const token = tokenGenerator(user.rows[0].users_id, user.rows[0].users_role, username); 

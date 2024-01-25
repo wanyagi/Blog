@@ -76,7 +76,32 @@
    border-radius: 5px;
 }
 
-.loading--state, .error--state{
+.loading--state {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: auto; 
+   max-width: 100vw;
+   max-height: 100vh;
+} 
+
+.article--loading {
+   margin: 0;
+   height: 100px;
+   width: 100px;
+   border: 5px solid;
+   border-color: #ff5800 transparent #ff5800 transparent;
+   border-radius: 50%;
+   animation: spin 1.5s ease infinite;
+}
+
+@keyframes spin {
+   to {
+      transform: rotate(360deg);
+   }
+}
+
+.error--state{
    display: flex;
    align-items: center;
    justify-content: center;
@@ -85,7 +110,7 @@
    height: 100vh;
    color:  #ff5800;
    font-size: 2.5rem;
-} 
+}
 
 @media (min-width: 916px) {
 
@@ -130,6 +155,7 @@
 }
 
 @media (max-width: 1024px) {
+
    .posts--container {
       display: flex;
       align-items: center;

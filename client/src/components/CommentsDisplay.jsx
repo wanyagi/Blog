@@ -23,7 +23,7 @@ const CommentsDisplay = () => {
 
   const user = localStorage.getItem('users_role'); 
 
-  if (loading) { return <div className="comments--loading--state">Patientez...</div> };
+  if (loading) { return <div className="comments--loading--state"></div> };
   if (error) { return <div className="comments--error--state">Il n'y a pas de commentaire.</div> };
 
 

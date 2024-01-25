@@ -15,9 +15,11 @@ const Login = () => {
     setEnteredValues(previousInputs => ({...previousInputs, [identifier] : value, }));
   }; 
 
-  const { user, loading, error } = useSelector((state) => state.userAuthentication); 
+  const { loading, error } = useSelector((state) => state.userAuthentication); 
   const dispatch = useDispatch();
   const navigate = useNavigate(); 
+  const usernameError = error?.usernameError;
+  const passwordError = error?.passwordError;
 
   const handleSubmission = async (event) => {
 
@@ -39,9 +41,10 @@ const Login = () => {
           <h2>Je me connecte</h2>
           <div className="login--inputs">
             <input required placeholder="Nom d'utilisateur :" type="text" id="username" name="username" onChange={(event) => handleChange("username", event.target.value)} value={enteredValues.username} />
+            {usernameError && <p className='login--errors'>{usernameError}</p>}
             <input required placeholder="Mots de passe :" type="password" id="password" name="password" onChange={(event) => handleChange("password", event.target.value)} value={enteredValues.password}/>
+            {passwordError && <p className='login--errors'>{passwordError}</p>}
           </div> 
-          {loading && <p className='login--loading'>Veuillez patientez...</p>}
             <div className="login--buttons">
               <button className="login--btn" type="submit">
                 Se connecter
@@ -52,8 +55,8 @@ const Login = () => {
                 </Link>
               </p>
           </div>
-          {error && <div className="error--display">There's an error...</div>}
-          {user ? <navigate to="/" /> : null}
+          {error && !usernameError && !passwordError && <p className='login--errors'>{error}</p>}
+          {loading && <p className='login--loading'></p>}
         </form>
     </section>
   )

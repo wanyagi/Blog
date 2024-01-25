@@ -8,11 +8,8 @@ const newArticle =  async (request, response) => {
     const { titre, date, description, category, content} = request.body;
     const file  = request.file;
 
-    if (!file) {
-        return response.status(404).json({message : 'no file uploaded'}); 
-    };
-
-    const image = `${URL}/${file.filename}`;
+    let image; 
+    file ? image = `${URL}/${file.filename}` : null; 
 
     try {
         const newPost = await pool.query(NewPost, [image, titre, date, description, category, content]);
@@ -32,9 +29,7 @@ const editArticle = async (request, response) => {
     const file = request.file;
     
     let urlFile;
-    if (file) {
-        urlFile = `${URL}/${file.filename}`;
-    }; 
+    file ? urlFile = `${URL}/${file.filename}` : null;
     
     try {
         const postEdit = await pool.query(editPostByID, [urlFile, posts_title, posts_date, posts_description, posts_category, posts_content, id]);

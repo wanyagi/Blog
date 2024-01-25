@@ -30,8 +30,10 @@ const Register = () => {
     setErrors(validationErrors); 
 
     if (Object.keys(validationErrors).length === 0) {
-      dispatch(registerUser(enteredValues)); 
-      navigate('/login');
+      const result = await dispatch(registerUser(enteredValues)); 
+      if (registerUser.fulfilled.match(result)) {
+        navigate('/login');
+      }
     }
   }; 
 
@@ -50,7 +52,7 @@ const Register = () => {
             <input required type="password" placeholder="Mot de passe :" name="password" id="password" onChange={ (event) => handleChange('password', event.target.value)} value={enteredValues.password}/>
             {errors.password && <p className="register--errors">{errors.password}</p>}
           </div>
-          {loading && <div className="register--loading">Veuillez patienter...</div>}
+          {loading && (<div className="register--loading"><div className='dot'></div><div className='dot'></div><div className='dot'></div></div>)}
           <div className="form--buttons">
             <button className="form--btn" type="submit">
             Je m'inscris

@@ -36,10 +36,11 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem('loggedIn') === 'true'; 
+    const loggedIn = localStorage.getItem('loggedIn'); 
+    const usersRole = localStorage.getItem('users_role'); 
 
-    if (loggedIn) {
-      dispatch(logIn()); 
+    if (loggedIn === 'true' && usersRole) {
+      dispatch(logIn({users_role: usersRole})); 
     }; 
 
   }, [dispatch]); 

@@ -9,7 +9,7 @@ const Comments = () => {
 
   const [ comment, setComment ] = useState(''); 
   const [ textarea, setTextarea ] = useState(false); 
-  const isLogged = useSelector((state) => state.userAuthentication.loggedIn);  
+  const {loggedIn, loading} = useSelector((state) => state.userAuthentication);  
   const dispatch = useDispatch(); 
   const { id } = useParams(); 
 
@@ -24,7 +24,7 @@ const Comments = () => {
 
     event.preventDefault(); 
 
-    if (!isLogged) {
+    if (!loggedIn) {
       setTextarea(true); 
       return; 
     }; 
@@ -36,7 +36,7 @@ const Comments = () => {
 
   const handleTextareaFocues = () => {
 
-    if (!isLogged) {
+    if (!loggedIn) {
       setTextarea(true); 
     }; 
 
@@ -44,7 +44,8 @@ const Comments = () => {
 
     return (
       <form className="comment--section" onSubmit={handleCommentSubmission}>
-        {!isLogged && textarea && <div className="comments--error--state">Connecte-toi afin de poster ton commentaire</div>}
+        {!loggedIn && textarea && <div className="comments--error--state">Connecte-toi afin de poster ton commentaire</div>}
+        {loading && <div className="comments--loading--state"></div>}
         <textarea placeholder="Laisse un commentaire..." name="comments" id="comments" value={comment} onChange={handleComment} onFocus={handleTextareaFocues} />
         <div id="comment--section--button">
           <button className="comment--section--button" type="submit">Valider</button>

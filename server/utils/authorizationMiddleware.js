@@ -2,8 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const authorizationMiddleware = (request, response, next) => {
 
-    const accessToken = request.cookies.accesstoken; 
-    console.log(accessToken); 
+    const accessToken = request.cookies.accesstoken;
 
     if (!accessToken) {
         return response.status(403).json({message: "Connectez vous"}); 

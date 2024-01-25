@@ -30,7 +30,7 @@ const ArticlePage = () => {
 
   const user = localStorage.getItem('users_role'); 
 
-  if (loading) {return <div className="loading--state">Patientez...</div>}
+  if (loading) {return <div className="loading--state"><div className='article--loading'></div></div>}
   if (error) {return <div className="error--state">Un article arrivera bientôt.</div>}
   if (!post) return <div>Article not found or loading...</div>
 
