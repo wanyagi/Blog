@@ -139,6 +139,7 @@ input::placeholder {
 };
 
 @media screen and (max-width: 1040px) {
+    
     .register--section {
         flex-direction: column;
         margin-top: 50px;
