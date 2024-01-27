@@ -7,7 +7,7 @@ const reactQuillImages = (request, response) => {
     }
 //protocol https remember
     const protocol = process.env.PROTOCOL || 'http'; 
-    const imageUrl = `${protocol}://${request.get('host')}/uploads/images/${request.file.filename}`;
+    const imageUrl = `${protocol}://${request.get('host')}/uploads/${request.file.filename}`;
     response.json({ imageUrl });
 }
 
