@@ -142,7 +142,7 @@ input::placeholder {
     
     .register--section {
         flex-direction: column;
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
     .register--form h2 {
@@ -173,5 +173,32 @@ input::placeholder {
 
     .register--image {
         display: none;
+    }
+
+    .form--buttons button {
+        margin: 0 55px; 
+        width: 150px;
+        height: 47px;
+        font-size: 1.1rem;
+    }
+
+}
+
+@media (max-width: 920px) {
+
+    .register--section {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    
+    .register--image {
+        display: none;
+    }
+
+    .form--buttons button {
+        margin: 0 55px; 
+        width: 150px;
+        height: 47px;
+        font-size: 1rem;
     }
 }

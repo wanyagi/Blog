@@ -90,7 +90,7 @@
    height: 100px;
    width: 100px;
    border: 5px solid;
-   border-color: #ff5800 transparent #ff5800 transparent;
+   border-color: #ff5800 #ff5800 transparent;
    border-radius: 50%;
    animation: spin 1.5s ease infinite;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom'; 
+import { useParams, NavLink } from 'react-router-dom'; 
 import { useDispatch, useSelector } from 'react-redux'; 
 import { submitComments } from '../redux/commentsSlice';
 import './Comments.css';
@@ -44,7 +44,7 @@ const Comments = () => {
 
     return (
       <form className="comment--section" onSubmit={handleCommentSubmission}>
-        {!loggedIn && textarea && <div className="comments--error--state">Connecte-toi afin de poster ton commentaire</div>}
+        {!loggedIn && textarea && <div className="comments--error--state"><NavLink to="/login">Connecte-toi</NavLink> afin de poster ton commentaire</div>}
         {loading && <div className="comments--loading--state"></div>}
         <textarea placeholder="Laisse un commentaire..." name="comments" id="comments" value={comment} onChange={handleComment} onFocus={handleTextareaFocues} />
         <div id="comment--section--button">

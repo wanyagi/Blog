@@ -5,16 +5,16 @@ const multer  = require('multer');
 
 const storage = multer.diskStorage({
         destination: (request, file, cb) => {
-            return cb(null, "uploads/")
+            return cb(null, '/uploads');
         }, 
         filename: (request, file, cb) => {
-            return cb(null, `${Date.now()}_${file.originalname}`)
+            return cb(null, `${Date.now()}_${file.originalname}`);
         } 
 }); 
 
 const imageUploadMiddleware = multer({storage}); 
 
 articleRouter.post('/', imageUploadMiddleware.single('file'), newArticle); 
-articleRouter.put('/:id', imageUploadMiddleware.single('file'),editArticle); 
+articleRouter.put('/:id', imageUploadMiddleware.single('file'), editArticle); 
 
 module.exports = articleRouter; 
