@@ -7,10 +7,10 @@ const HeroSection = () => {
   return (
     <section className="hero">
         <Helmet>
-            <meta charSet="UTF-8" />
-            <link rel="canonical" href="http://localhost:3000" />
-            <meta name="description" content="blog maternité" />
-            <title>sayfemums</title>
+          <meta charSet="UTF-8" />
+          <link rel="canonical" href="http://localhost:3000" />
+          <meta name="description" content="blog maternité" />
+          <title>sayfemums</title>
         </Helmet> 
 
         <div className="hero--info">

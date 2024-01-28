@@ -82,6 +82,59 @@
   vertical-align: middle;
 }
 
+@media (min-width: 1025px) and (max-width: 1400px) {
+
+    .articles--image, .articles--content {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .article--image {
+        grid-column: 1 / -1;
+        width: 90vw;
+        height: 400px;
+        object-fit: cover;
+        margin: 50px; 
+        border-radius: 10px;
+    }
+    
+    .articles--content > * {
+        grid-column: 1/ -1;
+        margin: auto 50px; 
+    }
+    
+    .articles--content img {
+        width: 86vw;
+        height: 400px;
+        object-fit: cover;
+        margin: 30px auto;
+        border-radius: 10px; 
+    }
+
+    .articles--content h1 {
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+
+    .articles--content h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .article--section p {
+        text-align: justify;
+        font-size: 16px; 
+        line-height: 1;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+    }
+
+    .article--review {
+       display: none; 
+    } 
+
+}
+
 @media (max-width: 1024px) {
 
     .articles--image, .articles--content {
@@ -149,57 +202,4 @@
         white-space: pre-wrap;
         overflow-wrap: break-word;
     }
-}
-
-@media (min-width: 1025px) and (max-width: 1400px) {
-
-    .articles--image, .articles--content {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-    }
-
-    .article--image {
-        grid-column: 1 / -1;
-        width: 90vw;
-        height: 400px;
-        object-fit: cover;
-        margin: 50px; 
-        border-radius: 10px;
-    }
-    
-    .articles--content > * {
-        grid-column: 1/ -1;
-        margin: auto 50px; 
-    }
-    
-    .articles--content img {
-        width: 86vw;
-        height: 400px;
-        object-fit: cover;
-        margin: 30px auto;
-        border-radius: 10px; 
-    }
-
-    .articles--content h1 {
-        font-size: 1.7rem;
-        font-weight: 600;
-    }
-
-    .articles--content h2 {
-        font-size: 1.5rem;
-        font-weight: 600;
-    }
-
-    .article--section p {
-        text-align: justify;
-        font-size: 16px; 
-        line-height: 1;
-        white-space: pre-wrap;
-        overflow-wrap: break-word;
-    }
-
-    .article--review {
-       display: none; 
-    } 
-
 }
