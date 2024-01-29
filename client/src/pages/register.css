@@ -194,6 +194,13 @@ input::placeholder {
         display: none;
     }
 
+    .form--btn {
+        text-decoration: none; 
+        color: #fcfcf7;
+        font-size: 1rem;
+        font-weight: normal !important;
+    }
+
     .form--buttons button {
         margin: 0 55px; 
         width: 150px;
