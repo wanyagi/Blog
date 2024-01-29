@@ -84,6 +84,7 @@
     border: 1px solid black;
     border-radius: 5px;
     background-color: hsla(0, 0, 75%, 10);
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.5); 
 }
 
 

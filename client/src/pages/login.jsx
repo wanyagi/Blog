@@ -26,7 +26,7 @@ const Login = () => {
     event.preventDefault(); 
  
     const result = await dispatch(Authentication(enteredValues)); 
-    if (Authentication.fulfilled.match(result)) {
+    if (result.meta.requestStatus === 'fulfilled') {
       navigate('/'); 
     }; 
 

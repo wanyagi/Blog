@@ -1,20 +1,17 @@
-.hero {
-    background-image: url(../../public/herodesktop.webp);
+.hero img{
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    object-fit: cover;
     position: absolute;
     top: 0;
-    z-index: 1;
-}
+} 
 
 .hero--info {
-    position: relative; 
     top: 40%; 
     padding: 0 2rem;
     color: #010101;
+    position: absolute;
+    z-index: 1;
 }
 
 .hero--info h1, .hero--info h2 {
@@ -56,12 +53,7 @@ button a:hover {
     transition: 0.3s ease-in-out;
 }
 
-@media screen and (max-width: 1024px) {
-    .hero {
-        background-image: url(../../public/heromobile.webp);
-        width: 100%;
-        height: 100%;
-    } 
+@media (min-width: 1025px) and (max-width: 1368px) {
 
     .hero--info {
         top: 92%; 
@@ -99,13 +91,8 @@ button a:hover {
     }
 }
 
-@media (max-width: 912px) {
 
-    .hero {
-        background-image: url(../../public/heromobile.webp);
-        width: 100%;
-        height: 100%;
-    } 
+@media (min-width: 768px) and (max-width: 1024px) {
 
     .hero--info {
         top: 88%; 
@@ -125,7 +112,7 @@ button a:hover {
         text-align: center;
         font-size: 32px;
         font-weight: 500;
-        margin: 1rem 0;
+        margin: 1rem 1rem;
     }
 
     button {
@@ -138,13 +125,33 @@ button a:hover {
 
 } 
 
+@media (min-width: 767px) and (max-width: 821px) {
+
+    .hero--info {
+        top: 89%; 
+        display: flex;
+        flex-direction: column;
+        font-size: 0.78rem;
+        padding: 1rem .4rem; 
+    }
+
+    .hero--info h2 {
+        color: #010101;
+        margin-bottom: 30px;
+        font-size: 3.5rem;
+    }
+
+    .hero--info h1 {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 500;
+        margin: 1rem 2.5rem;
+    }
+
+}
+
 @media (max-width: 430px) {
 
-    .hero {
-        background-image: url(../../public/heromobile.webp);
-        width: 100%;
-        height: 100%;
-    } 
 
     .hero--info {
         display: flex;
@@ -179,11 +186,6 @@ button a:hover {
 
 @media (max-width: 414px) {
 
-    .hero {
-        background-image: url(../../public/heromobile.webp);
-        width: 100%;
-        height: 100%;
-    } 
 
     .hero--info {
         display: flex;
@@ -204,18 +206,12 @@ button a:hover {
         text-align: center;
         font-size: 16px;
         font-weight: 500;
-        margin: 1rem 1rem;
+        margin: .8rem 1rem;
     }
 
 }
 
 @media (max-width: 390px) {
-
-    .hero {
-        background-image: url(../../public/heromobile.webp);
-        width: 390px;
-        height: 100%;
-    } 
 
     .hero--info {
         display: flex;
@@ -243,12 +239,6 @@ button a:hover {
 
 @media (max-width: 375px) {
 
-    .hero {
-        background-image: url(../../public/heromobile.webp);
-        width: 375px;
-        height: 100%;
-    } 
-
     .hero--info {
         display: flex;
         flex-direction: column;
@@ -268,18 +258,12 @@ button a:hover {
         text-align: center;
         font-size: 16px;
         font-weight: 400;
-        margin: 5px 0.1px;
+        margin: 0 0.1px;
     }
 
 }
 
 @media (max-width: 360px) {
-
-    .hero {
-        background-image: url(../../public/heromobile.webp);
-        width: 360px;
-        height: 100%;
-    } 
 
     .hero--info {
         display: flex;

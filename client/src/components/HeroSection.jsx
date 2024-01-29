@@ -13,6 +13,13 @@ const HeroSection = () => {
           <title>sayfemums</title>
         </Helmet> 
 
+        <picture>
+          <source media="(min-width : 1025px)" srcSet="herodesktop.webp" />
+          <source media="(min-width : 768px) and (max-width: 1024px)" srcSet="herotablette.webp" />
+          <source media="(max-width : 767px)" srcSet="heromobile.webp" />
+          <img src='herodesktop.webp' alt='herosectionsimage'/>
+        </picture>
+
         <div className="hero--info">
           <h2>SAYFEMUMS</h2>
             <h1>
