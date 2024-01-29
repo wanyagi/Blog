@@ -3,7 +3,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: auto;
 }
 
 .register--image {
@@ -20,7 +19,7 @@
     align-items: center;
     flex-direction: column;
     background-color: hsla(0, 0, 75%, 10);
-    box-shadow: 5px 5px 5px hsla(0, 10%, 92%, 0.5);
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.5);
     width: 265px;
     height: 414px;
     border-left: 0px;

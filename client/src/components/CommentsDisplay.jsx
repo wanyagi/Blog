@@ -29,8 +29,8 @@ const CommentsDisplay = () => {
 
     return (
         <section className="comments--display--section">
-            {comments.map((comment) => (
-                <div className="displayed" key={comment.comment_id}>
+            {comments.map((comment, index) => (
+                <div className="displayed" key={comment.comment_id || index}>
                   <h6 className="c--title">{comment.comment_username}</h6>
                   <p className="c--paragraphe">{comment.comment}</p>
                   {user === 'admin' && (<MdDelete className="delete--icon" size={20} onClick={() => handleDelete(comment.comments_id)}/>)}

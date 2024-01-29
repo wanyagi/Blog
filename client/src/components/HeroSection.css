@@ -120,7 +120,7 @@ button a:hover {
         height: 65px;
         width: 250px;
         font-size: 2rem;
-        margin: 0;
+        margin-top: 10px;
     }
 
     button a {
@@ -152,6 +152,10 @@ button a:hover {
         font-size: 32px;
         font-weight: 500;
         margin: 1rem 2.5rem;
+    }
+
+    button {
+        margin-top: 10px;
     }
 
     button a {
@@ -201,6 +205,11 @@ button a:hover {
         font-size: 1rem;
     }
 
+    
+    button {
+        margin-top: 10px;
+    }
+
 }
 
 @media (max-width: 414px) {
@@ -232,6 +241,11 @@ button a:hover {
         text-decoration: none;
         color: #f7f7f7; 
         font-size: 1rem;
+    }
+
+    
+    button {
+        margin-top: 10px;
     }
 
 
@@ -267,6 +281,11 @@ button a:hover {
         font-size: 1rem;
     }
 
+    
+    button {
+        margin-top: 8px;
+    }
+
 
 }
 
@@ -300,6 +319,11 @@ button a:hover {
         font-size: 1rem;
     }
 
+    
+    button {
+        margin-top: 8px;
+    }
+
 
 }
 
@@ -331,6 +355,11 @@ button a:hover {
         text-decoration: none;
         color: #f7f7f7; 
         font-size: 1rem;
+    }
+
+    
+    button {
+        margin-top: 10px;
     }
 
 }

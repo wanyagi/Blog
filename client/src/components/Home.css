@@ -12,7 +12,14 @@
   margin-top: 160px;
 }
 
-@media screen and (max-width: 1024px) {
+/*@media screen and (max-width: 1366px) {
+  .posts--section {
+    margin-top: 100px;
+    gap: 20px; 
+  }
+} */
+
+@media screen and (max-width: 1000px) {
   .posts--section {
     margin-top: 630px;
     gap: 20px; 
