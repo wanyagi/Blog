@@ -145,7 +145,7 @@
     .article--image {
         grid-column: 1 / -1;
         width: 90vw;
-        height: 400px;
+        height: auto;
         object-fit: cover;
         margin-bottom: 10px; 
     }
@@ -157,7 +157,7 @@
     
     .articles--content img {
         grid-column: 1 / -1;
-        width: 50%;
+        width: 100%;
         height: auto;
         object-fit: cover;
         margin: 30px auto;

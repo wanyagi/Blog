@@ -123,6 +123,12 @@ button a:hover {
         margin: 0;
     }
 
+    button a {
+        text-decoration: none;
+        color: #f7f7f7; 
+        font-size: 1rem;
+    }
+
 } 
 
 @media (min-width: 767px) and (max-width: 821px) {
@@ -146,6 +152,12 @@ button a:hover {
         font-size: 32px;
         font-weight: 500;
         margin: 1rem 2.5rem;
+    }
+
+    button a {
+        text-decoration: none;
+        color: #f7f7f7; 
+        font-size: 1rem;
     }
 
 }
@@ -182,6 +194,13 @@ button a:hover {
         font-size: 2rem;
         margin: 0;
     }
+
+    button a {
+        text-decoration: none;
+        color: #f7f7f7; 
+        font-size: 1rem;
+    }
+
 }
 
 @media (max-width: 414px) {
@@ -209,6 +228,13 @@ button a:hover {
         margin: .8rem 1rem;
     }
 
+    button a {
+        text-decoration: none;
+        color: #f7f7f7; 
+        font-size: 1rem;
+    }
+
+
 }
 
 @media (max-width: 390px) {
@@ -234,6 +260,13 @@ button a:hover {
         font-weight: 500;
         margin: .8rem .2rem;
     }
+
+    button a {
+        text-decoration: none;
+        color: #f7f7f7; 
+        font-size: 1rem;
+    }
+
 
 }
 
@@ -261,6 +294,13 @@ button a:hover {
         margin: 0 0.1px;
     }
 
+    button a {
+        text-decoration: none;
+        color: #f7f7f7; 
+        font-size: 1rem;
+    }
+
+
 }
 
 @media (max-width: 360px) {
@@ -285,6 +325,12 @@ button a:hover {
         font-size: 16px;
         font-weight: 500;
         margin: .8rem 0;
+    }
+
+    button a {
+        text-decoration: none;
+        color: #f7f7f7; 
+        font-size: 1rem;
     }
 
 }
