@@ -5,16 +5,16 @@
   min-height: auto;
   justify-content: space-around;
   flex-direction: row;
-  margin-top: 930px;
+  margin-top: 920px;
 } 
 
 .posts--section {
-  margin-top: 90px;
+  margin-top: 80px;
 } 
 
-/*@media screen and (max-width: 1366px) {
-  .posts--section {
-    margin-top: 100px;
+/*@media screen and (max-width: 1000px) {
+  .catégorie--home--section  {
+    margin-top: 630px;
     gap: 20px; 
   }
 } */
@@ -60,12 +60,6 @@
     gap: 20px; 
   }
 } 
-
-@media (max-width: 375px) {
-  .posts--section{
-    margin-top: -210px; 
-  }
-}
 
 @media screen and (max-width: 360px) {
   .posts--section {

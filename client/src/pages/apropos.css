@@ -15,7 +15,7 @@
 .apropos-content img {
     grid-column: 4 / 10;
     width: 100%;
-    height: 300px;
+    height: auto;
     object-fit: cover;
     margin-bottom: 30px;
     border-radius: 5px;
