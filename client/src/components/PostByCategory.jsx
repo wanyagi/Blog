@@ -22,10 +22,8 @@ const PostsByCategory = () => {
 
     const sortPost = posts.slice().sort((recent, ancient) => moment(ancient.posts_date) - moment(recent.posts_date)); 
 
-    if (loading) { return <div className="loading--state">Patientez...</div> };
-    if (error) { return <div className="error--state">17.01.24</div> };
-
-
+    if (loading) { return <div className="loading--state"><div className='article--loading'></div></div> };
+    if (error) { return <div className="error--state">Un article arrivera bientôt.</div> };
 
     return (
       <div className="posts--gcontainer">

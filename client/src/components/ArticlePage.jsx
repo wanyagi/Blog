@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useEffect } from 'react'; 
 import { Link, useParams, useNavigate } from "react-router-dom"; 
 import { fetchPostsByID } from '../redux/postsByIDSlice';
 import { deletePost } from '../redux/deletePostSlice';
@@ -12,8 +12,6 @@ import CommentsDisplay from './CommentsDisplay';
 
 const ArticlePage = () => {
 
-  const [ comments, setComments ] = useState([]); 
-
   const { id } = useParams(); 
   const dispatch = useDispatch(); 
   const { post, loading, error } = useSelector((state) => state.postsbyid); 
@@ -23,17 +21,6 @@ const ArticlePage = () => {
   useEffect(() => {
     dispatch(fetchPostsByID(id)); 
   }, [dispatch, id]);  
-
-  useEffect(() => {
-    const fetchComments = async () => {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}/comments/${id}`); 
-      const responseData = await response.json(); 
-      setComments(responseData); 
-      console.log(responseData); 
-    };  
-    
-    fetchComments(); 
-  }, [id]); 
 
   const handleEdit = () => {dispatch((fetchPostToUpdate(id)))}; 
 
@@ -45,14 +32,6 @@ const ArticlePage = () => {
   if (loading) {return <div className="loading--state"><div className='article--loading'></div></div>}
   if (error) {return <div className="error--state">Un article arrivera bientôt.</div>}
   if (!post) return <div>Article not found or loading...</div>
-
-  const addComment = (newComment) => {
-    setComments([...comments, newComment]); 
-  }; 
-
-  const removeComment = (comments_id) => {
-    setComments(comments => comments.filter(comment => comment.comments_id !== comments_id)); 
-  }; 
 
   return (
     <article className="article--section">
@@ -72,8 +51,8 @@ const ArticlePage = () => {
             <MdDelete className="delete--icon" size={30} style={{color: "red"}} onClick={handleDelete}/>
           </div>)}
           <div className="comments-header"><hr /><h3>Commentaires</h3><hr /></div>
-          <CommentsDisplay comments={comments} removeComment={removeComment}/>
-          <Comments addComment={addComment} />
+          <CommentsDisplay />
+          <Comments />
         </div>
     </article>
   )

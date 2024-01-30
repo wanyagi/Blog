@@ -47,16 +47,23 @@
   }
 } 
 
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 414px) {
   .posts--section {
-    margin-top: 95px;
+    margin-top: 90px;
     gap: 20px; 
   }
 } 
 
 @media screen and (max-width: 390px) {
   .posts--section {
-    margin-top: -30px;
+    margin-top: 5px;
+    gap: 20px; 
+  }
+} 
+
+@media screen and (max-width: 375px) {
+  .posts--section {
+    margin-top: -65px;
     gap: 20px; 
   }
 } 

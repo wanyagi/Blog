@@ -1,33 +1,40 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'; 
+import { fetchComments } from '../redux/getCommentsSlice';
 import { deleteComment } from '../redux/deleteCommentsSlice';
 import { MdDelete } from 'react-icons/md';
 import './CommentsDisplay.css';
 
+const CommentsDisplay = () => {
 
-const CommentsDisplay = ({comments, removeComment}) => {
-
+  const { comments, loading, error } = useSelector((state) => state.comments);
   const dispatch = useDispatch(); 
   const { id } = useParams();
   const user = localStorage.getItem('users_role'); 
 
+  useEffect(() => {
+    dispatch(fetchComments(id)); 
+  }, [dispatch, id]); 
+
   const handleDelete = async (comments_id) => {
     await dispatch(deleteComment({id: comments_id, postID: id}));
-    removeComment(comments_id); 
   }; 
 
-    return (
-        <section className="comments--display--section">
-            {comments.map((comment, index) => (
-                <div className="displayed" key={comment.comment_id || index}>
-                  <h6 className="c--title">{comment.comment_username}</h6>
-                  <p className="c--paragraphe">{comment.comment}</p>
-                  {user === 'admin' && (<MdDelete className="delete--icon" size={20} onClick={() => handleDelete(comment.comments_id)}/>)}
-                </div>
-            ))}
-        </section>
-    )
+  if (loading) { return <div className="comments--loading--state"></div> };
+  if (error) { return <div className="comments--error--state">Il n'y a pas de commentaire.</div> };
+
+  return (
+      <section className="comments--display--section">
+          {comments.map((comment, index) => (
+              <div className="displayed" key={comment.comment_id || index}>
+                <h6 className="c--title">{comment.comment_username}</h6>
+                <p className="c--paragraphe">{comment.comment}</p>
+                {user === 'admin' && (<MdDelete className="delete--icon" size={20} onClick={() => handleDelete(comment.comments_id)}/>)}
+              </div>
+          ))}
+      </section>
+  )
 }; 
 
 export default CommentsDisplay; 

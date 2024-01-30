@@ -205,11 +205,6 @@ button a:hover {
         font-size: 1rem;
     }
 
-    
-    button {
-        margin-top: 10px;
-    }
-
 }
 
 @media (max-width: 414px) {
@@ -242,12 +237,6 @@ button a:hover {
         color: #f7f7f7; 
         font-size: 1rem;
     }
-
-    
-    button {
-        margin-top: 10px;
-    }
-
 
 }
 
@@ -283,7 +272,7 @@ button a:hover {
 
     
     button {
-        margin-top: 8px;
+        margin-top: 5px;
     }
 
 
