@@ -14,7 +14,7 @@
 
 @media (min-width: 1024px) and (max-width: 1440px) {
   .catégorie--home--section  {
-    margin-top: 400px;
+    margin-top: 800px;
     gap: 20px; 
   }
 } 
