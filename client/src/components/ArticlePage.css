@@ -15,8 +15,8 @@
 
 .article--image {
     grid-column: 4 / 10;
-    width: 50vw;
-    height: 600px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
 }
 

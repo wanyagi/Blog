@@ -56,7 +56,6 @@ const ArticlePage = () => {
 
   return (
     <article className="article--section">
-        <img className="article--image" src={post.posts_image} alt="articlesimage"/>
         <div className="articles--content">
           <div>
             <h1>{post.posts_title}</h1>
@@ -64,6 +63,7 @@ const ArticlePage = () => {
           <div>
             <h2>{post.posts_description}</h2>
           </div>
+          <img className="article--image" src={post.posts_image} alt="articlesimage"/>
           <div dangerouslySetInnerHTML={{__html: post.posts_content}}/>
           {user === 'admin' && (<div className="article--review" state={post}>
             <Link to={`/article/${id}`} onClick={handleEdit}>
