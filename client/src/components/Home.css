@@ -63,7 +63,6 @@
 
 @media screen and (max-width: 375px) {
   .posts--section {
-    margin-top: -65px;
     gap: 20px; 
   }
 } 
