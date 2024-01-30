@@ -12,12 +12,12 @@
   margin-top: 80px;
 } 
 
-/*@media screen and (max-width: 1000px) {
+@media (min-width: 1024px) and (max-width: 1440px) {
   .catégorie--home--section  {
-    margin-top: 630px;
+    margin-top: 400px;
     gap: 20px; 
   }
-} */
+} 
 
 @media screen and (max-width: 1000px) {
   .posts--section {

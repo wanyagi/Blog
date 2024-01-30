@@ -8,7 +8,7 @@ const addComment = async (request, response) => {
 
     try {
         const newComment = await pool.query(NewComment, [usersid, id, username, comment]); 
-        response.status(200).json(newComment); 
+        response.status(200).json(newComment.rows[0]); 
     } catch (error) {
         response.status(500).json({error: error.message})
     }
