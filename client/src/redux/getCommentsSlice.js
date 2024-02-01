@@ -4,14 +4,14 @@ const URL = `${process.env.REACT_APP_SERVER}/comments`;
 
 export const fetchComments = createAsyncThunk("comments/fetchComments", async (id, thunkAPI) => {
     try {
-        const response = await fetch(`${URL}/${id}`); 
+      const response = await fetch(`${URL}/${id}`); 
 
-        if (!response.ok) {
-          throw new Error()
-        } 
+      if (!response.ok) {
+        throw new Error()
+      } 
 
-        const responseData = await response.json(); 
-        return responseData;
+      const responseData = await response.json(); 
+      return responseData;
 
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message); 

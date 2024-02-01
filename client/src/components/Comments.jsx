@@ -21,12 +21,10 @@ const Comments = () => {
   }; 
 
   const handleTextareaFocus = () => {
-    if (!loggedIn) {
-      setTextarea(true); 
-    }; 
+    setTextarea(true); 
   }; 
 
-  const handleCommentSubmission = async (event) => {
+  const handleCommentSubmission = (event) => {
 
     event.preventDefault(); 
 
@@ -35,7 +33,7 @@ const Comments = () => {
       return; 
     }; 
 
-    await dispatch(submitComments({id, comment})); 
+    dispatch(submitComments({id, comment})); 
     setComment(''); 
 
     const textarea = document.getElementById("comments");
@@ -47,8 +45,8 @@ const Comments = () => {
 
     return (
       <form className="comment--section" onSubmit={handleCommentSubmission}>
-        {!loggedIn && textarea && <div className="comments--error--state"><NavLink to="/login">Connecte-toi</NavLink> et post ton commentaire</div>}
-        {loading && <div className="comments--loading--state"></div>}
+        {!loggedIn && textarea ? <div className="comments--error--state"><NavLink to="/login">Connecte-toi</NavLink> et post ton commentaire</div> : ""}
+        {loading ? <div className="comments--loading--state"></div> : ""}
         <textarea placeholder="Laisse un commentaire..." name="comments" id="comments" value={comment} onChange={handleComment} onFocus={handleTextareaFocus} />
         <div id="comment--section--button">
           <button className="comment--section--button" type="submit">Valider</button>
