@@ -19,14 +19,14 @@
   }
 } 
 
-@media screen and (max-width: 1000px) {
+@media (min-width: 820px) and (max-width: 1000px) {
   .posts--section {
-    margin-top: 630px;
+    margin-top: 450px;
     gap: 20px; 
   }
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 819px) {
   .posts--section {
     margin-top: 400px;
     gap: 20px; 
@@ -56,14 +56,14 @@
 
 @media screen and (max-width: 390px) {
   .posts--section {
-    margin-top: 5px;
+    margin-top: -25px;
     gap: 20px; 
   }
 } 
 
 @media screen and (max-width: 375px) {
   .posts--section {
-    margin-top: -205px;
+    margin-top: -200px;
     gap: 20px; 
   }
 } 

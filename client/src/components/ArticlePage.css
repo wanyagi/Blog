@@ -157,7 +157,7 @@
     
     .articles--content img {
         grid-column: 1 / -1;
-        width: 100%;
+        width: 85vw;
         height: auto;
         object-fit: cover;
         margin: 30px auto;

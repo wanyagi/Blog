@@ -20,7 +20,7 @@ const Comments = () => {
     textarea.style.height = `${textarea.scrollHeight}px`;
   }; 
 
-  const handleTextareaFocues = () => {
+  const handleTextareaFocus = () => {
     if (!loggedIn) {
       setTextarea(true); 
     }; 
@@ -49,7 +49,7 @@ const Comments = () => {
       <form className="comment--section" onSubmit={handleCommentSubmission}>
         {!loggedIn && textarea && <div className="comments--error--state"><NavLink to="/login">Connecte-toi</NavLink> et post ton commentaire</div>}
         {loading && <div className="comments--loading--state"></div>}
-        <textarea placeholder="Laisse un commentaire..." name="comments" id="comments" value={comment} onChange={handleComment} onFocus={handleTextareaFocues} />
+        <textarea placeholder="Laisse un commentaire..." name="comments" id="comments" value={comment} onChange={handleComment} onFocus={handleTextareaFocus} />
         <div id="comment--section--button">
           <button className="comment--section--button" type="submit">Valider</button>
         </div>
