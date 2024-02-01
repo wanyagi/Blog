@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchPosts } from '../redux/postSlice';
 import { NavLink } from 'react-router-dom'; 
 import moment from 'moment'; 
-import 'moment/locale/fr'; 
+//import 'moment/locale/fr'; 
 import './Posts.css'; 
 
 const Posts = () => {
 
   const formatDate = (date) => {
-    moment.locale('fr');
-    return moment(date).format("DD MMMM YYYY"); 
+    //moment.locale('fr');
+    return moment(date).format("DD/MM/YYYY"); 
   }
 
   const dispatch = useDispatch(); 

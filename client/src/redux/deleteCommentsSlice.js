@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"; 
-import { fetchComments } from "./getCommentsSlice";
 
 const URL = `${process.env.REACT_APP_SERVER}/comments`; 
 
@@ -16,7 +15,6 @@ export const deleteComment = createAsyncThunk("comment/deleteComment", async ({i
       if (!response.ok) {
         throw new Error('Network HS');
       } else {
-        thunkAPI.dispatch(fetchComments(postID)); 
         return responseData; 
       }
 

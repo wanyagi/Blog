@@ -1,10 +1,10 @@
 import React from "react";
-import "./cgv.css";
+import "./pdc.css";
 
-const PmCGV = () => {
+const PDC = () => {
   return (
-    <section className="cgv--container">
-      <div className="cgv--content">
+    <section className="pdc--container">
+      <div className="pdc--content">
       <h2>Politiques de confidentialité & Mentions Légales</h2>
       <p>
         L'entreprise individuelle Sayfemums, soucieuse des droits des individus,
@@ -295,4 +295,4 @@ const PmCGV = () => {
   );
 };
 
-export default PmCGV;
+export default PDC;

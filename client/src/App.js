@@ -9,7 +9,7 @@ import Apropos from './pages/apropos';
 import Login from './pages/login';
 import Register from './pages/register'; 
 import Articles from './pages/articles';
-import PmCGV from './pages/cgv';
+import PDC from './pages/pdc';
 import Contact from './pages/contact';
 import Article from './pages/article';
 import PostsByCategory from './components/PostByCategory';
@@ -26,7 +26,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/category/:category" element={ <PostsByCategory />} />
     <Route path="/articles" element={ <Articles /> } />
     <Route path="/post/:id" element={ <ArticlePage /> } />
-    <Route path="/cgv" element={ <PmCGV /> } />
+    <Route path="/pdc" element={ <PDC /> } />
     <Route path="/contact" element={ <Contact /> } /> 
   </Route>
 ))

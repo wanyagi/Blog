@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom';
 const Footer = () => {
 
   const footerItems = [
+    {title: "Politiques de confidentialité", link: "/pdc", },
     {title: "Instagram", link: "https://www.instagram.com/sayfemums/?igsh=ODA1NTc5OTg5Nw%3D%3D&utm_source=qr",},
-    {title: "Tiktok", link: "https://www.tiktok.com/@sayfemums?_t=8im7Gqd16H2&_r=1",},
     {title: "Contact", link: "/contact", },
-    {title: "CGV", link: "/cgv", },
+    {title: "Tiktok", link: "https://www.tiktok.com/@sayfemums?_t=8im7Gqd16H2&_r=1",},
   ]; 
 
   return (

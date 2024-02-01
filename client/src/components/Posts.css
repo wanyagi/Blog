@@ -1,25 +1,23 @@
 .posts--container {
-   display: flex;
-   justify-content: flex-start;
-   flex-direction: row;
-   flex-wrap: wrap;
-   align-items: flex-start;
-   gap: 40px;
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(20em, 1fr)); 
+   gap: 20px; 
    margin: 70px auto; 
    padding-left: 55px;
+   align-items: start; 
 }
 
 .posts {
    border-radius: 15px;
    display: flex; 
-   justify-content: space-between;
    flex-direction: column;
-   width: 20em; 
+   justify-content: space-between;
+   width: 20em;
 }
 
 .posts--info {
    display: flex;
-   flex-direction: row;
+   flex-direction: row-reverse;
    align-items: center;
    justify-content: space-between;
    margin: 0;
@@ -35,7 +33,10 @@
 
 .posts--cat {
    font-weight: 300;
-   font-style: italic;
+   background-color: #ff5800;
+   color: black;
+   padding: 5px;
+   border-radius: 5px;
 }
 
 .posts h2 {
@@ -65,8 +66,7 @@
 }
 
 .posts--description span {
-   border-radius: 5px;
-   color:  #ff5800; 
+   color:  #ff5800;
 }
 
 .posts--button {
@@ -115,20 +115,16 @@
 @media (max-width: 1024px) {
 
    .posts--container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: flex-start;
+      grid-template-columns: none;
+      grid-auto-flow: column; 
       overflow-x: auto;
       padding: 10px;
       margin-top: 50px;
       margin-left: 10px;
-      gap: 20px;  
    }
 
    .posts {
-      flex:0 0 auto;
+      min-height: 30em;
    }
 
    .loading--state, .error--state{

@@ -21,7 +21,7 @@
 
 @media (min-width: 820px) and (max-width: 1000px) {
   .posts--section {
-    margin-top: 450px;
+    margin-top: 630px;
     gap: 20px; 
   }
 }
@@ -63,7 +63,7 @@
 
 @media screen and (max-width: 375px) {
   .posts--section {
-    margin-top: -200px;
+    margin-top: -70px;
     gap: 20px; 
   }
 } 

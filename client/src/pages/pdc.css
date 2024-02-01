@@ -1,4 +1,4 @@
-.cgv--container {
+.pdc--container {
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -7,36 +7,40 @@
     margin-top: 60px;
 }
 
-.cgv--content {
+.pdc--content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
 }
 
-.cgv--content > * {
+.pdc h2 {
+    text-align: left;
+}
+
+.pdc--content > * {
    grid-column: 4 /10;
    text-align: justify; 
 }
 
-.cgv p {
+.pdc p {
     line-height: 1.6;
     font-size: 1.2rem;
 }
 
 @media screen and (max-width: 1024px) {
 
-    .cgv--content {
-        margin-top: 30px;
+    .pdc--content {
+        margin-top: 20px;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px; 
     }
 
-    .cgv--content > * {
+    .pdc--content > * {
         grid-column: 1 / -1;
         margin: auto 25px; 
         gap: 20px; 
     }
 
-    .cgv p {
+    .pdc p {
         line-height: 2;
         font-size: 1.2rem;
     }

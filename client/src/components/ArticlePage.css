@@ -137,6 +137,11 @@
 
 @media (max-width: 1024px) {
 
+    .article--section {
+        margin-bottom: 20px; 
+        margin-top: 30px; 
+    }
+
     .articles--image, .articles--content {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
