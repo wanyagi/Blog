@@ -134,6 +134,10 @@
 }
 
 @media (max-width: 1024px) {
+    
+    .comments-header {
+        display: none; 
+    }
 
     .article--section {
         margin-bottom: 20px; 

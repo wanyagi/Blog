@@ -48,6 +48,10 @@
 
 @media (max-width: 915px) {
 
+    .comment--section {
+        display: none; 
+    }
+
     .comment--section textarea {
         grid-column: 1 / -1;
         margin-top: 20px;
@@ -60,7 +64,6 @@
         grid-column: 1 / -1;
         color: red; 
         height: 20px;
-        color: red; 
         width: 190px;
         font-size: 1rem; 
         text-align: left;
