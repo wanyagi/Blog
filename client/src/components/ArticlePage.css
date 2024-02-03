@@ -4,7 +4,7 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 40px; 
-    margin-top: 70px; 
+    margin-top: 100px; 
 }
 
 .articles--image, .articles--content {
@@ -29,7 +29,6 @@
     width: 100%;
     height: auto;
     margin: 30px auto;
-    border-radius: 10px; 
 }
 
 .article--section p {
@@ -47,7 +46,7 @@
 
 .articles--content h1 {
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
@@ -108,7 +107,6 @@
         height: auto;
         object-fit: cover;
         margin: 30px auto;
-        border-radius: 10px; 
     }
 
     .articles--content h1 {
@@ -139,7 +137,7 @@
 
     .article--section {
         margin-bottom: 20px; 
-        margin-top: 30px; 
+        margin-top: 75px; 
     }
 
     .articles--image, .articles--content {
@@ -166,12 +164,11 @@
         height: auto;
         object-fit: cover;
         margin: 30px auto;
-        border-radius: 10px; 
     }
 
     .articles--content h1 {
         font-size: 1.4rem;
-        font-weight: 800;
+        font-weight: 600;
     }
 
     .articles--content h2 {

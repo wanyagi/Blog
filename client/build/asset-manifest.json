@@ -1,18 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.4a423770.css",
-    "main.js": "/static/js/main.84148ebf.js",
-    "static/media/Apropos.JPEG": "/static/media/Apropos.9352c382bfc55065bc1e.JPEG",
+    "main.css": "/static/css/main.2875ba78.css",
+    "main.js": "/static/js/main.de531438.js",
     "static/media/Formulaire.jpeg": "/static/media/Formulaire.0eca0ecb4b7461191e0c.jpeg",
-    "static/media/HeroEssai.jpg": "/static/media/HeroEssai.c85273d19a0aba11028c.jpg",
-    "static/media/HeroPhone.PNG": "/static/media/HeroPhone.29adfa43df40dd254195.PNG",
+    "static/media/Apropos.jpg": "/static/media/Apropos.0e35f6155496e9e5f2eb.jpg",
     "static/media/Logo.png": "/static/media/Logo.d917de40e06fc4567c54.png",
     "index.html": "/index.html",
-    "main.4a423770.css.map": "/static/css/main.4a423770.css.map",
-    "main.84148ebf.js.map": "/static/js/main.84148ebf.js.map"
+    "main.2875ba78.css.map": "/static/css/main.2875ba78.css.map",
+    "main.de531438.js.map": "/static/js/main.de531438.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a423770.css",
-    "static/js/main.84148ebf.js"
+    "static/css/main.2875ba78.css",
+    "static/js/main.de531438.js"
   ]
 }

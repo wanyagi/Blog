@@ -20,7 +20,6 @@ const ArticlePage = () => {
   const { post, loading, error } = useSelector((state) => state.postsbyid); 
   const user = localStorage.getItem('users_role'); 
 
-      
   const fetchComments = useCallback(async () => {
 
     setLoadingCom(true); 
@@ -70,6 +69,7 @@ const ArticlePage = () => {
           <div>
             <h2>{post.posts_description}</h2>
           </div>
+          <p className='posts--cat'><span>Catégorie : </span>{post.posts_category}</p>
           <img className="article--image" src={post.posts_image} alt="articlesimage"/>
           <div dangerouslySetInnerHTML={{__html: post.posts_content}}/>
           {user === 'admin' && (<div className="article--review" state={post}>

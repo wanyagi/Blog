@@ -10,6 +10,7 @@
 .apropos-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    margin: 100px;
 }
 
 .apropos-content img {

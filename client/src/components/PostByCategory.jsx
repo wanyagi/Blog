@@ -30,18 +30,13 @@ const PostsByCategory = () => {
         <article className="posts--container">
           {sortPost.map(post => (
             <div className="posts" key={post.posts_id}>
+            <NavLink to={`/post/${post.posts_id}`}>
             <img className="posts--image" src={post.posts_image} alt=""/>
+            <span className="article--date">{formatDate(post.posts_date)}</span>
             <div className="posts--description">
             <h3>{post.posts_title}</h3>
-            <span className="date">{formatDate(post.posts_date)}</span>
-            <p>{post.posts_category}</p>
-            <p>{post.posts_description}</p>
             </div>
-             <button className="posts--button">
-              <NavLink to={`/post/${post.posts_id}`}>
-                Lire l'article
               </NavLink>
-             </button>
             </div>
           ))}
         </article>

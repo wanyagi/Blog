@@ -21,7 +21,7 @@ const catégories = [
   return (
     <>
       <HeroSection />
-      <section>
+      <section className='catégories--sec'>
         <div className="catégorie--home--section">
           {catégories.map((catégorie, index) => (
             <Catégorie key={index} title={catégorie.title} page={catégorie.page} />

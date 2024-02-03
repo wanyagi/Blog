@@ -6,6 +6,15 @@
   font-family: 'Poppins', sans-serif;
 }
 
+main {
+  color: #010101;
+}
+
+a {
+  text-decoration: none;
+  color: black; 
+}
+
 * > img {
   max-inline-size: 100%;
   block-size: auto;

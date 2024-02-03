@@ -1,14 +1,23 @@
-.hero img{
-    width: 100%;
-    height: 100%;
+.hero {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero img {
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     position: absolute;
     top: 0;
-} 
+    left: 0;
+}
 
 .hero--info {
     top: 40%; 
-    padding: 0 2rem;
+    padding: 0 1rem;
     color: #010101;
     position: absolute;
     z-index: 1;
@@ -23,6 +32,7 @@
 .hero--info h1 {
     font-weight: normal;
     font-size: 2rem;
+    margin-top: -10px;
 }
 
 .hero--info h2 {
@@ -55,304 +65,172 @@ button a:hover {
     transition: 0.3s ease-in-out;
 }
 
-@media (min-width: 1025px) and (max-width: 1368px) {
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(90, 90, 90, 0.5); 
+        z-index: 1;
+    }
 
     .hero--info {
-        top: 92%; 
         display: flex;
         flex-direction: column;
-        font-size: 0.78rem;
-        padding: 1rem .4rem; 
+        top: 75%;
+        align-items:flex-start;
     }
 
     .hero--info h2 {
-        color: #010101;
-        margin-bottom: 30px;
-        font-size: 3.5rem;
+        display: none;
     }
 
     .hero--info h1 {
-        text-align: center;
-        font-size: 32px;
-        font-weight: 500;
-        margin: 1rem 0;
+        font-size: 42px;
+        font-weight: 400;
+        text-align: left;
+        color: #f7f7f7;
+    } 
+
+    .hero img {
+        object-fit: cover;
+        z-index: -1;
     }
+} 
 
-    button {
-        align-self: left;
-        height: 65px;
-        width: 250px;
-        font-size: 2rem;
-        margin: 0;
-    }
-
-    button a {
-        text-decoration: none;
-        color: #f7f7f7; 
-        font-size: 1rem;
-    }
-}
-
-
-@media (min-width: 820px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
 
     .hero--info {
-        top: 90%; 
-        display: flex;
-        flex-direction: column;
-        font-size: 0.78rem;
-        padding: 1rem .4rem; 
-    }
-
-    .hero--info h2 {
-        color: #010101;
-        margin-bottom: 30px;
-        font-size: 3.5rem;
-    }
-
-    .hero--info h1 {
-        text-align: center;
-        font-size: 32px;
-        font-weight: 500;
-        margin: 1rem 2rem;
-    }
-
-    button {
-        align-self: center;
-        height: 65px;
-        width: 250px;
-        font-size: 2rem;
-        margin-top: 5px;
-    }
-
-    button a {
-        text-decoration: none;
-        color: #f7f7f7; 
-        font-size: 1rem;
+        top: 82%;
     }
 
 } 
 
-@media (min-width: 767px) and (max-width: 819px) {
+@media (max-width: 912px) {
 
     .hero--info {
-        top: 89%; 
-        display: flex;
-        flex-direction: column;
-        font-size: 0.78rem;
-        padding: 1rem .4rem; 
+        top: 82%;
     }
 
-    .hero--info h2 {
-        color: #010101;
-        margin-bottom: 30px;
-        font-size: 3.5rem;
+} 
+
+@media (max-width: 880px) {
+
+    .hero--info {
+        top: 75%;
     }
 
-    .hero--info h1 {
-        text-align: center;
-        font-size: 28px;
-        font-weight: 500;
-        margin: 1rem 4rem;
+} 
+
+@media (max-width: 768px) {
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(45, 45, 45, 0.5); 
+        z-index: 1;
     }
-
-    button {
-        margin-top: 5px;
-        align-self: center;
-        width: 257px;
-    }
-
-    button a {
-        text-decoration: none;
-        color: #f7f7f7; 
-        font-size: 1.5rem;
-    }
-
-}
-
-@media (max-width: 430px) {
-
 
     .hero--info {
         display: flex;
         flex-direction: column;
+        top: 78%;
         align-items: flex-start;
-        font-size: 0.78rem;
-        padding: 1rem 1rem;
-        top: 90.5%; 
     }
 
     .hero--info h2 {
-        color: #f7f7f7;
-        margin-bottom: 20px;
-        font-size: 2.7rem;
+        display: none;
     }
 
     .hero--info h1 {
-        text-align: center;
-        font-size: 16px;
+        font-size: 24px;
         font-weight: 500;
-        margin: 1rem 1.3rem;
+        text-align: left;
+        color: #f7f7f7;
+    } 
+
+    .hero img {
+        object-fit: cover;
+        z-index: -1;
+    }
+} 
+
+@media (max-width: 768px) {
+
+    .hero--info {
+        top: 83%;
     }
 
-    button {
-        align-self: center;
-        height: 55px;
-        width: 200px;
-        font-size: 2rem;
-        margin: -5px;
+} 
+
+@media (max-width: 712px) {
+
+    .hero--info {
+        top: 85%;
     }
 
-    button a {
-        text-decoration: none;
-        color: #f7f7f7; 
-        font-size: 1rem;
+} 
+
+@media (max-width: 540px) {
+
+    .hero--info {
+        top: 78%;
     }
 
-}
+} 
 
 @media (max-width: 414px) {
 
+    .hero--info {
+        top: 76%;
+    }
+
+} 
+
+@media (max-width: 412px) {
 
     .hero--info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        font-size: 0.78rem;
-        padding: 1rem 1rem;
-        top: 90%; 
+        top: 78%;
     }
 
-    .hero--info h2 {
-        color: #f7f7f7;
-        margin-bottom: 20px;
-        font-size: 2.5rem;
-    }
-
-    .hero--info h1 {
-        text-align: center;
-        font-size: 16px;
-        font-weight: 500;
-        margin: .8rem 1rem;
-    }
-
-    button a {
-        text-decoration: none;
-        color: #f7f7f7; 
-        font-size: 1rem;
-    }
-
-}
+} 
 
 @media (max-width: 390px) {
 
     .hero--info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        font-size: 0.78rem;
-        padding: 1rem 1rem;
-        top: 90%; 
+        top: 75%;
     }
 
-    .hero--info h2 {
-        color: #f7f7f7;
-        margin-bottom: 15px;
-        font-size: 2.5rem;
-    }
-
-    .hero--info h1 {
-        text-align: center;
-        font-size: 16px;
-        font-weight: 500;
-        margin: .8rem .2rem;
-    }
-
-    button a {
-        text-decoration: none;
-        color: #f7f7f7; 
-        font-size: 1rem;
-    }
-
-    
-    button {
-        margin-top: -5px;
-    }
-
-
-}
-
-@media (max-width: 375px) {
-
-    .hero--info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        font-size: 0.78rem;
-        padding: 1rem 1rem;
-        top: 90%; 
-    }
-
-    .hero--info h2 {
-        color: #f7f7f7;
-        margin-bottom: 20px;
-        font-size: 2.5rem;
-    }
-
-    .hero--info h1 {
-        text-align: center;
-        font-size: 16px;
-        font-weight: 400;
-        margin: 0 0.1px;
-    }
-
-    button a {
-        text-decoration: none;
-        color: #f7f7f7; 
-        font-size: 1rem;
-    }
-
-    
-    button {
-        margin-top: 8px;
-    }
-
-
-}
+} 
 
 @media (max-width: 360px) {
 
     .hero--info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        font-size: 0.78rem;
-        padding: 1rem .4rem;
-        top: 90%; 
+        top: 65%;
     }
 
-    .hero--info h2 {
-        color: #f7f7f7;
-        margin-bottom: 15px;
-        font-size: 2.5rem;
+} 
+
+@media (max-width: 320px) {
+
+    .hero--info {
+        top: 65%;
     }
 
-    .hero--info h1 {
-        text-align: center;
-        font-size: 16px;
-        font-weight: 500;
-        margin: .8rem 0;
+} 
+
+@media (max-width: 280px) {
+
+    .hero--info {
+        top: 58%;
     }
 
-    button a {
-        text-decoration: none;
-        color: #f7f7f7; 
-        font-size: 1rem;
-    }
-
-    
-    button {
-        margin-top: -5px;
-    }
-
-}
+}  

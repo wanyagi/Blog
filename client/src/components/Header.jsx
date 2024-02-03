@@ -1,15 +1,29 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteToken } from '../redux/deleteTokenSlice'; 
 import { logOut } from '../redux/authenticationSlice';
 import { IoClose } from "react-icons/io5"; 
-import { LuMenu } from "react-icons/lu"; 
 import Logo from '../assets/Logo.png'; 
 
 const Header = () => {
 
     const [ isMobileMenuOpened, setIsMobileMenuOpened ] = useState(false); 
+    const [ desktop, setDesktop] = useState(window.innerWidth); 
+
+    useEffect(() => {
+
+      const handleResize = () => {
+        setDesktop(window.innerWidth > 1200); 
+      }; 
+
+      window.addEventListener('resize', handleResize);
+      
+      handleResize();
+
+      return () => window.removeEventListener('resize', handleResize); 
+
+    }, []); 
     
     const dispatch = useDispatch(); 
     const navigate = useNavigate(); 
@@ -62,14 +76,15 @@ const Header = () => {
     <header>
        <nav>
             <Link to="/" >
-              <img src={Logo} alt="logo" className="logo--btn" />
+              { desktop ? <img src={Logo} alt="logo" className="logo--btn" /> : <p>SAYFEMUMS</p>}
             </Link>
             <ul className="desktop--menu">
                 {menuItems.map((menuItem, index) => <li key={index}><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)} >{menuItem.title}</NavLink></li>)}
             </ul>
-            { isMobileMenuOpened ? <IoClose size={25} className="mobile-menu-btn" onClick={handleMobileMenu} style={{'color': '#fcfcf7'}} /> : <LuMenu size={25}  className="mobile-menu-btn" onClick={handleMobileMenu}/>}
+            { isMobileMenuOpened ? <IoClose size={25} className="mobile-menu-btn" onClick={handleMobileMenu} style={{'color': '#fcfcf7'}} /> : <p className="mobile-menu-btn" onClick={handleMobileMenu}>MENU</p>}
             {isMobileMenuOpened ? <ul className='mobile--menu'>
               {mobileMenuItems.map((menuItem, index) => <li key={index}><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)} >{menuItem.title}</NavLink></li>)}
+              <img src={Logo} alt="logo" className="image--menu" />
             </ul> : ''}
        </nav>
     </header>

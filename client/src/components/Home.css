@@ -5,72 +5,19 @@
   min-height: auto;
   justify-content: space-around;
   flex-direction: row;
-  margin-top: 920px;
-} 
-
-.posts--section {
-  margin-top: 80px;
+  margin: 25px;
 } 
 
 @media (min-width: 1024px) and (max-width: 1440px) {
   .catégorie--home--section  {
-    margin-top: 795px;
-    gap: 20px; 
-  }
-} 
-
-@media (min-width: 820px) and (max-width: 1000px) {
-  .posts--section {
-    margin-top: 630px;
-    gap: 20px; 
-  }
-}
-
-@media screen and (max-width: 819px) {
-  .posts--section {
-    margin-top: 400px;
+    margin-top: 25px;
     gap: 20px; 
   }
 } 
 
 @media screen and (max-width: 768px) {
   .posts--section {
-    margin-top: 270px;
-    gap: 20px; 
-  }
-} 
-
-@media screen and (max-width: 430px) {
-  .posts--section {
-    margin-top: 125px;
-    gap: 20px; 
-  }
-} 
-
-@media screen and (max-width: 414px) {
-  .posts--section {
-    margin-top: 90px;
-    gap: 20px; 
-  }
-} 
-
-@media screen and (max-width: 390px) {
-  .posts--section {
-    margin-top: -25px;
-    gap: 20px; 
-  }
-} 
-
-@media screen and (max-width: 375px) {
-  .posts--section {
-    margin-top: -70px;
-    gap: 20px; 
-  }
-} 
-
-@media screen and (max-width: 360px) {
-  .posts--section {
-    margin-top: -120px;
+    margin-top: 45px;
     gap: 20px; 
   }
 } 
