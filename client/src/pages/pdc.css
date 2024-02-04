@@ -40,13 +40,18 @@
         gap: 20px; 
     }
 
-    .pdc h2 {
+    .pdc--content h2 {
         text-align: left;
-        font-size: 1rem !important;
+        font-size: 1.3rem !important;
     }
 
-    .pdc p {
-        line-height: 2;
-        font-size: 1.2rem;
+    .pdc--content h3 {
+        text-align: left;
+        font-size: 1.1rem !important;
+    }
+
+    .pdc--content p {
+        line-height: 1.6;
+        font-size: 1rem;
     }
 }

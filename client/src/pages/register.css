@@ -188,7 +188,7 @@ input::placeholder {
 
     .register--section {
         flex-direction: column;
-        margin-top: 10px;
+        margin-top: -110px;
     }
     
     .register--image {
@@ -205,6 +205,10 @@ input::placeholder {
         font-size: 1rem;
         font-weight: normal !important;
     }
+
+    .inputs input {
+        font-size: 16px;
+    } 
 
     .form--buttons button {
         margin: 0 55px; 

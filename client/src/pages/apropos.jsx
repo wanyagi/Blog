@@ -27,7 +27,7 @@ const Apropos = () => {
         </h4>
         <p>
           J’ai décidé de me lancer dans cette nouvelle aventure pour devenir la personne dont j’avais besoin lorsque
-          j’étais enceinte. Je me posais beaucoup de questions sur ce qui m’attendais et me nourrissais de
+          j’étais enceinte. Je me posais beaucoup de questions sur ce qui m’attendait et me nourrissais de
           témoignages de femmes qui n’étaient pas toujours les meilleurs, car oui malheureusement tout ne se passe
           pas toujours comme on l’imagine. 
         </p>

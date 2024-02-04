@@ -38,7 +38,7 @@ const HeroSection = () => {
         <div className="hero--info">
           <h2>SAYFEMUMS</h2>
             <h1>
-              Bienvenue dans le monde de la maternité : {mobile ? <br /> : ""} Un apérçu des joies et des défis
+              Bienvenue dans le monde de la maternité : {mobile ? <br /> : ""} Un aperçu des joies et des défis
             </h1>
             <button>
               <NavLink to="/register" className="hero--btn">
