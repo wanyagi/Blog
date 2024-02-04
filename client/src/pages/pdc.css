@@ -29,7 +29,7 @@
 @media screen and (max-width: 1024px) {
 
     .pdc--content {
-        margin-top: 20px;
+        margin-top: 50px;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px; 
     }
@@ -38,6 +38,11 @@
         grid-column: 1 / -1;
         margin: auto 25px; 
         gap: 20px; 
+    }
+
+    .pdc h2 {
+        text-align: left;
+        font-size: 1rem !important;
     }
 
     .pdc p {

@@ -1,24 +1,28 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'; 
+import { fetchComments } from '../redux/getCommentsSlice';
 import { deleteComment } from '../redux/deleteCommentsSlice';
 import { MdDelete } from 'react-icons/md';
 import './CommentsDisplay.css';
 
-const CommentsDisplay = ({ comments, loading, handleCommentDelete }) => {
+const CommentsDisplay = () => {
 
+  const { comments, loading, error } = useSelector((state) => state.comments);
   const dispatch = useDispatch(); 
   const { id } = useParams();
   const user = localStorage.getItem('users_role'); 
 
+  useEffect(() => {
+    dispatch(fetchComments(id)); 
+  }, [dispatch, id]); 
+
   const handleDelete = async (comments_id) => {
-    const result = await dispatch(deleteComment({id: comments_id, postId: id}));
-    if (result.meta.requestStatus === 'fulfilled') {
-      handleCommentDelete(comments_id); 
-    }; 
+    dispatch(deleteComment({id: comments_id, postID: id}))
   }; 
 
-  if (loading) return <div className="comments--loading--state"></div>;
+  if (loading) { return <div className="comments--loading--state"></div> };
+  if (error) { return <div className="comments--error--state">Il n'y a pas de commentaire.</div> };
 
 
   return (

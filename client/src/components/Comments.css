@@ -44,7 +44,12 @@
     font-size: 22px;
     width: 120px;
     height: 50px;
+    color: #f7f7f7; 
 } 
+
+.comment--section--button:hover {
+    color: #ff5800; 
+}
 
 @media (max-width: 915px) {
 

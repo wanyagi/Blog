@@ -147,7 +147,7 @@ const Article = () => {
             <input placeholder="image" type="file" name="file" id="file" onChange={handleFile} />
             <input required placeholder="Titre :" type="text" name="titre" id="titre" value={titre} onChange={handleTitre} />
             <textarea required placeholder="Resume :" type="text" name="description" id="description"  value={description} onChange={handleDescription} />
-            <input required placeholder="date" type="date" name="date" id="date" value={date} onChange={handleDate} />
+            <input placeholder="date" type="date" name="date" id="date" value={date} onChange={handleDate} />
           </div>
           <div className="item--catégories">
             <h3>Catégories :</h3>

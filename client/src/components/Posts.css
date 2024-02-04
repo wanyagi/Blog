@@ -7,6 +7,20 @@
    align-items: start; 
 }
 
+.posts--container--cat {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(20em, 1fr)); 
+   gap: 20px; 
+   margin-bottom: 150px; 
+   padding-left: 55px;
+   align-items: start; 
+   margin-top: 100px; 
+}
+
+.article--section--desktop {
+   margin-top: 150px; 
+}
+
 .posts {
    border-radius: 15px;
    display: flex; 
@@ -30,14 +44,6 @@
    align-items: center;
    justify-content: space-between;
    margin: 0;
-}
-
-.posts--image {
-   border-radius: 5px;
-   box-sizing: border-box;
-   width: 20em;
-   height: 20em;
-   object-fit: cover;
 }
 
 .posts h2, .posts h3 {
@@ -147,6 +153,19 @@
       padding: 0;
       align-items: center;
       justify-content: center;
+      margin-top: 80px;
+   }
+
+   .posts--container--cat {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      margin-top: 150px; 
+      margin-bottom: 150px; 
    }
 
    .posts {

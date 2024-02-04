@@ -27,7 +27,7 @@ const PostsByCategory = () => {
 
     return (
       <div className="posts--gcontainer">
-        <article className="posts--container">
+        <article className="posts--container--cat">
           {sortPost.map(post => (
             <div className="posts" key={post.posts_id}>
             <NavLink to={`/post/${post.posts_id}`}>

@@ -3,7 +3,7 @@ import Posts from '../components/AllPosts';
 
 const Articles = () => {
   return (
-    <section>
+    <section className='article--section--desktop'>
       <Posts />
     </section>
   )

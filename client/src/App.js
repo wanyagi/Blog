@@ -14,7 +14,6 @@ import Contact from './pages/contact';
 import Article from './pages/article';
 import PostsByCategory from './components/PostByCategory';
 
-
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={ <Root /> } >
     <Route index element={ <Home /> } />

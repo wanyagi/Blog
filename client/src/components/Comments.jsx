@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { useParams, NavLink } from 'react-router-dom'; 
-import { useSelector } from 'react-redux'; 
+import { useSelector, useDispatch } from 'react-redux';
+import { submitComments } from '../redux/commentsSlice'; 
 import './Comments.css';
 
 
-const Comments = ({submitComment}) => {
+const Comments = () => {
 
   const [ comment, setComment ] = useState(''); 
   const [ textarea, setTextarea ] = useState(false); 
   const {loggedIn, loading} = useSelector((state) => state.userAuthentication);  
   const { id } = useParams(); 
+  const dispatch = useDispatch(); 
 
   const handleComment = (event) => {
     setComment(event.target.value);
@@ -31,23 +33,9 @@ const Comments = ({submitComment}) => {
       return; 
     }; 
 
-    try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}/comments`, {
-        method: 'POST', 
-        body: JSON.stringify({id, comment}), 
-        credentials: 'include', 
-        headers: { 'Content-Type' : 'application/json'}
-      });
+    dispatch(submitComments({id, comment})); 
+    setComment('')
 
-      if (!response.ok) {
-        throw new Error();
-      } else {
-        setComment('');
-        submitComment(); 
-      }; 
-    } catch (error) {
-      console.error(error); 
-    }; 
 
     const textarea = document.getElementById("comments");
     if (textarea) {

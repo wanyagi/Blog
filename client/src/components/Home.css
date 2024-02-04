@@ -5,7 +5,7 @@
   min-height: auto;
   justify-content: space-around;
   flex-direction: row;
-  margin: 25px;
+  margin: 50px;
 } 
 
 @media (min-width: 1024px) and (max-width: 1440px) {
@@ -15,9 +15,10 @@
   }
 } 
 
-@media screen and (max-width: 768px) {
-  .posts--section {
-    margin-top: 45px;
-    gap: 20px; 
+@media screen and (max-width: 1024px) {
+
+  .catégorie--home--section {
+    display: none; 
   }
+
 } 

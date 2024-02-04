@@ -54,6 +54,7 @@
     margin: 0 55px; 
     width: 150px;
     height: 47px;
+    color: #fcfcf7;
 }
 
 .form--buttons p {
@@ -165,7 +166,7 @@ input::placeholder {
 
     .form--btn {
         text-decoration: none; 
-        color: #fcfcf7;
+        color: #fcfcf7 !important;
         font-size: 1rem;
         font-weight: normal !important;
     }
@@ -194,9 +195,13 @@ input::placeholder {
         display: none;
     }
 
+    .register--form {
+        border-radius: 15px;
+    }
+
     .form--btn {
         text-decoration: none; 
-        color: #fcfcf7;
+        color: #fcfcf7 !important;
         font-size: 1rem;
         font-weight: normal !important;
     }

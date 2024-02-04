@@ -37,12 +37,18 @@
     font-size: 20px;
 }
 
-.article--review {
+.article--review, .user--interactions {
     align-self: end;
     justify-self: end;
     margin: 20px 0px;
     white-space: nowrap; 
 } 
+
+.user--interactions {
+    gap: 50px; 
+    margin-right: 20px;
+    margin-top: 30px;
+}
 
 .articles--content h1 {
     font-size: 2rem;
@@ -63,6 +69,7 @@
     font-size: 1.4rem;
     font-weight: 500;
 }
+
 
 .comments-header {
   text-align: center;
@@ -136,12 +143,26 @@
 @media (max-width: 1024px) {
     
     .comments-header {
-        display: none; 
+        display: none;
+        margin: 0; 
     }
+
+    ol {
+        margin-left: -20px; 
+    }
+
+    .articles--content a {
+        color: #f7f7f7; 
+    }
+
+    .articles--content a:hover {
+        color: #ff5800; 
+    }
+
 
     .article--section {
         margin-bottom: 20px; 
-        margin-top: 75px; 
+        margin-top: 85px; 
     }
 
     .articles--image, .articles--content {
@@ -200,6 +221,11 @@
        display: none; 
     } 
 
+    .user--interactions {
+        margin-right: 26px;
+        margin-top: 30px;
+    }
+
     .article--section p {
         grid-column: 1 / -1;
         text-align: justify;
@@ -207,5 +233,16 @@
         line-height: 1.6;
         white-space: pre-wrap;
         overflow-wrap: break-word;
+    }
+
+    .articles--content button {
+        margin: 20px; 
+        align-self: center;
+        justify-self: center;
+        color: #f7f7f7; 
+        background-color: #010101;
+        height: 50px;
+        width: 150px;
+        border-radius: 50px;
     }
 }

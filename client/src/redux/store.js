@@ -12,6 +12,7 @@ import deletePostReducer from './deletePostSlice';
 import updatedPostReducer from './updatedPostSlice';
 import getPostToUpdateReducer from './getPostToUpdateSlice';
 import deleteCommentReducer from './deleteCommentsSlice';
+import interactionReducer  from './interactionSlice';
 
 export const store = configureStore({
     reducer: {
@@ -28,6 +29,7 @@ export const store = configureStore({
         updatedPost: updatedPostReducer,
         posttoupdate: getPostToUpdateReducer,
         deleteComment: deleteCommentReducer, 
+        interactions: interactionReducer,
     }
 }); 
 

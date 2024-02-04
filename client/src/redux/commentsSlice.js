@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'; 
+import { fetchComments } from './getCommentsSlice';
 
 const URL = `${process.env.REACT_APP_SERVER}/comments`; 
 
@@ -16,6 +17,7 @@ export const submitComments = createAsyncThunk("submitComments/addComments", asy
         if (!response.ok) {
             throw new Error()
         } else {
+            thunkAPI.dispatch(fetchComments(id))
             return responseData; 
         }
     } catch (error) {

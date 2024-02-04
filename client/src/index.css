@@ -6,13 +6,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
-main {
+a {
+  text-decoration: none;
   color: #010101;
 }
 
-a {
-  text-decoration: none;
-  color: black; 
+button, button:focus, button:active, button:hover {
+  border: none;
+  outline: none;
 }
 
 * > img {

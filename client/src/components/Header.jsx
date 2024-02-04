@@ -76,7 +76,7 @@ const Header = () => {
     <header>
        <nav>
             <Link to="/" >
-              { desktop ? <img src={Logo} alt="logo" className="logo--btn" /> : <p>SAYFEMUMS</p>}
+              { desktop ? <img src={Logo} alt="logo" className="logo--btn" /> : <p className="mobile-menu-btn">SAYFEMUMS</p>}
             </Link>
             <ul className="desktop--menu">
                 {menuItems.map((menuItem, index) => <li key={index}><NavLink to={menuItem.link} onClick={() => handleClick(menuItem)} >{menuItem.title}</NavLink></li>)}

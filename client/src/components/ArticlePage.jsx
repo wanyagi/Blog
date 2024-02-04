@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useCallback } from 'react'; 
-import { Link, useParams, useNavigate } from "react-router-dom"; 
+import React, { useEffect, useState } from 'react'; 
+import { Link, useParams, useNavigate, NavLink } from "react-router-dom"; 
 import { fetchPostsByID } from '../redux/postsByIDSlice';
 import { fetchPostToUpdate } from '../redux/getPostToUpdateSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,38 +12,26 @@ import CommentsDisplay from './CommentsDisplay';
 
 const ArticlePage = () => {
 
-  const [ comments, setComments ] = useState([]);
-  const [ loadingCom, setLoadingCom ] = useState(false);
+  const [ mobile, setMobile ] = useState(window.innerWidth); 
   const { id } = useParams(); 
   const dispatch = useDispatch(); 
   const navigate = useNavigate(); 
   const { post, loading, error } = useSelector((state) => state.postsbyid); 
   const user = localStorage.getItem('users_role'); 
 
-  const fetchComments = useCallback(async () => {
-
-    setLoadingCom(true); 
-
-    try {
-      const response = await fetch(`${process.env.REACT_APP_SERVER}/comments/${id}`); 
-      if (!response.ok) throw new Error('Failed to fetch'); 
-
-      const responseData = await response.json(); 
-      setComments(responseData); 
-    } catch (error) {
-      console.error(error); 
-    } finally {
-      setLoadingCom(false); 
-    }
-  }, [id]); 
-
-  useEffect(() => {
-    fetchComments(); 
-  }, [fetchComments]); 
-    
   useEffect(() => {
     dispatch(fetchPostsByID(id)); 
   }, [dispatch, id]);  
+
+  useEffect(() => {
+    const handleLinkDisplay = () => setMobile(window.innerWidth > 800); 
+
+    window.addEventListener('resize', handleLinkDisplay); 
+
+    handleLinkDisplay(); 
+
+    return () => window.removeEventListener('resize', handleLinkDisplay); 
+  }, []); 
 
   const handleEdit = () => {dispatch((fetchPostToUpdate(id)))}; 
 
@@ -51,10 +39,6 @@ const ArticlePage = () => {
     await dispatch(deletePost({id})); 
     navigate('/'); 
   };
-
-  const handleCommentDelete = useCallback((deleteCommentById) => {
-    setComments(comments => comments.filter(comment => comment.comments_id !== deleteCommentById));
-  }, []); 
 
   if (loading) {return <div className="loading--state"><div className='article--loading'></div></div>}
   if (error) {return <div className="error--state">Un article arrivera bientôt.</div>}
@@ -78,9 +62,10 @@ const ArticlePage = () => {
             </Link>
             <MdDelete className="delete--icon" size={30} style={{color: "red"}} onClick={handleDelete}/>
           </div>)}
+          { !mobile ? <button><NavLink to='/articles'>Catalogue</NavLink></button> : ""}
           <div className="comments-header"><hr /><h3>Commentaires</h3><hr /></div>
-          <CommentsDisplay comments={comments} loading={loadingCom} handleCommentDelete={handleCommentDelete} />
-          <Comments submitComment={fetchComments}/>
+          <CommentsDisplay />
+          <Comments />
         </div>
     </article>
   )

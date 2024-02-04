@@ -48,12 +48,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center; 
-        margin: 50px 20px;
+        margin: 50px 10px;
     }
 
     .apropos-content {
         grid-template-columns: repeat(4, 1fr);
-    }
+        margin: 60px 10px; 
+    } 
 
     .apropos-content img {
         grid-column: 1 / -1;
@@ -64,7 +65,7 @@
     }
 
     .apropos-content p {
-        line-height: 1..6;
+        line-height: 1.6;
         font-size: 16px;
     }
 }
