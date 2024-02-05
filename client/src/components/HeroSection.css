@@ -180,6 +180,7 @@ button a:hover {
         flex-direction: column;
         top: 79%;
         align-items: flex-start;
+        padding: 0 1rem; 
     }
 
     .hero--info h2 {
