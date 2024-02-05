@@ -17,12 +17,12 @@
 
 .hero--info {
     top: 40%; 
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     color: #010101;
     position: absolute;
     z-index: 1;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh; 
 }
 
 .hero--info h1, .hero--info h2 {
@@ -109,8 +109,48 @@ button a:hover {
 
 @media (max-width: 1024px) {
 
+    .hero {
+        width: 100vw;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero img {
+        width: 100vw;
+        height: 90vh;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .hero--info {
+        top: 40%; 
+        padding: 0 1rem;
+        color: #010101;
+        position: absolute;
+        z-index: 1;
+        width: 100vw;
+        height: 90vh; 
+    }
+
     .hero--info {
         top: 86%;
+    }
+
+    button {
+        width: 150px;
+        height: 57px;
+        border: none;
+        outline: none;
+    }
+    
+    button a {
+        font-size: 1rem;
+        border: none;
+        outline: none;
     }
 
 } 
@@ -139,7 +179,7 @@ button a:hover {
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        height: 90vh;
         background: rgba(50, 50, 50, 0.28); 
         z-index: 1;
     }
@@ -179,7 +219,7 @@ button a:hover {
 @media (max-width: 712px) {
 
     .hero--info {
-        top: 89%;
+        top: 75%; /*89*/
     }
 
 } 
@@ -195,7 +235,7 @@ button a:hover {
 @media (max-width: 430px) {
 
     .hero--info {
-        top: 85%;
+        top: 68%; /*85*/
     }
 
 }
@@ -203,7 +243,7 @@ button a:hover {
 @media (max-width: 412px) {
 
     .hero--info {
-        top: 82%;
+        top: 67%; /*82*/
     }
 
 } 
@@ -211,7 +251,7 @@ button a:hover {
 @media (max-width: 390px) {
 
     .hero--info {
-        top: 84%;
+        top: 65%; /*84*/
     }
 
 } 
@@ -219,7 +259,7 @@ button a:hover {
 @media (max-width: 375px) {
 
     .hero--info {
-        top: 84%;
+        top: 60%; /*84*/
     }
 
 }
@@ -227,18 +267,18 @@ button a:hover {
 @media (max-width: 360px) {
 
     .hero--info {
-        top: 69%;
+        top: 53%; /*84*/
     }
 
 } 
 
-@media (max-width: 320px) {
+/*@media (max-width: 320px) {
 
     .hero--info {
-        top: 69%;
+        top: 69%; 
     }
 
-} 
+} */
 
 @media (max-width: 280px) {
 

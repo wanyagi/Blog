@@ -1,6 +1,5 @@
 .catégorie--home--section {
   display: flex;
-  position: relative; 
   flex-wrap: wrap;
   min-height: auto;
   justify-content: space-around;
