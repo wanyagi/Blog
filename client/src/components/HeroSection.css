@@ -109,33 +109,6 @@ button a:hover {
 
 @media (max-width: 1024px) {
 
-    .hero {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .hero img {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    
-    .hero--info {
-        top: 40%; 
-        padding: 0 1rem;
-        color: #010101;
-        position: absolute;
-        z-index: 1;
-        width: 100vw;
-        height: 100vh; 
-    }
-
     .hero--info {
         top: 79%;
     }
@@ -160,6 +133,24 @@ button a:hover {
 
 @media (max-width: 768px) {
 
+    .hero {
+        width: 100vw;
+        height: 95vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .hero img {
+        width: 100vw;
+        height: 95vh;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+
     button {
         width: 150px;
         height: 57px;
@@ -179,7 +170,7 @@ button a:hover {
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        height: 95vh;
         background: rgba(50, 50, 50, 0.28); 
         z-index: 1;
     }
