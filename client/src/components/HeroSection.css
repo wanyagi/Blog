@@ -137,7 +137,7 @@ button a:hover {
     }
 
     .hero--info {
-        top: 80%;
+        top: 79%;
     }
 
 } 
@@ -145,7 +145,7 @@ button a:hover {
 @media (max-width: 912px) {
 
     .hero--info {
-        top: 78%;
+        top: 77%;
     }
 
 } 
@@ -153,7 +153,7 @@ button a:hover {
 @media (max-width: 880px) {
 
     .hero--info {
-        top: 72%;
+        top: 71%;
     }
 
 } 
@@ -187,7 +187,7 @@ button a:hover {
     .hero--info {
         display: flex;
         flex-direction: column;
-        top: 78%;
+        top: 79%;
         align-items: flex-start;
     }
 
@@ -219,7 +219,7 @@ button a:hover {
 @media (max-width: 712px) {
 
     .hero--info {
-        top: 75%; /*89*/
+        top: 74%; /*89*/
     }
 
 } 
@@ -227,7 +227,7 @@ button a:hover {
 @media (max-width: 540px) {
 
     .hero--info {
-        top: 75%;
+        top: 74%;
     }
 
 } 
@@ -235,7 +235,7 @@ button a:hover {
 @media (max-width: 430px) {
 
     .hero--info {
-        top: 75%; /*85*/
+        top: 74%; /*85*/
     }
 
 }
@@ -243,7 +243,7 @@ button a:hover {
 @media (max-width: 414px) {
 
     .hero--info {
-        top: 69%; /*82*/
+        top: 68%; /*82*/
     }
 
 } 
@@ -251,7 +251,7 @@ button a:hover {
 @media (max-width: 412px) {
 
     .hero--info {
-        top: 74%; /*82*/
+        top: 73%; /*82*/
     }
 
 } 
@@ -259,7 +259,7 @@ button a:hover {
 @media (max-width: 390px) {
 
     .hero--info {
-        top: 73%; /*84*/
+        top: 72%; /*84*/
     }
 
 } 
@@ -267,7 +267,7 @@ button a:hover {
 @media (max-width: 375px) {
 
     .hero--info {
-        top: 73%; /*84*/
+        top: 72%; /*84*/
     }
 
 }
@@ -275,7 +275,7 @@ button a:hover {
 @media (max-width: 360px) {
 
     .hero--info {
-        top: 59%; /*84*/
+        top: 58%; /*84*/
     }
 
 } 
@@ -291,7 +291,7 @@ button a:hover {
 @media (max-width: 280px) {
 
     .hero--info {
-        top: 55%;
+        top: 54%;
     }
 
 }  
