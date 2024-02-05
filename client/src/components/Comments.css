@@ -31,7 +31,8 @@
 }
 
 .comments--error--state a {
-    color: red; 
+    color: red;
+    border-bottom: 0.5px red solid;  
 }
 
 .comments--loading--state {
