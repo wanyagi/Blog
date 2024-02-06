@@ -17,7 +17,7 @@ const Posts = () => {
 
     const formatDate = (date) => {
       moment.locale('fr');
-      return moment(date).format("DD-MM-YYYY"); 
+      return moment(date).format("DD MMM YYYY"); 
     }
 
     const sortedPosts = posts.slice().sort((recent, ancient) => moment(ancient.posts_date) - moment(recent.posts_date)); 

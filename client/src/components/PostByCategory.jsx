@@ -26,7 +26,7 @@ const PostsByCategory = () => {
     if (error) { return <div className="error--state">Un article arrivera bientôt.</div> };
 
     return (
-      <div className="posts--gcontainer">
+      <div className="posts--container">
         <article className="posts--container--cat">
           {sortPost.map(post => (
             <div className="posts" key={post.posts_id}>

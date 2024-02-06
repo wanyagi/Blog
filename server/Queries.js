@@ -9,7 +9,7 @@ const NewPost = 'INSERT INTO Posts (posts_image, posts_title, posts_date, posts_
 const getPosts = 'SELECT * FROM Posts'; 
 const getPostsByCategory = 'SELECT * FROM Posts WHERE LOWER(posts_category) = LOWER($1)';
 const getPostsByID = 'SELECT * FROM Posts WHERE posts_id = $1';
-const editPostByID = 'UPDATE Posts SET posts_image = COALESCE($1, posts_image), posts_title = $2, posts_date = COALESCE($3, posts_date) posts_description = $4, posts_category = $5, posts_content = $6 WHERE posts_id = $7';
+const editPostByID = 'UPDATE Posts SET posts_image = COALESCE($1, posts_image), posts_title = $2, posts_date = $3, posts_description = $4, posts_category = $5, posts_content = $6 WHERE posts_id = $7';
 const deletePostByID = 'DELETE FROM Posts WHERE posts_id = $1';
 //Queries for handling comments
 const NewComment = 'INSERT INTO comments (users_id, posts_id, comment_username, comment) VALUES ($1, $2, $3, $4) RETURNING *';

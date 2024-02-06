@@ -35,7 +35,7 @@ const editArticle = async (request, response) => {
         const postEdit = await pool.query(editPostByID, [urlFile, posts_title, posts_date, posts_description, posts_category, posts_content, id]);
         response.status(200).json(postEdit.rows[0]); 
     } catch (error) {
-      response.status(401).json(`error : ${error.message}`); 
+      response.status(401).json(`This is the error : ${error.message}`); 
     }
 
 }; 

@@ -4,10 +4,15 @@
   min-height: auto;
   justify-content: space-around;
   flex-direction: row;
-  margin: 50px;
+  margin: 50px auto;
 } 
 
+.posts--section {
+  margin: 0;  
+}
+
 @media (min-width: 1024px) and (max-width: 1440px) {
+
   .catégorie--home--section  {
     margin-top: 25px;
     gap: 20px; 
@@ -15,6 +20,19 @@
 } 
 
 @media screen and (max-width: 1024px) {
+
+  .posts--section {
+    margin: 50px auto; 
+  }
+
+  .catégorie--home--section {
+    display: none; 
+  }
+
+} 
+
+
+@media screen and (max-width: 767px) {
 
   .catégorie--home--section {
     display: none; 
