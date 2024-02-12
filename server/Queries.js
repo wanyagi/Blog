@@ -16,4 +16,4 @@ const NewComment = 'INSERT INTO comments (users_id, posts_id, comment_username, 
 const getComments = 'SELECT comments.*, users.username FROM comments JOIN users ON comments.users_id = users.users_id WHERE comments.posts_id = $1'; 
 const deleteComment = 'DELETE FROM comments WHERE comments_id = $1';
 
-module.exports = { getEmail, getUsersId, addCredentials, getUsername, NewPost, getPosts, getPostsByCategory, getPostsByID, NewComment, getComments, deletePostByID, editPostByID, deleteComment}; 
+export { getEmail, getUsersId, addCredentials, getUsername, NewPost, getPosts, getPostsByCategory, getPostsByID, NewComment, getComments, deletePostByID, editPostByID, deleteComment}; 

@@ -1,6 +1,11 @@
-const pool = require('../database'); 
+/*const pool = require('../database'); 
 const { NewPost, editPostByID } = require('../Queries'); 
-require('dotenv').config(); 
+require('dotenv').config(); */
+
+import pool from '../database.js';
+import { NewPost, editPostByID } from '../Queries.js'; 
+import dotenv from 'dotenv'; 
+dotenv.config(); 
 
 const newArticle =  async (request, response) => { 
 
@@ -15,6 +20,7 @@ const newArticle =  async (request, response) => {
         const newPost = await pool.query(NewPost, [image, titre, date, description, category, content]);
         response.status(200).send(newPost); 
     } catch (error) {
+        console.log(error); 
         response.status(401).json({error: error.message}); 
     }; 
 
@@ -40,4 +46,4 @@ const editArticle = async (request, response) => {
 
 }; 
 
-module.exports = { newArticle, editArticle }; 
+export { newArticle, editArticle }; 

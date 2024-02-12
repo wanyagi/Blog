@@ -1,5 +1,8 @@
-const pool = require('../database'); 
-const { NewComment, getComments, deleteComment } = require('../Queries'); 
+/*const pool = require('../database'); 
+const { NewComment, getComments, deleteComment } = require('../Queries'); */
+
+import pool from '../database.js'; 
+import { NewComment, getComments, deleteComment } from '../Queries.js';
 
 const addComment = async (request, response) => {
 
@@ -41,4 +44,4 @@ const deleteTheComment = async (request, response) => {
     }
 }; 
 
-module.exports = {addComment, viewComment, deleteTheComment}; 
+export {addComment, viewComment, deleteTheComment}; 

@@ -1,5 +1,8 @@
-const pool = require('../database');
-const { getPostsByCategory } = require('../Queries'); 
+/*const pool = require('../database');
+const { getPostsByCategory } = require('../Queries'); */
+
+import pool from '../database.js'; 
+import { getPostsByCategory } from '../Queries.js'; 
 
 const category = async (request, response) => {
     const { category } = request.params; 
@@ -16,4 +19,4 @@ const category = async (request, response) => {
     }
 };
 
-module.exports = { category }; 
+export { category }; 
