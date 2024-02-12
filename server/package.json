@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js",
+    "start": "node ./dist/index.js",
+    "build": "babel ./ -d ./dist --copy-files",
+    "start:dev": "nodemon --exec babel-node ./index.js",
     "start-server": "node ./index.js"
   },
   "author": "",
@@ -22,8 +25,11 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.23.8",
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
-    "@babel/register": "^7.23.7"
+    "nodemon": "^3.0.3"
   }
 }

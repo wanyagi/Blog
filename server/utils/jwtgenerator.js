@@ -1,5 +1,9 @@
-const jwt = require('jsonwebtoken'); 
-require('dotenv').config(); 
+/*const jwt = require('jsonwebtoken'); 
+require('dotenv').config(); */
+
+import jwt from 'jsonwebtoken'; 
+import dotenv from 'dotenv'; 
+dotenv.config(); 
 
 const tokenGenerator = (users_id, users_role, username, ) => {
 
@@ -10,4 +14,4 @@ const tokenGenerator = (users_id, users_role, username, ) => {
     return ({accessToken, refreshToken}); 
 }; 
 
-module.exports = { tokenGenerator }; 
+export { tokenGenerator }; 

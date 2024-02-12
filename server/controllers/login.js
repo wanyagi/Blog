@@ -1,7 +1,12 @@
-const pool = require('../database'); 
+/*const pool = require('../database'); 
 const bcrypt = require('bcrypt'); 
 const { getUsername } = require('../Queries'); 
-const { tokenGenerator } = require('../utils/jwtgenerator'); 
+const { tokenGenerator } = require('../utils/jwtgenerator'); */
+
+import pool from '../database.js';
+import bcrypt from 'bcrypt'; 
+import { getUsername } from '../Queries.js';
+import { tokenGenerator } from '../utils/jwtgenerator.js';
 
 const logUser = async (request, response) => {
 
@@ -28,4 +33,4 @@ const logUser = async (request, response) => {
      
 }; 
 
-module.exports = {logUser}; 
+export {logUser}; 

@@ -1,5 +1,8 @@
-const pool = require('../database');
-const { getPosts, getPostsByID, deletePostByID } = require('../Queries'); 
+/*const pool = require('../database');
+const { getPosts, getPostsByID, deletePostByID } = require('../Queries'); */
+
+import pool from '../database.js';
+import { getPosts, getPostsByID, deletePostByID } from '../Queries.js';
 
 const getAllPosts = async (request, response) => {
     try {
@@ -40,4 +43,4 @@ const deletePost = async (request, response) => {
 
 
 
-module.exports = { getAllPosts, getPostByID, deletePost }; 
+export { getAllPosts, getPostByID, deletePost }; 

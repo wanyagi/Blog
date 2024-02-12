@@ -4,15 +4,14 @@ import { store } from './redux/store';
 import { Provider } from 'react-redux'; 
 import './index.css';
 import App from './App';
-import { HelmetProvider } from 'react-helmet-async'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+const container = document.getElementById('root'); 
+
+ReactDOM.hydrateRoot(
+  container, 
   <React.StrictMode>
-    <HelmetProvider>
-      <Provider store={store}>
-        <App /> 
-      </Provider>
-    </HelmetProvider>
+    <Provider store={store}>
+      <App /> 
+    </Provider>
   </React.StrictMode>
 );

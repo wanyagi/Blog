@@ -1,5 +1,8 @@
-const { tokenGenerator } = require('../utils/jwtgenerator'); 
-const jwt = require('jsonwebtoken'); 
+/*const { tokenGenerator } = require('../utils/jwtgenerator'); 
+const jwt = require('jsonwebtoken'); */
+
+import { tokenGenerator } from '../utils/jwtgenerator.js';
+import jwt  from 'jsonwebtoken';
 
 const refreshTheToken = (request, response) => {
 
@@ -32,4 +35,4 @@ const deleteToken = (request, response) => {
 
 
 
-module.exports = { refreshTheToken, deleteToken }; 
+export { refreshTheToken, deleteToken }; 

@@ -1,6 +1,9 @@
-const pool = require('../database');
+/*const pool = require('../database');
 const { getEmail, addCredentials } = require('../Queries'); 
-const bcrypt = require('bcrypt'); 
+const bcrypt = require('bcrypt'); */
+
+import pool from '../database.js'; 
+import { getEmail, addCredentials } from '../Queries.js';
 
 const registerNewUser = async (request, response) => {
 
@@ -25,4 +28,4 @@ const registerNewUser = async (request, response) => {
 
 }; 
 
-module.exports = { registerNewUser }; 
+export { registerNewUser } ; 
